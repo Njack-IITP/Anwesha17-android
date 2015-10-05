@@ -93,15 +93,15 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openGallery(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        //openActivity(context,Event.class);
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,Gallery.class);
         return false;
     }
 
     static boolean openPronites(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        //openActivity(context,Event.class);
+        ///Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,ProNites.class);
         return false;
     }
 

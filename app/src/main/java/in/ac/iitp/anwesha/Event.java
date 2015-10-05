@@ -136,32 +136,22 @@ public class Event extends AppCompatActivity implements View.OnTouchListener, Vi
     public void eventClicked(View v) {
         boolean isDone = true;
         String club="";
-        switch ((String) v.getTag()) {
-            case "mang":
+        String s=(String) v.getTag();
+        if(s.equals("mang"))
                 club = "Management";
-
-                break;
-            case "tech":
+        else if(s.equals("tech"))
                 club = "Technical";
-
-                break;
-            case "eco":
+        else if(s.equals( "eco"))
                 club = "ECO";
-
-                break;
-            case "lit":
+        else if(s.equals( "lit"))
                 club = "Literary";
-
-                break;
-            case "cult":
+        else if(s.equals("cult"))
                 club = "Cultural";
-
-                break;
-            default:
+        else
                 isDone = false;
 
 
-        }
+
         if (isDone)
         {
             MyNavigationDrawer.openSubEvent(this,(String)v.getTag());
@@ -174,40 +164,39 @@ public class Event extends AppCompatActivity implements View.OnTouchListener, Vi
     public static String getEventName(String tag) {
         if(tag==null)
             return null;
-        switch (tag) {
-            case "mang":
+
+        if(tag.equals( "mang"))
                 return "Management";
 
-            case "tech":
+        if(tag.equals( "tech"))
                 return  "Techinical";
 
-            case "eco":
+        if(tag.equals( "eco"))
                 return  "ECO";
 
-            case "lit":
+        if(tag.equals( "lit"))
                 return  "Literary";
 
-            case "cult":
+        if(tag.equals("cult"))
                 return  "Cultural";
 
-            case "njack":
+        if(tag.equals("njack"))
                 return "NJACK";
 
-            case "spark":
+        if(tag.equals("spark"))
                 return  "Sparkonics";
 
-            case "scme":
+        if(tag.equals( "scme"))
                 return  "SCME";
 
-            case "thesholdNchem":
+        if(tag.equals( "thesholdNchem"))
                 return  "Threshold &amp; Chemical";
 
-            case "rtdc":
+        if(tag.equals( "rtdc"))
                 return  "RTDC";
 
 
 
-        }
         return null;
     }
 

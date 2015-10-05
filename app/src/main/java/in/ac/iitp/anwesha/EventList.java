@@ -136,7 +136,7 @@ public class EventList extends AppCompatActivity
 
         @Override
         public void onClick(View view) {
-            int i= (int) view.getTag();
+            int i= (Integer) view.getTag();
             Intent in = new Intent(getContext(),EventDetails.class);
             Event e = getItem(i);
             in.putExtra("eventID", e.id);

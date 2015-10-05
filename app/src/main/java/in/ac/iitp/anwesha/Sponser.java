@@ -51,7 +51,7 @@ public class Sponser extends AppCompatActivity
         columns = Integer.parseInt((String)ll_others.getTag());
         for(int i=0;i<OtherIDs.length;)
         {
-            ArrayList<Integer> d_row = new ArrayList<>();
+            ArrayList<Integer> d_row = new ArrayList<Integer>();
             for(int j=0;j<columns && i<OtherIDs.length;i++,j++)
             {
                 d_row.add(OtherIDs[i]);

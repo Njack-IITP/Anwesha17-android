@@ -60,6 +60,13 @@
             android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity android:name=".Gallery" >
+        </activity>
+        <activity
+            android:name=".ProNites"
+            android:label="@string/title_activity_pro_nites"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

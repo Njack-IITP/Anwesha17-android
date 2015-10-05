@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape android:shape="oval">
+            <gradient android:angle="270"
+                android:endColor="#69919191" android:startColor="#000000" />
+
+            <corners android:radius="4dp" />
+            <padding android:bottom="3.5dp"  />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <corners android:radius="325dp"/>
+
+            <solid android:color="#fff"></solid>
+
+        </shape>
+    </item>
+
+    <item android:left="2dp" android:top="2dp"
+        android:bottom="2dp" android:right="2dp">
+        <bitmap android:src="@drawable/ex_button"
+            ></bitmap>
+
+    </item>
+
+
+</layer-list><!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/drawable/button_draw.xml -->

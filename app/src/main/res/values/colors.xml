@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#11113e</color>
+
+    <color name="themeColor">#ff00b4ff</color>
+    <color name="themeColorDark">#007aac</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="white">#fff</color>
+    <color name="rand_color">#ff05003e</color>
+    <color name="name">#484848</color>
+
+    <color name="rand_color_trans">#8c4cb6f9</color>
+    <color name="shadow">#75000000</color>
+    <color name="expand_button_backg">#463e3e3e</color>
+</resources>

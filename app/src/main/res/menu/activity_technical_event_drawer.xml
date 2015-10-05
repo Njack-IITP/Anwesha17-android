@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_event" android:icon="@drawable/ic_event"
+            android:title="Events">
+            <menu>
+                <item android:id="@+id/nav_event_tech" android:title="Technical" />
+                <item android:id="@+id/nav_event_cult" android:title="Cultural" />
+                <item android:id="@+id/nav_event_lit" android:title="Literary" />
+                <item android:id="@+id/nav_event_mang" android:title="Management" />
+                <item android:id="@+id/nav_event_eco" android:title="ECO" />
+
+            </menu>
+        </item>
+        <item android:id="@+id/nav_spons" android:icon="@drawable/ic_spons"
+            android:title="Sponsers" />
+        <item android:id="@+id/nav_gallery" android:icon="@drawable/ic_gallery"
+            android:title="Gallery" />
+        <item android:id="@+id/nav_pronites" android:icon="@drawable/ic_pronites"
+            android:title="Events" />
+        <item android:id="@+id/nav_schedule" android:icon="@drawable/ic_calender"
+            android:title="Schedule" />
+        <item android:id="@+id/nav_map" android:icon="@drawable/ic_map"
+            android:title="Map" />
+        <item android:id="@+id/nav_team" android:icon="@drawable/ic_team"
+            android:title="Team" />
+        <item android:id="@+id/nav_about" android:icon="@drawable/ic_about"
+            android:title="About" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
+                android:title="Share" />
+            <item android:id="@+id/nav_feedback" android:icon="@android:drawable/ic_dialog_email"
+                android:title="Feedback" />
+        </menu>
+    </item>
+
+</menu>

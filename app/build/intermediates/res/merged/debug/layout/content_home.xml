@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_home" tools:context="in.ac.iitp.anwesha.Home">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/homepage"
+
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg"
+            android:scaleType="centerCrop"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/head_container1"
+                >
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/head"
+
+                    android:layout_alignParentTop="true">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:id="@+id/name_box"
+                        android:background="#ff053142"
+                        android:layout_marginBottom="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-15sp"
+                            android:background="#ff0b2938"
+                            android:paddingTop="10sp"
+                            android:layout_weight="0.5"
+                            android:weightSum="1">
+                            <TextView
+                                android:padding="10sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Anwesha 2016"
+                                android:gravity="center"
+                                android:textSize="30sp"
+                                android:textColor="#FFF"
+                                android:id="@+id/tv_anwesha_head"
+                                />
+
+
+
+                        </LinearLayout>
+                    </FrameLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:id="@+id/head_container"
+                        android:layout_above="@+id/frameLayout"
+                        android:layout_weight="0.5"
+                        >
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="0px"
+                            android:id="@+id/welcome"
+
+                            >
+                            <!--
+                            <ImageView
+                                android:layout_width="100sp"
+                                android:layout_height="100sp"
+                                android:src="@drawable/img_bg"
+                                android:id="@+id/avatar"
+                                android:visibility="gone"/>
+                                -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/id_hiuser"
+                                android:layout_height="wrap_content"
+                                android:text="Hi, User"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="35dp"
+                                android:layout_marginTop="110sp"
+                                android:gravity="center_horizontal"
+                                android:textColor="@color/white"
+                                />
+
+
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#640b2938"
+                        android:layout_alignParentBottom="true"
+                        android:id="@+id/frameLayout"
+                        android:orientation="vertical"
+                        android:padding="2dp"
+
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_horizontal">
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:src="@drawable/ic_event"
+                                android:id="@+id/b_home_superClubs"
+                                android:onClick="onButtonClick"/>
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:src="@drawable/ic_spons"
+                                android:id="@+id/b_home_sponser"
+                                android:onClick="onButtonClick"/>
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_galley"
+                                android:onClick="onButtonClick"
+                                android:src="@drawable/ic_gallery"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_horizontal"
+                            >
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_pronites"
+                                android:onClick="onButtonClick"
+                                android:src="@drawable/ic_pronites"
+                                />
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_schedule"
+                                android:onClick="onButtonClick"
+                                android:src="@drawable/ic_calender"/>
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_map"
+                                android:onClick="onButtonClick"
+                                android:src="@drawable/ic_map"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_horizontal"
+                            >
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:onClick="onButtonClick"
+                                android:id="@+id/b_home_about"
+
+                                android:src="@drawable/ic_about"
+                                />
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_team"
+                                android:onClick="onButtonClick"
+                                android:src="@drawable/ic_team"
+                                />
+
+                        </LinearLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:id="@+id/l1"
+
+
+                                android:gravity="center">
+                                <ImageView
+                                    android:layout_width="96px"
+                                    android:layout_height="96px"
+                                    android:background="@drawable/ex_button1"
+                                    android:id="@+id/ex_img1"
+
+                                    />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:id="@+id/link_tray"
+
+
+                                    >
+                                    <Button
+                                        android:layout_width="96px"
+                                        android:layout_height="96px"
+                                        android:layout_margin="7dp"
+                                        android:id="@+id/b1"
+                                        android:background="@drawable/fb"
+                                        />
+                                    <Button
+                                        android:layout_width="96px"
+                                        android:layout_height="96px"
+                                        android:layout_margin="7dp"
+                                        android:background="@drawable/gp"/>
+                                    <Button
+                                        android:layout_width="96px"
+                                        android:layout_height="96px"
+                                        android:layout_margin="7dp"
+                                        android:background="@drawable/yt"/>
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="100px"
+                                    android:layout_height="100px"
+                                    android:background="@drawable/ex_button2"
+                                    android:id="@+id/ex_img2"
+
+                                    />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/app_tray"
+
+
+                                android:gravity="center">
+                                <ImageView
+                                    android:layout_width="96px"
+                                    android:layout_height="96px"
+                                    android:background="@drawable/ex_button1"
+                                    android:id="@+id/ex_imgs1"
+
+                                    />
+
+                                <ImageView
+                                    android:layout_width="96px"
+                                    android:layout_height="96px"
+                                    android:background="@drawable/ex_button2"
+                                    android:id="@+id/ex_imgs2"
+
+                                    />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="571dp"></RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/content_home.xml -->

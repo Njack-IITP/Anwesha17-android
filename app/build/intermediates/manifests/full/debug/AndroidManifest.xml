@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.ac.iitp.anwesha"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <application
+        android:name="in.ac.iitp.anwesha.AllIDS"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="in.ac.iitp.anwesha.WelcomeScreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name="in.ac.iitp.anwesha.Event" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.Sponser"
+            android:label="@string/title_activity_sponser"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.EventDetails"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.EventList"
+            android:label="@string/title_activity_event_list"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <receiver android:name="in.ac.iitp.anwesha.Reminder" />
+
+        <activity
+            android:name="in.ac.iitp.anwesha.TechnicalEvent"
+            android:label="@string/title_activity_technical_event"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.Team"
+            android:label="@string/title_activity_team"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.About"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+    </application>
+
+</manifest>

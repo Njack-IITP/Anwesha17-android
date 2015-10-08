@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements Animation.AnimationListener {
 
     private View nameBox,welcomeframe,head,head_container;
     private Animation name_Box,welcome_anim,header,tray_anim,tray_anim1,img1_anim,img2_anim,moveout1,moveout2,fadedrop;
@@ -113,17 +113,43 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        View v=findViewById(R.id.b_home_team);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.oscillating);
 
-        v.startAnimation(animation);
-
-        findViewById(R.id.b1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.b_fb).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getOpenFacebookPage();
             }
         });
+        findViewById(R.id.b_gp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getOpenGooglePPage();
+            }
+        });
+
+        Animation[][] buttonAnimations = new Animation[2][4];
+        for(int i=0;i<4;i++)
+        {
+            buttonAnimations[0][i]=AnimationUtils.loadAnimation(this,R.anim.move_left_home);
+            buttonAnimations[0][i].setStartOffset(500 + 200 * (i + 1));
+
+            buttonAnimations[1][i]=AnimationUtils.loadAnimation(this,R.anim.move_right_home);
+            buttonAnimations[1][i].setStartOffset(500+200 * (i + 1));
+
+        }
+        buttonAnimations[1][3].setAnimationListener(this);
+       findViewById(R.id.b_home_superClubs).setAnimation(buttonAnimations[0][0]);
+        findViewById(R.id.b_home_sponser).setAnimation(buttonAnimations[0][1]);
+        findViewById(R.id.b_home_galley).startAnimation(buttonAnimations[0][2]);
+        findViewById(R.id.b_home_team).startAnimation(buttonAnimations[0][3]);
+
+        findViewById(R.id.b_home_schedule).startAnimation(buttonAnimations[1][0]);
+        findViewById(R.id.b_home_map).startAnimation(buttonAnimations[1][1]);
+        findViewById(R.id.b_home_pronites).startAnimation(buttonAnimations[1][2]);
+       findViewById(R.id.b_home_about).startAnimation(buttonAnimations[1][3]);
+
+        findViewById(R.id.app_tray).startAnimation(AnimationUtils.loadAnimation(this,R.anim.floating_home_down));
+
 
 
     }
@@ -170,14 +196,47 @@ public class Home extends AppCompatActivity {
 
         Intent in;
         try {
-            getPackageManager().getPackageInfo("com.facebook.katana", 0);
-            in = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/anwesha.iitpatna"));
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/163423960356924"));
+            startActivity(in);
         } catch (Exception e) {
             in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/anwesha.iitpatna"));
+            startActivity(in);
         }
-        startActivity(in);
+
+    }
+    void getOpenGooglePPage()
+    {
+
+        Intent in;
+        try {
+
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("android-app://com.google.android.apps.plus/https/plus.google.com/+iitpatna"));
+            in.setPackage("com.google.android.apps.plus");
+            startActivity(in);
+
+        } catch (Exception e) {
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/+iitpatna"));
+            startActivity(in);
+        }
+
 
     }
 
 
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        View v = findViewById(R.id.id_hiuser);
+        v.startAnimation(AnimationUtils.loadAnimation(this,R.anim.fadein));
+        v.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
 }

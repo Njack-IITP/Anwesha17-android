@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,9 +28,12 @@ public class Gallery extends AppCompatActivity implements AdapterView.OnItemClic
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        file = Environment.getExternalStorageDirectory();
-        Toast.makeText(getApplicationContext(), file.getAbsolutePath().toString().replace("emulated/0", "removable/sdcard1/Anwesha/Gallery"), Toast.LENGTH_LONG).show();
-        list = imageReader(new File(file.getAbsolutePath().toString().replace("emulated/0", "removable/sdcard1/Anwesha/Gallery")));
+        File folderAnwesha = new File(Environment.getExternalStorageDirectory()+"/Anwesha/Gallery");
+        folderAnwesha.mkdirs();
+         Toast.makeText(getApplicationContext(),folderAnwesha.getAbsolutePath(),Toast.LENGTH_SHORT).show();
+        if(folderAnwesha.exists())
+        Log.e("****", folderAnwesha.getAbsolutePath());
+        list = imageReader(folderAnwesha);
         gv = (GridView) findViewById(R.id.gridView);
         gv.setAdapter(new GridAdapter());
         gv.setOnItemClickListener(this);

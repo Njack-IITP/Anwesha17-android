@@ -1,5 +1,6 @@
 package in.ac.iitp.anwesha;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Intent;
@@ -21,8 +22,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Event extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener, Animation.AnimationListener, View.OnDragListener {
+public class Event extends Activity implements View.OnTouchListener, View.OnClickListener, Animation.AnimationListener, View.OnDragListener {
 
     final int DURATION_SEPRATION = 1300;
     private Animation animations[];
@@ -52,6 +54,7 @@ public class Event extends AppCompatActivity implements View.OnTouchListener, Vi
 
 
         v_club_holder = (RelativeLayout) findViewById(R.id.fl_club_holder);
+
         iv_center_glow = (ImageView) findViewById(R.id.event_center_glow);
         iv_center_glow.setVisibility(View.INVISIBLE);
         iv_center = (ImageView) findViewById(R.id.event_center_back);
@@ -69,13 +72,19 @@ public class Event extends AppCompatActivity implements View.OnTouchListener, Vi
         int Arrows[]={R.id.event_a0,R.id.event_a1,R.id.event_a2,R.id.event_a3,R.id.event_a4};
         no_of_events = EventsIDS.length;
         views = new View[no_of_events];
+
+
+        int gap = (Math.min(getWindowManager().getDefaultDisplay().getWidth(),getWindowManager().getDefaultDisplay().getHeight()));
+        float scale = (float)(gap*0.5/540);
         for (int i = 0; i < no_of_events; i++) {
             views[i] = findViewById(EventsIDS[i]);
-            ((ImageButton)views[i]).setBackground((new BitmapDrawable(giveMeCirculatImage(((BitmapDrawable) ((ImageButton) views[i]).getBackground()).getBitmap(),0.5f,true))).getCurrent());
+            ((ImageButton)views[i]).setBackground((new BitmapDrawable(giveMeCirculatImage(((BitmapDrawable) ((ImageButton) views[i]).getBackground()).getBitmap(),scale,true))).getCurrent());
 
         }
 
-        radius = 200+(int) (100*v_club_holder.getMeasuredWidth()*0.4);
+        radius = (int)(gap*0.35);
+
+
         animations = new Animation[no_of_events];
         loc_x = new int[no_of_events];
         loc_y = new int[no_of_events];

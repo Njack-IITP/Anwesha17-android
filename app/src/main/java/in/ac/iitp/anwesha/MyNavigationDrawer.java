@@ -126,8 +126,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openMap(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        //openActivity(context,Event.class);
+       // Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,Map.class);
         return false;
     }
 

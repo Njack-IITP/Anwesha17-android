@@ -1,7 +1,9 @@
 package in.ac.iitp.anwesha;
 
 import android.app.Application;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -43,6 +45,10 @@ public class AllIDS extends Application {
         font_Title = Typeface.createFromAsset(getAssets(),"fonts/modeka.otf");
         font_Sub1 = Typeface.SERIF;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
         font_Sub2 = Typeface.DEFAULT;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
+
+        Intent backgroundService = new Intent(this,BackgroundFetch.class);
+        startService(backgroundService);
+        Log.e("AllIDS", "Staring Background Service");
 
     }
 

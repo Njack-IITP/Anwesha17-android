@@ -2,6 +2,7 @@ package in.ac.iitp.anwesha;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,10 +31,13 @@ public class EventList extends AppCompatActivity
     private String TestEvents[] = {"ByteRace","NJath","CTF","ElectroRush","TitalUnleased","Conntectrix"};
     private String TestEventsDesc[] = {"A Programming Contest","Online Treasure Hunt","Hack Everything","Race Against Electricity","Build THe Shield","Bridge It"};
 
+
+   WebSyncDB db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
+        db = new WebSyncDB(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -54,11 +58,15 @@ public class EventList extends AppCompatActivity
         Intent intent=getIntent();
         String tag = intent.getStringExtra("event_list");
         /************** Fetch Data According to tag and set Title***********/
+        Cursor cursor = db.getAllEvents();
         int c=0;
-        for(String s : TestEvents)
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast())
         {
-            ela.add(new Event(c,s,TestEventsDesc[c]));
+                ela.add(new Event(c,cursor.getString(1),cursor.getString(1)));
+                cursor.moveToNext();
             c++;
+
         }
         getSupportActionBar().setTitle(in.ac.iitp.anwesha.Event.getEventName((String) tag));
 

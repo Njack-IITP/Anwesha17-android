@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         tools:context=".WelcomeScreen"
         android:background="#000">
-        <ImageView
+    <!--    <ImageView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/bg"
             android:scaleType="centerCrop"/>
-        <ImageView
+        --><ImageView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:alpha="0.0"

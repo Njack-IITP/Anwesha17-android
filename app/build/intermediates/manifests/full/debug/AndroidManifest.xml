@@ -8,6 +8,29 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="23" />
 
+    <permission
+        android:name="in.ac.iitp.anwesha.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="in.ac.iitp.anwesha.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" >
+    </uses-feature>
+
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
     <application
         android:name="in.ac.iitp.anwesha.AllIDS"
         android:allowBackup="true"
@@ -19,6 +42,7 @@
             android:name="in.ac.iitp.anwesha.WelcomeScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,23 +53,29 @@
         <activity
             android:name="in.ac.iitp.anwesha.Home"
             android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity android:name="in.ac.iitp.anwesha.Event" >
+        <activity
+            android:name="in.ac.iitp.anwesha.Event"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="in.ac.iitp.anwesha.Sponser"
             android:label="@string/title_activity_sponser"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name="in.ac.iitp.anwesha.EventDetails"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name="in.ac.iitp.anwesha.EventList"
             android:label="@string/title_activity_event_list"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
@@ -54,18 +84,74 @@
         <activity
             android:name="in.ac.iitp.anwesha.TechnicalEvent"
             android:label="@string/title_activity_technical_event"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name="in.ac.iitp.anwesha.Team"
             android:label="@string/title_activity_team"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name="in.ac.iitp.anwesha.About"
             android:label="@string/title_activity_about"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity android:name="in.ac.iitp.anwesha.Gallery" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.ProNites"
+            android:label="@string/title_activity_pro_nites"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="in.ac.iitp.anwesha.Map"
+            android:label="Map"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <provider
+            android:name="in.ac.iitp.anwesha.LocationsContentProvider"
+            android:authorities="in.ac.iitp.anwesha.locations"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+﻿
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD_BXVeJMxStymgwMS6lqbssPx0vwtIJeE" />
+
+        <service android:name="in.ac.iitp.anwesha.BackgroundFetch" />
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="in.ac.iitp.anwesha.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

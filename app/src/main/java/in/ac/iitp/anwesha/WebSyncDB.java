@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by gagan on 18/10/15.
- */
 public class WebSyncDB extends SQLiteOpenHelper {
 
     private static String DBNAME = "websyncdb";
@@ -43,23 +40,25 @@ public class WebSyncDB extends SQLiteOpenHelper {
 
                 " ) ";
         db.execSQL(sql);
-        ;
+
     }
 
     public long insertEvent(ContentValues[] contentValues) {
-        mDB.delete(TABLE_EVENT,null,null);
-        for(int i=0;i<contentValues.length;i++)
-            mDB.insert(TABLE_EVENT, null, contentValues[i]);
+        mDB.delete(TABLE_EVENT, null, null);
+        for(ContentValues cv : contentValues)
+            mDB.insert(TABLE_EVENT, null, cv);
         return contentValues.length;
     }
 
     public int clearEvent() {
-        int cnt = mDB.delete(TABLE_EVENT, null, null);
-        return cnt;
+        return mDB.delete(TABLE_EVENT, null, null);
     }
 
     public Cursor getAllEvents() {
         return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size}, null, null, null, null, null);
+    }
+    public Cursor getParticularEvents(int id) {
+        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size}, EVENT_ID + "?", new String[]{String.valueOf(id)}, null, null, null);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

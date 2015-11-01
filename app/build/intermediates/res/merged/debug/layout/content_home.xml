@@ -64,6 +64,7 @@
                                 android:gravity="center"
                                 android:textSize="30sp"
                                 android:textColor="#FFF"
+                                android:background="@drawable/anwesha_back"
                                 android:id="@+id/tv_anwesha_head"
                                 />
 
@@ -101,6 +102,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Hi, User"
                                 android:textSize="24sp"
+                                android:visibility="invisible"
                                 android:layout_marginBottom="35dp"
                                 android:layout_marginTop="110sp"
                                 android:gravity="center_horizontal"
@@ -121,32 +123,48 @@
                         android:padding="2dp"
 
                         >
+
+
+
+
+
+
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_horizontal">
-                            <android.support.design.widget.FloatingActionButton
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="vertical">
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"
                                 android:layout_marginRight="7dp"
                                 android:layout_marginTop="3dp"
                                 android:layout_marginBottom="3dp"
-                                android:src="@drawable/ic_event"
+                                android:background="@drawable/wood"
+                                android:text="Events"
+
                                 android:id="@+id/b_home_superClubs"
                                 android:onClick="onButtonClick"/>
-                            <android.support.design.widget.FloatingActionButton
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"
                                 android:layout_marginRight="7dp"
                                 android:layout_marginTop="3dp"
                                 android:layout_marginBottom="3dp"
-                                android:src="@drawable/ic_spons"
+                                android:background="@drawable/wood"
+                                android:text="Sponser"
+
                                 android:id="@+id/b_home_sponser"
                                 android:onClick="onButtonClick"/>
-                            <android.support.design.widget.FloatingActionButton
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"
@@ -155,67 +173,10 @@
                                 android:layout_marginBottom="3dp"
                                 android:id="@+id/b_home_galley"
                                 android:onClick="onButtonClick"
-                                android:src="@drawable/ic_gallery"/>
-
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_horizontal"
-                            >
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
-                                android:layout_marginRight="7dp"
-                                android:layout_marginTop="3dp"
-                                android:layout_marginBottom="3dp"
-                                android:id="@+id/b_home_pronites"
-                                android:onClick="onButtonClick"
-                                android:src="@drawable/ic_pronites"
+                                android:text="Gallery"
+                                android:background="@drawable/wood"
                                 />
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
-                                android:layout_marginRight="7dp"
-                                android:layout_marginTop="3dp"
-                                android:layout_marginBottom="3dp"
-                                android:id="@+id/b_home_schedule"
-                                android:onClick="onButtonClick"
-                                android:src="@drawable/ic_calender"/>
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
-                                android:layout_marginRight="7dp"
-                                android:layout_marginTop="3dp"
-                                android:layout_marginBottom="3dp"
-                                android:id="@+id/b_home_map"
-                                android:onClick="onButtonClick"
-                                android:src="@drawable/ic_map"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_horizontal"
-                            >
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
-                                android:layout_marginRight="7dp"
-                                android:layout_marginTop="3dp"
-                                android:layout_marginBottom="3dp"
-                                android:onClick="onButtonClick"
-                                android:id="@+id/b_home_about"
-
-                                android:src="@drawable/ic_about"
-                                />
-                            <android.support.design.widget.FloatingActionButton
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"
@@ -224,9 +185,69 @@
                                 android:layout_marginBottom="3dp"
                                 android:id="@+id/b_home_team"
                                 android:onClick="onButtonClick"
-                                android:src="@drawable/ic_team"
-                                />
+                                android:text="Team"
+                                android:background="@drawable/wood"
 
+                                />
+                        </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="left">
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
+                                android:layout_width="wrap_content"
+                                android:text="Schedule"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_schedule"
+                                android:onClick="onButtonClick"
+                                android:background="@drawable/wood"
+                                />
+                            <TextView   style="@style/Base.Widget.AppCompat.Button"
+                                android:text="Map"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:id="@+id/b_home_map"
+                                android:onClick="onButtonClick"
+                                android:background="@drawable/wood"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="7dp"
+                                    android:layout_marginRight="7dp"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:id="@+id/b_home_pronites"
+                                    android:onClick="onButtonClick"
+                                    android:text="Pronites"
+                                    style="@style/Base.Widget.AppCompat.Button"
+                                    android:textStyle="italic"
+                                    android:background="@drawable/wood"
+
+                                    />
+                                <TextView   style="@style/Base.Widget.AppCompat.Button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:onClick="onButtonClick"
+                                android:id="@+id/b_home_about"
+                                android:text="About"
+                                android:background="@drawable/wood"
+
+                                />
+                        </LinearLayout>
                         </LinearLayout>
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -258,18 +279,20 @@
                                         android:layout_width="96px"
                                         android:layout_height="96px"
                                         android:layout_margin="7dp"
-                                        android:id="@+id/b1"
+                                        android:id="@+id/b_fb"
                                         android:background="@drawable/fb"
                                         />
                                     <Button
                                         android:layout_width="96px"
                                         android:layout_height="96px"
+                                        android:id="@+id/b_gp"
                                         android:layout_margin="7dp"
                                         android:background="@drawable/gp"/>
                                     <Button
                                         android:layout_width="96px"
                                         android:layout_height="96px"
                                         android:layout_margin="7dp"
+                                        android:id="@+id/b_aw"
                                         android:background="@drawable/yt"/>
                                 </LinearLayout>
 
@@ -282,33 +305,7 @@
                                     />
 
                             </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:id="@+id/app_tray"
 
-
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="96px"
-                                    android:layout_height="96px"
-                                    android:background="@drawable/ex_button1"
-                                    android:id="@+id/ex_imgs1"
-
-                                    />
-
-                                <ImageView
-                                    android:layout_width="96px"
-                                    android:layout_height="96px"
-                                    android:background="@drawable/ex_button2"
-                                    android:id="@+id/ex_imgs2"
-
-                                    />
-
-                            </LinearLayout>
 
 
                         </RelativeLayout>
@@ -316,12 +313,37 @@
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="571dp"></RelativeLayout>
-        </LinearLayout>
+          </LinearLayout>
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/app_tray"
+        android:layout_alignParentBottom="true"
+
+
+        android:gravity="center">
+        <ImageView
+            android:layout_width="96px"
+            android:layout_height="96px"
+            android:background="@drawable/ex_button1"
+            android:id="@+id/ex_imgs1"
+
+            />
+
+        <ImageView
+            android:layout_width="96px"
+            android:layout_height="96px"
+            android:background="@drawable/ex_button2"
+            android:id="@+id/ex_imgs2"
+
+            />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

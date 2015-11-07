@@ -8,11 +8,11 @@
 
 
         <ListView
-            android:background="@android:drawable/editbox_background"
+            android:background="#eee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:dividerHeight="0dp"
+            android:divider="#000"
             android:id="@+id/event_list_lv"
             ></ListView>
 

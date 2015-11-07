@@ -132,13 +132,15 @@ public class EventList extends AppCompatActivity
             tv.setText(getItem(position).name);
             TextView tvdesc = (TextView) convertView.findViewById(R.id.tv_event_list_element_desc);
             tvdesc.setText(getItem(position).desc);
-            ImageView iv = (ImageView) convertView.findViewById(R.id.iv_event_list_back);
+           //Alternate white black card
+            /*ImageView iv = (ImageView) convertView.findViewById(R.id.iv_event_list_back);
             View v=convertView.findViewById(R.id.fab);
             v.setTag(position);
             v.setOnClickListener(this);
             if(position%2==0)
                 iv.setVisibility(View.GONE);
             else iv.setVisibility(View.VISIBLE);
+            */
             return convertView;
         }
 

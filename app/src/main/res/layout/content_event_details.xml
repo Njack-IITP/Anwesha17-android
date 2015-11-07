@@ -27,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="15dp"
-                    android:paddingBottom="18dp">
+                    android:paddingBottom="1dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -40,8 +40,9 @@
                         android:text="Event Name"
                         android:id="@+id/event_details_title" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Sub Title"
@@ -50,81 +51,109 @@
 
                         android:layout_gravity="center_horizontal"
                         android:id="@+id/event_details_subtitle"/>
-                    <ImageView
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:drawable/divider_horizontal_textfield"/>
-                    <TextView
-                        android:background="#FFF"
+                    <android.support.v7.widget.CardView
+                          xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                          android:id="@+id/card_view"
+                          android:layout_gravity="center"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          card_view:cardCornerRadius="4dp"
+                            android:layout_marginLeft="10dp"
+                        android:layout_margin="10dp"
+                        >
 
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="#333"
-                        android:id="@+id/event_details_story"
-                        android:text="Here is some Event Sample Description, This discription is a very long story and its really silly to write such a ling sentance....\nIt Can be Multiline too\n\nYou Can Add whatever you want :)"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:drawable/divider_horizontal_textfield"/>
+                        <TextView
+                            android:background="#FFF"
+
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="#333"
+                            android:id="@+id/event_details_story"
+                            android:text="Here is some Event Sample Description, This discription is a very long story and its really silly to write such a ling sentance....\nIt Can be Multiline too\n\nYou Can Add whatever you want :)"/>
+
+                    </android.support.v7.widget.CardView>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:background="@android:drawable/editbox_background"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:paddingTop="15dp"
-
-                    android:paddingBottom="18dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rules &amp; Regulations"
-                        android:textSize="18dp"
-                        android:textColor="#222"/>
-                    <TextView
-                        android:layout_marginRight="5dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp">
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/card_view1"
+                        android:layout_gravity="center"
                         android:layout_width="match_parent"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="30dp"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:id="@+id/event_details_rules"
+                        card_view:cardCornerRadius="4dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_margin="10dp"
+                        >
 
-                        android:text="Some Rule 1\nSome Rule 2\nSome Rule 3"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rules &amp; Regulations"
+                            android:textSize="18dp"
+                            android:textColor="#222"/>
+
+                        <TextView
+                            android:layout_marginRight="5dp"
+                            android:layout_width="match_parent"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="30dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:paddingTop="20dp"
+                            android:id="@+id/event_details_rules"
+
+                            android:text="Some Rule 1\nSome Rule 2\nSome Rule 3"/>
+
+                    </android.support.v7.widget.CardView>
+
+
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@android:drawable/editbox_background"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="18dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Oraganisers"
-                        android:textSize="18dp"
-                        android:textColor="#222"/>
-                    <TextView
-                        android:layout_marginRight="5dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="30dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp">
+
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/card_view2"
+                        android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:id="@+id/event_details_organisers"
+                        card_view:cardCornerRadius="4dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_margin="10dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Oraganisers"
+                            android:textSize="18dp"
+                            android:textColor="#222"/>
+                        <TextView
+                            android:layout_marginRight="5dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="30dp"
+                            android:paddingTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:id="@+id/event_details_organisers"
 
-                        android:text="> Organiser 1\n> Organiser 2\n> Organiser 3"/>
+                            android:text="> Organiser 1\n> Organiser 2\n> Organiser 3"/>
+                    </android.support.v7.widget.CardView>
+
 
                 </LinearLayout>
                 <FrameLayout
@@ -137,20 +166,30 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:background="@android:drawable/dialog_holo_light_frame"
-                    android:layout_marginRight="10dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="18dp">
-                    <TextView
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp">
+
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/card_view3"
+                        android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:textColor="#000"
-                        android:gravity="center_horizontal"
-                        android:id="@+id/event_details_schNvenue"
+                        card_view:cardCornerRadius="4dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_margin="10dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textColor="#000"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/event_details_schNvenue"
 
-                        android:text="Day 1, 1000 to 1300\nIn Front of Tutorial Block"/>
+                            android:text="Day 1, 1000 to 1300\nIn Front of Tutorial Block"/>
+                    </android.support.v7.widget.CardView>
+
                 </LinearLayout>
             </LinearLayout>
 

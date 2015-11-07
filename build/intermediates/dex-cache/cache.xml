@@ -2,228 +2,235 @@
 <items version="2" >
 
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/lib/volley.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/volley-741eae4cf8fff28e77fb06740c902d6d0537798b.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d93480da1d303122ee67dc3bc23e6297bdef9951">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-22893a18ccba0bb1b4e83b0f0b822774c399b122.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="325788a04b436a0bccbc5b4c54cf0f12ebdcbd2d">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-ce77c90fc9e2e619c6e6f4f669e7a0f387cabc9a.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="482de223655d06253cc6a4955d653f8994169500">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-32d4a63d9a197c1a477b5e5c8297f64ac0f38df1.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d294caf562c4c678b2ef351662a0ca6f1a4d06c0">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-1f8599a727eaff5c603c14cadf0ccba31c703be3.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3aed37c38c56679602255dd72ef356da5d327cda">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-0e6b101c72cdee7ca9e1ab4c167449ac21307f4c.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="95758a2905669affbffc5ddd262921d375674fad">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-5b778dadbb5e6c9baf0274dd0769c478e5bc3f79.jar" />
-    </item>
-    <item
-        jar="/home/gagan/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-cca4d7278922d1612ebcd8151febaa4620396b27.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="17449c47df35c754b257532052f1270c444f7993">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-920f9e3a8983ae5342060817e40b55b50bbe33c0.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-e812ef03c44f0346b5e79b53055a57799350bba5.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-f26c420bfaca38b6bc3837fecaa0783ce3d87c2b.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="82825756edeeb3b56b15e73b2edd56e93da5a444">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-2179322cc64e0fa45def7f16c9265666631b6264.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="997773777cf3904c11d6764fe3b7668538220e49">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-16e1c411f901f519034483cbdb7d520f76302ca1.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="2a7e47da654546f9457deb6132364f1bf33a1857">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-7cfc47112dcb3ef5eeed63907a7e1664465ceb95.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-47654f988fa944f96215d93b60fea6e36f6e20a1.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="b92002cb2f0e11a226ac5bac6dff1dc2a9d0b774">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-b68c1df34146b64de1fef6defd1517c1fdb6263c.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="041d93cf0533591c29d1d7263b2fa114dbfb20bd">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-e73b68415cdc1fa0972ed22683e388c74dcb6e56.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="9cf8c0ef60847621c7ad00b4f78dbfc9daba4af2">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-ff74fe4f3aad3cf632c61201d93b5d8955f79485.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="3178362320bcf51228835b60ff978efadfd1f783">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-11134a1f8b3c696184000dab15a3bb20e2f5c5de.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="3c729e6d76a36c5dc27e6a4c4009296f49eaa88a">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-ab5ad12fae41c77f470b283f5ded65adc788fadf.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-f6376a0d18876a9d04c43c0fccf499cd114ce719.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="3b05c18f60969ecc2ba49c0409c4b96be2d9cb0c">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-eeac9818fa10e53a7c90573d83637f97b81d91b1.jar" />
+        sha1="b92002cb2f0e11a226ac5bac6dff1dc2a9d0b774">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-cdd17106c008a7ce84bc5d68b034a03bed3b9795.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2a7e47da654546f9457deb6132364f1bf33a1857">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-ae9cc8f9ed2e76172a6d0a7a1d0fa26fa9599ed0.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="993834cb17d07d51b92db89d2c330243592ebf77">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-91c1d46253f8fea7553f5fc9fcbaaeea19014433.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-d509ffeb1fc69198c49472af7ad2026e582cae72.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-39f846668eafe0d0f63dc6b31ccd7c2f6fc53b5b.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-d58f119ccdc397985bb2d83fcf7d271d2f9a372c.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="dcb5b75baf05d92e61d5706737200ee55949f97b">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-46b779ddb6cceb2bd83affcdd7c99679e848e39f.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-6c39e7eea87dad4f3cd7bfcfd84c3e7cedcd84d0.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-c6b32938ed3f64e8b8fba34a45b923460ba5620b.jar" />
+        sha1="3b05c18f60969ecc2ba49c0409c4b96be2d9cb0c">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-67ec33a34c358a650ae1efdcbb57f219500afcbe.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="325788a04b436a0bccbc5b4c54cf0f12ebdcbd2d">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-e6935afdf55b798b1a702e5ddb9fbecc7d08808a.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-e9579c067e4632232cdd6aaba3f65a201974bf47.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="041d93cf0533591c29d1d7263b2fa114dbfb20bd">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-2b9c14a20b2d5a000b53cff4101e1f7e55903fad.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3aed37c38c56679602255dd72ef356da5d327cda">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-97e85f937c3f4d4adb265fba5be3bee380ca7bf1.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="997773777cf3904c11d6764fe3b7668538220e49">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-192f1b5c956a6913d8d8ddff4ca0e93dc868f4d4.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9cf8c0ef60847621c7ad00b4f78dbfc9daba4af2">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-7801c836ae5d8764046efa5465c83512246df5b9.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="482de223655d06253cc6a4955d653f8994169500">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-07e4e66270648a3ff4b7bac5a92f5b90193e7d94.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="95758a2905669affbffc5ddd262921d375674fad">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-1423b3173f65188f9669be7f66fefc1f75b53ba2.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\lib\volley.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\volley-9d50eaa43673bcd6f107bdc455d57965c570a31f.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="82825756edeeb3b56b15e73b2edd56e93da5a444">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-503ebb5b6d0ad60362b81135de498d76db42af85.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="17449c47df35c754b257532052f1270c444f7993">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-c37c054428490ca040482a36943bfc3a5313edfb.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-822e05a02dc063f4ea2243403d379bc970cdf2d3.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d61920aba361832a9545a43fa8c9453eb02f18f7">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-49404fe02ab5821c31aeb1d59cca20d2af29d161.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-3c8e1e7d10ef8ddedbca22c829f4f715b8fc7c2d.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.1.0/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="97f3b099801a9ad9d70e835b9125273e986eb68d">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-04c5cda4cf61ef09a1dc9d99e8492042a237a63e.jar" />
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-da758b47f8c60997bed2cf5f0b6c46a8e0aa9b1e.jar" />
     </item>
     <item
-        jar="/home/gagan/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/hamcrest-core-1.3-aa681674c50894c43ea3152f19c3048d1d12e5c7.jar" />
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-e2fac1f78552f2d2798097d21d15645f99851c8a.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-36f19e0a979f5469abd6a494bd60d47736059ae5.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-ea6363a9075e5c59de83aad80ed06b0839676de9.jar" />
-    </item>
-    <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-3c47a8f84bbefdb54fde38313ede6625be2ada7a.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-fc6f8dbd2dcdb1ca975581de360c2e8f20094706.jar" />
     </item>
     <item
-        jar="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/classes-37d69b0267593a648e9256e3c63697d1f9440d0f.jar" />
-    </item>
-    <item
-        jar="/home/gagan/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
+        jar="C:\Users\HP\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/pre-dexed/debug/junit-4.12-309d3a86dce4ae7945658e6caa8e95f448932447.jar" />
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\junit-4.12-71575e5ca33d09560446646f6d747639ce5ac510.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\hamcrest-core-1.3-501fe56d86f943306514a980f16f86bc4c1a0c8c.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3178362320bcf51228835b60ff978efadfd1f783">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-bf16d32450981f34199c6d199c5f56dab4cb91cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-1ace9e8d54d4cacfe19bd022d2d9ff9f7a16ecd2.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d294caf562c4c678b2ef351662a0ca6f1a4d06c0">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-d22acb8ace8c1e268711a112ddf670f46de5aace.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-5a67b6db2be2d5662e76ee004aa13c8400c8dad6.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-67793629060dca5f519ada37f4aea78259319e12.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="97f3b099801a9ad9d70e835b9125273e986eb68d">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-b09e4cbbb10ce2f474ff8916d9be31601ec22d5b.jar" />
+    </item>
+    <item
+        jar="C:\Users\HP\Anwesha\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d93480da1d303122ee67dc3bc23e6297bdef9951">
+        <dex dex="C:\Users\HP\Anwesha\app\build\intermediates\pre-dexed\debug\classes-b2d708d277b26f19e801e48da3610777a606ba6e.jar" />
     </item>
 
 </items>

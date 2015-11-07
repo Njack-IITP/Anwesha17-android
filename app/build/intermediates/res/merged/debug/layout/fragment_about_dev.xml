@@ -69,11 +69,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+91-9631089109"
+            android:text="+91-9631089106"
             android:layout_gravity="center_horizontal"/>
 
 
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>
-<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/fragment_about_dev.xml -->
+<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/fragment_about_dev.xml -->

@@ -8,14 +8,14 @@
 
 
         <ListView
-            android:background="@android:drawable/editbox_background"
+            android:background="#eee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:dividerHeight="0dp"
+            android:divider="#000"
             android:id="@+id/event_list_lv"
             ></ListView>
 
 
     </RelativeLayout>
-<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/content_event_list.xml -->
+<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/content_event_list.xml -->

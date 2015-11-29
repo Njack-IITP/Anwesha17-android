@@ -56,19 +56,19 @@ public class EventList extends AppCompatActivity
         lv.setClickable(false);
         //lv.setOnItemClickListener(this);
         Intent intent=getIntent();
-        String tag = intent.getStringExtra("event_list");
+        String code = intent.getStringExtra("event_list");
         /************** Fetch Data According to tag and set Title***********/
-        Cursor cursor = db.getAllEvents();
+        Cursor cursor = db.getParticularEvents(code);
         int c=0;
         cursor.moveToFirst();
         while(!cursor.isAfterLast())
         {
-                ela.add(new Event(c,cursor.getString(1),cursor.getString(1)));
+                ela.add(new Event(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5),cursor.getString(5)));
                 cursor.moveToNext();
             c++;
 
         }
-        getSupportActionBar().setTitle(in.ac.iitp.anwesha.Event.getEventName((String) tag));
+        getSupportActionBar().setTitle(code);
 
     }
 
@@ -108,13 +108,16 @@ public class EventList extends AppCompatActivity
 
     class Event
     {
-        int id;
-        String name,desc;
-        Event(int id,String name,String desc)
+        int fee,day,size,id;
+        String name,code,desc;
+        Event(int id,String name,int fee,int day,int size,String code,String desc)
         {
             this.id=id;
             this.name=name;
             this.desc = desc;
+            this.fee= fee;
+            this.day = day;
+            this.code= code;
         }
     }
     class EventListAdapter extends ArrayAdapter<Event> implements View.OnClickListener {
@@ -150,6 +153,9 @@ public class EventList extends AppCompatActivity
             in.putExtra("eventID", e.id);
             in.putExtra("eventName", e.name);
             in.putExtra("eventDesc", e.desc);
+            in.putExtra("eventCode", e.code);
+            in.putExtra("eventDay", e.day);
+            in.putExtra("eventFee", e.fee);
             startActivity(in);
 
 

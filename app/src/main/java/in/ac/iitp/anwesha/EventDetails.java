@@ -44,14 +44,16 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
             finish();return;
         }
         /************** Fetch Data According to tag and set Title***********/
-        Cursor cursor = db.getAllEvents();
-        cursor.moveToFirst();
-        String organisers = "";
-        String rules = "";
-        String venue = "";
-        String longdesc = "";
+        //Cursor cursor = db.getAllEvents();
+        //cursor.moveToFirst();
+        String organisers = "Not Available";
+        String rules = "Fee : "+in.getIntExtra("eventFee",0);
+        String venue = "Venue : NA\nDay : "+in.getIntExtra("eventDay",0);
+        String longdesc = in.getStringExtra("eventDesc");
+
 
         //For Now all is Just Event Name
+        /*
         if(!cursor.isAfterLast())
         {
             shortDesc = cursor.getString(1);
@@ -65,10 +67,11 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         {
             Toast.makeText(this,"Some Error in this Event",Toast.LENGTH_SHORT).show();
         }
+        */
         /****************************************/
 
         ((TextView)findViewById(R.id.event_details_title)).setText(name);
-        ((TextView)findViewById(R.id.event_details_subtitle)).setText(shortDesc);
+        ((TextView)findViewById(R.id.event_details_subtitle)).setText("");
         ((TextView)findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
         ((TextView)findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");
         ((TextView)findViewById(R.id.event_details_schNvenue)).setText(venue);//"> Tutorial Block (1400 Day 1)");

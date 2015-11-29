@@ -15,13 +15,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by gagan on 30/10/15.
  */
 public class BackgroundFetch extends Service {
 
-    final static String BASE_URL = "http://172.16.132.110";
+    final static String BASE_URL = "http://2016.anwesha.info";
     RequestQueue queue;
     WebSyncDB db;
     @Nullable
@@ -44,7 +45,7 @@ public class BackgroundFetch extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         Log.e("BackgroundFetch","Service Started");
-        JsonArrayRequest events = new JsonArrayRequest(BASE_URL + "/a_eventjson.php", new Response.Listener<JSONArray>() {
+        JsonArrayRequest events = new JsonArrayRequest(BASE_URL + "/test/events", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
                 Log.e("BackgroundFetch", "EventSuccess");
@@ -63,19 +64,21 @@ public class BackgroundFetch extends Service {
 
     void updateEvents(JSONArray jsonArray)
     {
-        ContentValues[] contentValues=new ContentValues[jsonArray.length()];
         try {
-            for(int i=0;i<jsonArray.length();i++)
+        JSONArray array = jsonArray.getJSONArray(1);// Second Element
+        ContentValues[] contentValues=new ContentValues[array.length()];
+            for(int i=0;i<array.length();i++)
             {
-                    JSONArray row = jsonArray.getJSONArray(i);
-                    if(row.length()!=5)
-                        return;//Invalid Download
+                JSONObject row = array.getJSONObject(i);
                 ContentValues cv = new ContentValues();
-                cv.put(WebSyncDB.EVENT_ID,row.getInt(0));
-                cv.put(WebSyncDB.EVENT_NAME,row.getString(1));
-                cv.put(WebSyncDB.EVENT_fee,row.getInt(2));
-                cv.put(WebSyncDB.EVENT_day,row.getInt(3));
-                cv.put(WebSyncDB.EVENT_size,row.getInt(4));
+                cv.put(WebSyncDB.EVENT_ID,row.getInt("eveId"));
+                cv.put(WebSyncDB.EVENT_NAME,row.getString("eveName"));
+                cv.put(WebSyncDB.EVENT_fee,row.getInt("fee"));
+                cv.put(WebSyncDB.EVENT_day,row.getInt("day"));
+                cv.put(WebSyncDB.EVENT_size,row.getInt("size"));
+                cv.put(WebSyncDB.EVENT_code,row.getString("code"));
+                cv.put(WebSyncDB.EVENT_details,row.getString("details"));
+
                 contentValues[i]=cv;
 
             }

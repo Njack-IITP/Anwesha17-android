@@ -45,7 +45,7 @@ public class BackgroundFetch extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         Log.e("BackgroundFetch","Service Started");
-        JsonArrayRequest events = new JsonArrayRequest(BASE_URL + "/test/events", new Response.Listener<JSONArray>() {
+        JsonArrayRequest events = new JsonArrayRequest(BASE_URL + "/test/allEvents", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
                 Log.e("BackgroundFetch", "EventSuccess");

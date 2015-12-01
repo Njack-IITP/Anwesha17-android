@@ -62,7 +62,7 @@ public class WebSyncDB extends SQLiteOpenHelper {
         return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size,EVENT_code,EVENT_details}, null, null, null, null, null);
     }
     public Cursor getParticularEvents(String code) {
-        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size,EVENT_code,EVENT_details}, EVENT_code + "?", new String[]{code}, null, null, null);
+        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size,EVENT_code,EVENT_details}, EVENT_code + "=?", new String[]{code}, null, null, null);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

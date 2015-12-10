@@ -113,7 +113,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openTeam(Context context)
     {
-        openActivity(context,Team.class);
+        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        //openActivity(context,Team.class);
         return true;
     }
 
@@ -134,7 +135,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openSubEvent(Context context,String tag)
     {
-        if(tag.equals("tech"))
+        if(tag.equals("Techinical"))
         {
             Intent in =new Intent(context,TechnicalEvent.class);
             context.startActivity(in);

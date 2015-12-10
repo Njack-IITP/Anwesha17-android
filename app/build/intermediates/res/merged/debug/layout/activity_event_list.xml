@@ -15,4 +15,4 @@
         app:menu="@menu/activity_technical_event_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
-<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/activity_event_list.xml -->
+<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/activity_event_list.xml -->

@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="A short short\n\nA long one Here..."
+        android:text="@string/about_anwesha"
         />
 
 </LinearLayout>

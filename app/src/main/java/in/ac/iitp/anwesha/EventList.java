@@ -63,7 +63,7 @@ public class EventList extends AppCompatActivity
         cursor.moveToFirst();
         while(!cursor.isAfterLast())
         {
-                ela.add(new Event(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5),cursor.getString(5)));
+                ela.add(new Event(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5),cursor.getString(6)));
                 cursor.moveToNext();
             c++;
 
@@ -81,30 +81,6 @@ public class EventList extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.event_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
 
     class Event
     {
@@ -135,11 +111,12 @@ public class EventList extends AppCompatActivity
             tv.setText(getItem(position).name);
             TextView tvdesc = (TextView) convertView.findViewById(R.id.tv_event_list_element_desc);
             tvdesc.setText(getItem(position).desc);
-           //Alternate white black card
-            /*ImageView iv = (ImageView) convertView.findViewById(R.id.iv_event_list_back);
             View v=convertView.findViewById(R.id.fab);
             v.setTag(position);
             v.setOnClickListener(this);
+
+            //Alternate white black card
+            /*ImageView iv = (ImageView) convertView.findViewById(R.id.iv_event_list_back);
             if(position%2==0)
                 iv.setVisibility(View.GONE);
             else iv.setVisibility(View.VISIBLE);

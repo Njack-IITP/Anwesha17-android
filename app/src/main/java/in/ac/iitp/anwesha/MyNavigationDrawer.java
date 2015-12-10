@@ -53,19 +53,19 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             if(openTeam(activity)) activity.finish();
 
         } else  if (id == R.id.nav_event_cult) {
-            if(openSubEvent(activity,"cult")) activity.finish();
+            if(openSubEvent(activity,"Cultural")) activity.finish();
 
         }else  if (id == R.id.nav_event_eco) {
-            if(openSubEvent(activity,"eco")) activity.finish();
+            if(openSubEvent(activity,"Eco")) activity.finish();
 
         }else  if (id == R.id.nav_event_lit) {
-            if(openSubEvent(activity,"lit")) activity.finish();
+            if(openSubEvent(activity,"Literary")) activity.finish();
 
         }else  if (id == R.id.nav_event_mang) {
-            if(openSubEvent(activity,"mang")) activity.finish();
+            if(openSubEvent(activity,"Management")) activity.finish();
 
         }else  if (id == R.id.nav_event_tech) {
-            if(openSubEvent(activity,"tech")) activity.finish();
+            if(openSubEvent(activity,"Technical")) activity.finish();
 
         }
 
@@ -93,15 +93,15 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openGallery(Context context)
     {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Gallery.class);
+        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        //openActivity(context,Gallery.class);
         return false;
     }
 
     static boolean openPronites(Context context)
     {
-        ///Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,ProNites.class);
+        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        //openActivity(context,ProNites.class);
         return false;
     }
 

@@ -144,26 +144,20 @@ public class Event extends Activity implements View.OnTouchListener, View.OnClic
 
     public void eventClicked(View v) {
         boolean isDone = true;
-        String club="";
+
         String s=(String) v.getTag();
-        if(s.equals("mang"))
-                club = "Management";
-        else if(s.equals("tech"))
-                club = "Technical";
-        else if(s.equals( "eco"))
-                club = "ECO";
-        else if(s.equals( "lit"))
-                club = "Literary";
-        else if(s.equals("cult"))
-                club = "Cultural";
-        else
-                isDone = false;
+        String club=getEventName(s);
+        if(s==null)
+        {
+            isDone = false;
+            s="";
+        }
 
 
 
         if (isDone)
         {
-            MyNavigationDrawer.openSubEvent(this,(String)v.getTag());
+            MyNavigationDrawer.openSubEvent(this,club);
             tv_group_head.setText(null);
             configureHighlighter(false);
         }
@@ -181,7 +175,7 @@ public class Event extends Activity implements View.OnTouchListener, View.OnClic
                 return  "Techinical";
 
         if(tag.equals( "eco"))
-                return  "ECO";
+                return  "Eco";
 
         if(tag.equals( "lit"))
                 return  "Literary";

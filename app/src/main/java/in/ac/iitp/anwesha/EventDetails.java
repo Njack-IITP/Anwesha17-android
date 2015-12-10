@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,11 +32,23 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
+
+
         Intent in=getIntent();
 
         name = in.getStringExtra("eventName");
         toolbar.setTitle("Title ");
-        ((TextView)findViewById(R.id.toolbar_text)).setText(name);
+        //((TextView)findViewById(R.id.toolbar_text)).setText(name);
 
         //if(in.hasExtra("eventDesc"))
         //    shortDesc = in.getStringExtra("eventDesc");
@@ -50,6 +65,8 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         String rules = "Fee : "+in.getIntExtra("eventFee",0);
         String venue = "Venue : NA\nDay : "+in.getIntExtra("eventDay",0);
         String longdesc = in.getStringExtra("eventDesc");
+        String code = in.getStringExtra("eventCode");
+        setTitle(name);
 
 
         //For Now all is Just Event Name
@@ -70,7 +87,7 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         */
         /****************************************/
 
-        ((TextView)findViewById(R.id.event_details_title)).setText(name);
+        ((TextView)findViewById(R.id.event_details_title)).setText(code);
         ((TextView)findViewById(R.id.event_details_subtitle)).setText("");
         ((TextView)findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
         ((TextView)findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");
@@ -89,8 +106,10 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         //**** For Registering in Event  ******/
-        SplashMessage(name,"Registered",android.R.drawable.ic_dialog_info);
-        SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
+        SplashMessage(name,"Comming Soon!",android.R.drawable.ic_dialog_info);
+
+        //SplashMessage(name,"Registered",android.R.drawable.ic_dialog_info);
+        //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
 
 
     }

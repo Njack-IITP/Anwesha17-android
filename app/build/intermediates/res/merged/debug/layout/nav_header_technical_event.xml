@@ -15,10 +15,12 @@
 
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing" android:text="Anwesha 2016"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000"/>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text=".Think.Dream.Live" android:id="@+id/textView" />
+        android:text=".Think.Dream.Live" android:id="@+id/textView"
+        android:textColor="#333"/>
 
 </LinearLayout>
-<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/nav_header_technical_event.xml -->
+<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/nav_header_technical_event.xml -->

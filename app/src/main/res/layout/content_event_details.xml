@@ -184,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:textColor="#000"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:id="@+id/event_details_schNvenue"
 
                             android:text="Day 1, 1000 to 1300\nIn Front of Tutorial Block"/>

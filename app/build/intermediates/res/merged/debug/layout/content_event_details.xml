@@ -184,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:textColor="#000"
-                            android:gravity="center_horizontal"
+                            android:gravity="left"
                             android:id="@+id/event_details_schNvenue"
 
                             android:text="Day 1, 1000 to 1300\nIn Front of Tutorial Block"/>
@@ -198,4 +198,4 @@
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>
-<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/content_event_details.xml -->
+<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/content_event_details.xml -->

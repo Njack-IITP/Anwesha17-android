@@ -25,6 +25,7 @@
                 android:text="Title Sponser"
                 android:gravity="center"
                 android:textColor="#FFF"
+
                 android:textSize="20dp"
 
                 android:background="#96777777"/>
@@ -33,14 +34,16 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/event_lit"/>
+                android:scaleType="centerInside"
+                android:layout_margin="10dp"
+                android:src="@drawable/s_bsbcl"/>
 
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2nd Level Sponsers"
+                android:text="Powered By | In Association With"
                 android:gravity="center"
                 android:textColor="#FFF"
                 android:textSize="20dp"
@@ -52,19 +55,22 @@
                 android:gravity="center"
                 android:orientation="horizontal">
                 <ImageButton
-                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/event_eco"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/s_vodafone_logo"
                     android:layout_marginRight="10dp"/>
                 <ImageButton
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
                     android:layout_gravity="center"
+                    android:scaleType="centerInside"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/event_managment"/>
+                    android:src="@drawable/s_toi"/>
             </LinearLayout>
 
 
@@ -98,4 +104,4 @@
 
 
 </RelativeLayout>
-<!-- From: file:/C:/Users/HP/Anwesha/app/src/main/res/layout/content_sponser.xml -->
+<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/content_sponser.xml -->

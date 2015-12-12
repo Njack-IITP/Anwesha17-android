@@ -139,6 +139,7 @@ public class Event extends Activity implements View.OnTouchListener, View.OnClic
         super.onResume();
         last_event_drag=-1;
         tv_group_head.setHint("Drag Your Event");
+        tv_group_head.clearAnimation();
         tv_group_head.setText("Drag Your Event");
     }
 
@@ -172,7 +173,7 @@ public class Event extends Activity implements View.OnTouchListener, View.OnClic
                 return "Management";
 
         if(tag.equals( "tech"))
-                return  "Techinical";
+                return  "Technical";
 
         if(tag.equals( "eco"))
                 return  "Eco";

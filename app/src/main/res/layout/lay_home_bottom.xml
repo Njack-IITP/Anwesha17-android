@@ -14,10 +14,12 @@
         android:layout_width="96px"
         android:layout_height="96px"
         android:layout_margin="7dp"
+        android:id="@+id/b_gp"
         android:background="@drawable/gp"/>
     <Button
         android:layout_width="96px"
         android:layout_height="96px"
         android:layout_margin="7dp"
-        android:background="@drawable/yt"/>
+
+        android:background="@drawable/logo"/>
 </LinearLayout>

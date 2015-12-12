@@ -135,7 +135,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openSubEvent(Context context,String tag)
     {
-        if(tag.equals("Techinical"))
+        if(tag.equals("Technical"))
         {
             Intent in =new Intent(context,TechnicalEvent.class);
             context.startActivity(in);

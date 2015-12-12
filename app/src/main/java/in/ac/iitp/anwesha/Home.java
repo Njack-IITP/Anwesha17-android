@@ -124,7 +124,14 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
                 getOpenGooglePPage();
             }
         });
-
+        findViewById(R.id.b_aw).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://2016.anwesha.info"));
+                startActivity(i);
+            }
+        });
         Animation[][] buttonAnimations = new Animation[2][4];
         for(int i=0;i<4;i++)
         {
@@ -207,7 +214,6 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
 
         Intent in;
         try {
-
             in = new Intent(Intent.ACTION_VIEW, Uri.parse("android-app://com.google.android.apps.plus/https/plus.google.com/+iitpatna"));
             in.setPackage("com.google.android.apps.plus");
             startActivity(in);

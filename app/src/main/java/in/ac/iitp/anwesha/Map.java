@@ -256,7 +256,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
                 flag2=1;
-                Toast.makeText(getApplicationContext(), "Abhishek", Toast.LENGTH_SHORT).show();
+                ///Toast.makeText(getApplicationContext(), "Abhishek", Toast.LENGTH_SHORT).show();
                 alert2.show();
                 dialog.dismiss();
             }

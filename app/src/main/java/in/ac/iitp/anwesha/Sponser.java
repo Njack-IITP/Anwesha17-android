@@ -1,5 +1,7 @@
 package in.ac.iitp.anwesha;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -101,7 +103,11 @@ public class Sponser extends AppCompatActivity
 
         for(int i=0;i<drow.size();i++)
         if(drow.get((i))!=0) {
-            iv[i].setImageResource(drow.get((i)));
+            iv[i].measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+            iv[i].setImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(),drow.get(i)),iv[i].getMeasuredWidth(),iv[i].getMeasuredHeight(),false));//Resource(drow.get((i)));
+
+
             iv[i].setVisibility(View.VISIBLE);
             if (drowS.get((i)) != null) {
                 tv[i].setText(drowS.get((i)));

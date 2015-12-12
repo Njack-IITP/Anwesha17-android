@@ -293,7 +293,7 @@
                                         android:layout_height="96px"
                                         android:layout_margin="7dp"
                                         android:id="@+id/b_aw"
-                                        android:background="@drawable/yt"/>
+                                        android:background="@drawable/logo"/>
                                 </LinearLayout>
 
                                 <ImageView

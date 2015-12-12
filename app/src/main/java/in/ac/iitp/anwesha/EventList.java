@@ -86,6 +86,7 @@ public class EventList extends AppCompatActivity
     {
         int fee,day,size,id;
         String name,code,desc;
+        String toDisplay;
         Event(int id,String name,int fee,int day,int size,String code,String desc)
         {
             this.id=id;
@@ -94,6 +95,7 @@ public class EventList extends AppCompatActivity
             this.fee= fee;
             this.day = day;
             this.code= code;
+            toDisplay = EventDetails.filterLongDesc((desc));
         }
     }
     class EventListAdapter extends ArrayAdapter<Event> implements View.OnClickListener {
@@ -110,7 +112,7 @@ public class EventList extends AppCompatActivity
             TextView tv = (TextView) convertView.findViewById(R.id.tv_event_list_element);
             tv.setText(getItem(position).name);
             TextView tvdesc = (TextView) convertView.findViewById(R.id.tv_event_list_element_desc);
-            tvdesc.setText(getItem(position).desc);
+            tvdesc.setText(getItem(position).toDisplay);
             View v=convertView.findViewById(R.id.fab);
             v.setTag(position);
             v.setOnClickListener(this);

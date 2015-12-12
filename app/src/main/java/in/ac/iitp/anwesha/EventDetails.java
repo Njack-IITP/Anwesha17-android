@@ -13,10 +13,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EventDetails extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +33,19 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     private int id;
 
     WebSyncDB db;
+    static String filterLongDesc(String longdesc)
+    {
+        longdesc = longdesc.replaceAll("<[^>]*>", "");
+        longdesc = longdesc.replaceAll("&nbsp;", "");
+        longdesc = longdesc.replaceAll("&ldquo;", "\n");
+        longdesc = longdesc.replaceAll("\r", "\n");
+        longdesc = longdesc.trim();
+        longdesc = longdesc.substring(longdesc.indexOf("\n"));
+        longdesc = longdesc.trim();
+
+        return  longdesc;
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +89,20 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         String longdesc = in.getStringExtra("eventDesc");
         String code = in.getStringExtra("eventCode");
         setTitle(name);
+        longdesc = filterLongDesc(longdesc);
+        //Matcher matcher = Pattern.compile("<")
+        /*try {
+            XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+            xmlReader.parse(longdesc);
 
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        String shortDesc =
+    */
         //For Now all is Just Event Name
         /*
         if(!cursor.isAfterLast())
@@ -87,7 +121,7 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         */
         /****************************************/
 
-        ((TextView)findViewById(R.id.event_details_title)).setText(code);
+                ((TextView) findViewById(R.id.event_details_title)).setText(code);
         ((TextView)findViewById(R.id.event_details_subtitle)).setText("");
         ((TextView)findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
         ((TextView)findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");

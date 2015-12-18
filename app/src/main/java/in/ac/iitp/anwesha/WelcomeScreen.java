@@ -71,7 +71,7 @@ public class WelcomeScreen extends AppCompatActivity implements Animation.Animat
         ani_fadein2.setStartOffset(1200);
         findViewById(R.id.logo).startAnimation(ani_fadein2);
         ani_fadein2.setFillAfter(true);
-        //ani_fadeout = AnimationUtils.loadAnimation(this,R.anim.fadeout);
+        ani_fadeout = AnimationUtils.loadAnimation(this,R.anim.fadeout);
         //total 1700 ms
         //ani_fadeout.setStartOffset(1700+1000);
 
@@ -163,19 +163,22 @@ public class WelcomeScreen extends AppCompatActivity implements Animation.Animat
     public void onAnimationEnd(Animation animation) {
         if(animation == ani_fadein2)
         {
-            ib_proceed.setVisibility(View.VISIBLE);
+            ib_proceed.setVisibility(View.INVISIBLE);
             tv_anwesha.clearAnimation();
+            ani_fadein.setDuration(1000);
             ib_proceed.startAnimation(ani_fadein);
 
-            //     tv_anwesha.startAnimation(ani_fadeout);
+         //       tv_anwesha.startAnimation(ani_fadeout);
         //    tv_anwesha_desc.startAnimation(ani_fadeout);
-       //     ani_fadeout.setAnimationListener(this);
+            ani_fadein.setAnimationListener(this);
 
         }
         else
         {
-//            ib_proceed.setVisibility(View.VISIBLE);
-//            ib_proceed.startAnimation(ani_fadein);
+            onClick(null);
+          // ib_proceed.setVisibility(View.VISIBLE);
+            //ib_proceed.startAnimation(ani_fadein);
+            //ani_fadein.setAnimationListener(this);
 
         }
     }

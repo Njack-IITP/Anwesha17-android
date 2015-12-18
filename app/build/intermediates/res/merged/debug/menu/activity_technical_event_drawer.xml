@@ -14,7 +14,7 @@
             </menu>
         </item>
         <item android:id="@+id/nav_spons" android:icon="@drawable/ic_spons"
-            android:title="Sponsers" />
+            android:title="Sponsors" />
         <item android:id="@+id/nav_gallery" android:icon="@drawable/ic_gallery"
             android:title="Gallery" />
         <item android:id="@+id/nav_pronites" android:icon="@drawable/ic_pronites"
@@ -32,8 +32,6 @@
 
     <item android:title="Communicate">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
             <item android:id="@+id/nav_feedback" android:icon="@android:drawable/ic_dialog_email"
                 android:title="Feedback" />
         </menu>

@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_event_details" android:layout_width="match_parent"
-    android:background="#EEE"
     android:layout_height="match_parent" tools:context="in.ac.iitp.anwesha.EventDetails">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +14,8 @@
         tools:context="com.iitp.anwesha.app.EventDetails">
 
 
-            <LinearLayout
+
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"

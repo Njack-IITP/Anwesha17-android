@@ -121,12 +121,15 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         */
         /****************************************/
 
-                ((TextView) findViewById(R.id.event_details_title)).setText(code);
+        ((TextView) findViewById(R.id.event_details_title)).setText(code);
+        ((TextView) findViewById(R.id.event_details_title)).setTypeface(AllIDS.font_AnweshaSub);
+
         ((TextView)findViewById(R.id.event_details_subtitle)).setText("");
         ((TextView)findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
         ((TextView)findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");
         ((TextView)findViewById(R.id.event_details_schNvenue)).setText(venue);//"> Tutorial Block (1400 Day 1)");
         ((TextView)findViewById(R.id.event_details_story)).setText(longdesc);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
+        ((TextView)findViewById(R.id.event_details_story)).setTypeface(AllIDS.font_Sub1);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
 
         (findViewById(R.id.event_details_register)).setOnClickListener(this);
 

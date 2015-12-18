@@ -68,7 +68,15 @@ public class EventList extends AppCompatActivity
             c++;
 
         }
-        getSupportActionBar().setTitle(code);
+        String title= code;
+        if(code.equals("njack")) title="NJack";
+        else if(code.equals("spark")) title = "Sparkonics";
+        else if(code.equals("scme")) title = "SCME";
+        else if(code.equals("thesholdNchem")) title = "Threshold & Chemical";
+        else if(code.equals("rtdc")) title = "RTDC";
+
+
+        getSupportActionBar().setTitle(title);
 
     }
 
@@ -110,8 +118,11 @@ public class EventList extends AppCompatActivity
             if(convertView==null)
                 convertView = getLayoutInflater().inflate(resource,null);
             TextView tv = (TextView) convertView.findViewById(R.id.tv_event_list_element);
+            tv.setTypeface(AllIDS.font_AnweshaSub);
+
             tv.setText(getItem(position).name);
             TextView tvdesc = (TextView) convertView.findViewById(R.id.tv_event_list_element_desc);
+            tvdesc.setTypeface(AllIDS.font_Sub1);
             tvdesc.setText(getItem(position).toDisplay);
             View v=convertView.findViewById(R.id.fab);
             v.setTag(position);

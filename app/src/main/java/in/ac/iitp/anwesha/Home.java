@@ -11,6 +11,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class Home extends AppCompatActivity implements Animation.AnimationListener {
 
     private View nameBox,welcomeframe,head,head_container;
@@ -143,7 +145,7 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
 
         }
         buttonAnimations[1][3].setAnimationListener(this);
-       findViewById(R.id.b_home_superClubs).setAnimation(buttonAnimations[0][0]);
+        findViewById(R.id.b_home_superClubs).setAnimation(buttonAnimations[0][0]);
         findViewById(R.id.b_home_sponser).setAnimation(buttonAnimations[0][1]);
         findViewById(R.id.b_home_galley).startAnimation(buttonAnimations[0][2]);
         findViewById(R.id.b_home_team).startAnimation(buttonAnimations[0][3]);
@@ -151,7 +153,18 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         findViewById(R.id.b_home_schedule).startAnimation(buttonAnimations[1][0]);
         findViewById(R.id.b_home_map).startAnimation(buttonAnimations[1][1]);
         findViewById(R.id.b_home_pronites).startAnimation(buttonAnimations[1][2]);
-       findViewById(R.id.b_home_about).startAnimation(buttonAnimations[1][3]);
+        findViewById(R.id.b_home_about).startAnimation(buttonAnimations[1][3]);
+
+
+        ((TextView)findViewById(R.id.b_home_superClubs)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_sponser)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_galley)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_team)).setTypeface(AllIDS.font_AnweshaSub);
+
+        ((TextView)findViewById(R.id.b_home_schedule)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_map)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_pronites)).setTypeface(AllIDS.font_AnweshaSub);
+        ((TextView)findViewById(R.id.b_home_about)).setTypeface(AllIDS.font_AnweshaSub);
 
         findViewById(R.id.app_tray).startAnimation(AnimationUtils.loadAnimation(this,R.anim.floating_home_down));
 

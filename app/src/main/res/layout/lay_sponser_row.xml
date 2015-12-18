@@ -20,6 +20,7 @@
             android:layout_height="150dp"
             android:layout_weight="1"
             android:padding="5dp"
+            android:visibility="gone"
             android:id="@+id/iv_s2"
             android:scaleType="centerInside"
 
@@ -38,6 +39,7 @@
             android:layout_height="150dp"
             android:scaleType="centerInside"
             android:padding="5dp"
+            android:visibility="gone"
             android:layout_weight="1"
             android:id="@+id/iv_s4"
             />
@@ -60,6 +62,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:id="@+id/tv_s2"
+            android:visibility="gone"
 
             />
         <TextView
@@ -76,6 +79,7 @@
             android:padding="5dp"
             android:layout_weight="1"
             android:id="@+id/tv_s4"
+            android:visibility="gone"
             />
     </LinearLayout>
 </LinearLayout>

@@ -57,8 +57,8 @@
     <!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="colorAccent">#11113e</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#1f84b3</color>
+    <color name="colorPrimaryDark">#0b5270</color>
     <!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/res/values/base_colors.xml -->
     <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
@@ -154,8 +154,8 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="themeColor">#ff00b4ff</color>
-    <color name="themeColorDark">#007aac</color>
+    <color name="themeColor">#1f84b3</color>
+    <color name="themeColorDark">#0b5270</color>
     <!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.3.0/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
@@ -531,7 +531,7 @@
     <string name="title_activity_home">Home</string>
     <string name="title_activity_our_team">OurTeam</string>
     <string name="title_activity_pro_nites">ProNites</string>
-    <string name="title_activity_sponser">Sponsers</string>
+    <string name="title_activity_sponser">Sponsors</string>
     <string name="title_activity_team">Team</string>
     <string name="title_activity_technical_event">Technical Events</string>
     <string name="title_section1">Section 1</string>

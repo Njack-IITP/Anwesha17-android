@@ -21,6 +21,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     public MyNavigationDrawer(Activity activity)
     {
         this.activity = activity;
+
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -67,6 +68,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         }else  if (id == R.id.nav_event_tech) {
             if(openSubEvent(activity,"Technical")) activity.finish();
 
+        } else  if (id == R.id.nav_feedback) {
+            Toast.makeText(activity,"Coming Soon!",Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
@@ -100,22 +103,22 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openPronites(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        //openActivity(context,ProNites.class);
-        return false;
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,ProNites.class);
+        return true;
     }
 
     static boolean openAbout(Context context)
     {
         openActivity(context,About.class);
-        return false;
+        return true;
     }
 
     static boolean openTeam(Context context)
     {
         Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
         //openActivity(context,Team.class);
-        return true;
+        return false;
     }
 
     static boolean openSchedule(Context context)
@@ -129,7 +132,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     {
        // Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
         openActivity(context,Map.class);
-        return false;
+        return true;
     }
 
 

@@ -18,7 +18,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_example">Example action</string>
-    <string name="title_activity_sponser">Sponsers</string>
+    <string name="title_activity_sponser">Sponsors</string>
     <string name="title_activity_event_details">EventDetails</string>
     <string name="title_activity_technical_event">Technical Events</string>
     <string name="title_activity_team">Team</string>

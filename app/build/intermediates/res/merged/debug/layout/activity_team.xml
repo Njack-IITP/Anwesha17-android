@@ -20,12 +20,12 @@
             android:fitsSystemWindows="true" android:layout_width="match_parent"
             android:layout_height="match_parent" app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
-            app:titleEnabled="false"
-            android:background="@drawable/anwesha_banner">
+            >
 
             <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
                 android:titleTextColor="#000"
                 android:layout_height="?attr/actionBarSize" android:layout_width="match_parent"
+                app:title="Anwesha Team"
                 app:layout_collapseMode="pin" app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.CollapsingToolbarLayout>

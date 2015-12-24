@@ -69,8 +69,6 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         Intent in=getIntent();
 
         name = in.getStringExtra("eventName");
-        toolbar.setTitle("Title ");
-        //((TextView)findViewById(R.id.toolbar_text)).setText(name);
 
         //if(in.hasExtra("eventDesc"))
         //    shortDesc = in.getStringExtra("eventDesc");

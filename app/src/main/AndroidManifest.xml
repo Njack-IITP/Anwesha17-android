@@ -89,7 +89,7 @@
             android:name=".Gallery" >
         </activity>
         <activity
-            android:name=".ProNites"
+            android:name=".Pronites"
             android:label="@string/title_activity_pro_nites"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

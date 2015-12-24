@@ -3,14 +3,12 @@ package in.ac.iitp.anwesha;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
-
-import in.ac.iitp.anwesha.R;
 
 /**
  * Created by gagan on 4/10/15.
@@ -96,7 +94,11 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openGallery(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        Intent in;
+        in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/anwesha.iitpatna"));
+        context.startActivity(in);
+
         //openActivity(context,Gallery.class);
         return false;
     }
@@ -104,7 +106,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     static boolean openPronites(Context context)
     {
         //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,ProNites.class);
+        openActivity(context,Pronites.class);
         return true;
     }
 
@@ -116,9 +118,9 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openTeam(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        //openActivity(context,Team.class);
-        return false;
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,Team.class);
+        return true;
     }
 
     static boolean openSchedule(Context context)

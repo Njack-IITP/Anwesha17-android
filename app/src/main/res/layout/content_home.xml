@@ -116,7 +116,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#642e81ab"
                         android:layout_alignParentBottom="true"
                         android:id="@+id/frameLayout"
                         android:orientation="vertical"

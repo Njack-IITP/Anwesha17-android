@@ -96,7 +96,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     {
         //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
         Intent in;
-        in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/anwesha.iitpatna"));
+        in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://2016.anwesha.info/gallery.html"));
         context.startActivity(in);
 
         //openActivity(context,Gallery.class);

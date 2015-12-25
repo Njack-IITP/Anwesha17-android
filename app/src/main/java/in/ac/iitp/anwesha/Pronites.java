@@ -1,5 +1,6 @@
 package in.ac.iitp.anwesha;
 
+import android.graphics.Typeface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -37,7 +38,8 @@ public class Pronites extends AppCompatActivity {
     static ImageView i1;
     static ImageView i2;
     static ImageView i3;
-
+/*    TextView tv1,tv2,tv3;
+    Typeface font;*/
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -50,6 +52,13 @@ public class Pronites extends AppCompatActivity {
        /* i1=(ImageView)findViewById(R.id.img1);
         i2=(ImageView)findViewById(R.id.img2);
         i3=(ImageView)findViewById(R.id.img3);*/
+     /*   tv1=(TextView)findViewById(R.id.textView2);
+        tv2=(TextView)findViewById(R.id.textView3);
+        tv3=(TextView)findViewById(R.id.textView4);
+        font=Typeface.createFromAsset(getAssets(), "fonts/caviardreams.ttf");
+        tv1.setTypeface(font);
+        tv2.setTypeface(font);
+        tv3.setTypeface(font); */
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -74,6 +83,29 @@ public class Pronites extends AppCompatActivity {
             }
         });      */
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_pro_nites, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -144,37 +176,43 @@ public class Pronites extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView;// = inflater.inflate(R.layout.fragment_pro_nites, container, false);
             Random rand=new Random();
-            int i=(rand.nextInt(100))%2;
+            int i;
             if( getArguments().getInt(ARG_SECTION_NUMBER)==1){
                 rootView = inflater.inflate(R.layout.fragment_pro_nites, container, false);
+                ((TextView)rootView.findViewById(R.id.textView2)).setTypeface(AllIDS.font_AnweshaSub);
+                i=(rand.nextInt(100))%2;
                 if(i==0) {
                     ((ImageView)rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha);
                 }
                 else {
-                    ((ImageView)rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha1);
+                    ((ImageView)rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha5);
                 }
-                i=(rand.nextInt(100))%2;
+
             }
             else if(getArguments().getInt(ARG_SECTION_NUMBER)==2)
             {
                 rootView = inflater.inflate(R.layout.fragment_pro_nites_2, container, false);
+                ((TextView)rootView.findViewById(R.id.textView4)).setTypeface(AllIDS.font_AnweshaSub);
+                i=(rand.nextInt(100))%2;
                 if(i==0) {
                     ((ImageView)rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha2);
                 }
                 else {
                     ((ImageView)rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha3);
                 }
-                i=(rand.nextInt(100))%2;
+
 
             }else{
                 rootView = inflater.inflate(R.layout.fragment_pro_nites_3, container, false);
+                ((TextView)rootView.findViewById(R.id.textView3)).setTypeface(AllIDS.font_AnweshaSub);
+                i=(rand.nextInt(100))%2;
                 if(i==0) {
                     ((ImageView)rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.anwesha4);
                 }
                 else {
-                    ((ImageView)rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.anwesha5);
+                    ((ImageView)rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.anwesha1);
                 }
-                i=(rand.nextInt(100))%2;
+
             }
             return rootView;
         }

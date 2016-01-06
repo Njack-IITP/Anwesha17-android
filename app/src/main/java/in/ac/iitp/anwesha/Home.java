@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,8 +24,13 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyNavigationDrawer.openLoginPage(Home.this);
+            }
+        });
 
         ((TextView)findViewById(R.id.tv_anwesha_head)).setTypeface(AllIDS.font_Anwesha);
         //

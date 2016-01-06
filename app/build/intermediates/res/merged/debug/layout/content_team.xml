@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,77 +12,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <TextView
-            android:layout_marginTop="10dp"
+        <ExpandableListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fest Coordinator"
-            android:gravity="center"
-            android:textColor="#FFF"
-            android:textSize="20dp"
+            android:layout_height="match_parent"
+            android:id="@+id/elv_team"
+            android:groupIndicator="@android:drawable/dark_header"
+            android:clipChildren="true"
+            >
 
-            android:background="#96777777"/>
-        <ImageButton
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/event_lit"/>
-
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Coordinator"
-            android:gravity="center"
-            android:textColor="#FFF"
-            android:textSize="20dp"
-
-            android:background="#96777777"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/event_eco"
-                android:layout_marginRight="10dp"/>
-            <ImageButton
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/event_managment"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/event_lit"
-                android:layout_marginRight="10dp"/>
-            <ImageButton
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/event_tech"/>
-        </LinearLayout>
-
+        </ExpandableListView>
 
 
 
@@ -90,5 +28,5 @@
 
 
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
 <!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/content_team.xml -->

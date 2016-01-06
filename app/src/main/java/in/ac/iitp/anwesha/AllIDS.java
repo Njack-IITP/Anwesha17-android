@@ -1,7 +1,9 @@
 package in.ac.iitp.anwesha;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.widget.Toast;
@@ -46,10 +48,43 @@ public class AllIDS extends Application {
         font_Sub1 = Typeface.SERIF;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
         font_Sub2 = Typeface.DEFAULT;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
 
+        readSharedPref(getApplicationContext());
+
         Intent backgroundService = new Intent(this,BackgroundFetch.class);
         startService(backgroundService);
         Log.e("AllIDS", "Staring Background Service");
 
     }
+
+
+
+    static int USER_id = -1;
+    static String USER_username = null;
+    static String USER_displayName = null;
+
+    static void saveSharedPref(Context context)
+    {
+        SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("id",USER_id);
+        editor.putString("username", USER_username);
+        editor.putString("displayname",USER_displayName);
+        editor.putString("cookie",MyHttpClient.getCookie());
+
+        editor.commit();
+
+    }
+    static void readSharedPref(Context context)
+    {
+        SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
+        USER_id = sp.getInt("id",-1);
+        USER_username = sp.getString("username", null);
+        USER_displayName = sp.getString("displayname",null);
+        MyHttpClient.setCookie(sp.getString("cookie",""));
+
+    }
+
+
+
 
 }

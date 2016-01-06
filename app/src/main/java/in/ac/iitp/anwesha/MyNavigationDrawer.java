@@ -68,6 +68,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
         } else  if (id == R.id.nav_feedback) {
             Toast.makeText(activity,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        } else  if (id == R.id.nav_login) {
+            if(openLoginPage(activity)) activity.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
@@ -106,7 +108,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     static boolean openPronites(Context context)
     {
         //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Pronites.class);
+        openActivity(context, Pronites.class);
         return true;
     }
 
@@ -136,6 +138,14 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         openActivity(context,Map.class);
         return true;
     }
+
+    static boolean openLoginPage(Context context)
+    {
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,Users.class);
+        return true;
+    }
+
 
 
     static boolean openSubEvent(Context context,String tag)

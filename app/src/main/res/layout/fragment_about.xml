@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anwesha"
+
         android:layout_gravity="center"
         android:textSize="45sp"
         android:textColor="#000"
@@ -38,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:padding="10dp"
         android:text="@string/about_anwesha"
         />
     </ScrollView>

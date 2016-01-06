@@ -22,13 +22,16 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" >
-    </uses-feature>
+        android:required="true" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- Permissions required for GCM -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Optional permission for App measurement to run. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
@@ -55,30 +58,25 @@
             android:name="in.ac.iitp.anwesha.Home"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.Event"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="in.ac.iitp.anwesha.Sponser"
             android:label="@string/title_activity_sponser"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.EventDetails"
             android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.EventList"
             android:label="@string/title_activity_event_list"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name="in.ac.iitp.anwesha.Reminder" />
 
@@ -86,32 +84,26 @@
             android:name="in.ac.iitp.anwesha.TechnicalEvent"
             android:label="@string/title_activity_technical_event"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.Team"
             android:label="@string/title_activity_team"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.About"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name="in.ac.iitp.anwesha.Gallery" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="in.ac.iitp.anwesha.Gallery" />
         <activity
             android:name="in.ac.iitp.anwesha.Pronites"
             android:label="@string/title_activity_pro_nites"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="in.ac.iitp.anwesha.Map"
             android:label="Map"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="in.ac.iitp.anwesha.LocationsContentProvider"
@@ -121,12 +113,20 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-﻿
+        ﻿
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBnLDzmXX5DJ6Qpn2cJB20gm37DV380IEI" />
 
         <service android:name="in.ac.iitp.anwesha.BackgroundFetch" />
+
+        <activity
+            android:name="in.ac.iitp.anwesha.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name="in.ac.iitp.anwesha.Users"
+            android:label="@string/title_activity_users"
+            android:theme="@style/AppTheme.NoActionBar" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

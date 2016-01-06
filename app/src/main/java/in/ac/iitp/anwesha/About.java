@@ -71,6 +71,8 @@ public class About extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
 
+
+
     }
 
 

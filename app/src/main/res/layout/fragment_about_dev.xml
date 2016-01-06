@@ -46,11 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gagan Kumar"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+91-9473480014"
+            android:textStyle="italic"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
@@ -71,16 +73,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Abhishek Kumar"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+91-9631089106"
+            android:textStyle="italic"
             android:layout_gravity="center_horizontal"/>
 
 
     </LinearLayout>
     </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Under guidance of"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shubham Verma"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91-7762882652"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal"/>
+
+
     </LinearLayout>
     </android.support.v7.widget.CardView>
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class TechnicalEvent extends AppCompatActivity
         implements View.OnClickListener {
-    private   TextView njack,scme,rtdc,sparkonics,civilNchem;
+    private   TextView njack,scme,rtdc,sparkonics,civilNchem,ace,sae;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +55,26 @@ public class TechnicalEvent extends AppCompatActivity
         rtdc = (TextView) findViewById(R.id.rtdc);
         sparkonics = (TextView) findViewById(R.id.spark);
         civilNchem = (TextView) findViewById(R.id.civilNchem);
+
+        ace = (TextView) findViewById(R.id.ace);
+        sae = (TextView) findViewById(R.id.sae);
+
+
         njack.setTypeface(AllIDS.font_Title);
         scme.setTypeface(AllIDS.font_Title);
         rtdc.setTypeface(AllIDS.font_Title);
         sparkonics.setTypeface(AllIDS.font_Title);
         civilNchem.setTypeface(AllIDS.font_Title);
-        /*((ImageButton) njack).setBackground((new BitmapDrawable(Event.giveMeCirculatImage(((BitmapDrawable) ((ImageButton) njack).getBackground()).getBitmap(), 0.5f, true))).getCurrent());
-        ((ImageButton) scme).setBackground((new BitmapDrawable(Event.giveMeCirculatImage(((BitmapDrawable) ((ImageButton) scme).getBackground()).getBitmap(), 0.5f, true))).getCurrent());
-        ((ImageButton) rtdc).setBackground((new BitmapDrawable(Event.giveMeCirculatImage(((BitmapDrawable) ((ImageButton) rtdc).getBackground()).getBitmap(), 0.5f, true))).getCurrent());
-        ((ImageButton) sparkonics).setBackground((new BitmapDrawable(Event.giveMeCirculatImage(((BitmapDrawable) ((ImageButton) sparkonics).getBackground()).getBitmap(), 0.5f, true))).getCurrent());
-        ((ImageButton) civilNchem).setBackground((new BitmapDrawable(Event.giveMeCirculatImage(((BitmapDrawable) ((ImageButton) civilNchem).getBackground()).getBitmap(), 0.5f, true))).getCurrent());
-        */njack.setOnClickListener(this);
+        ace.setTypeface(AllIDS.font_Title);
+        sae.setTypeface(AllIDS.font_Title);
+
+        njack.setOnClickListener(this);
         scme.setOnClickListener(this);
         rtdc.setOnClickListener(this);
         sparkonics.setOnClickListener(this);
         civilNchem.setOnClickListener(this);
+        ace.setOnClickListener(this);
+        sae.setOnClickListener(this);
 
     }
 

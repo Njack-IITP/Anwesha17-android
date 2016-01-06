@@ -54,10 +54,19 @@ public class EventList extends AppCompatActivity
         ela = new EventListAdapter(this,R.layout.lay_event_element);
         lv.setAdapter(ela);
         lv.setClickable(false);
-        //lv.setOnItemClickListener(this);
+
+
         Intent intent=getIntent();
         String code = intent.getStringExtra("event_list");
         /************** Fetch Data According to tag and set Title***********/
+        if(code.equalsIgnoreCase("spark")) code= "Sparkonics";
+        if(code.equalsIgnoreCase("thesholdNchem")) code= "Threshold";
+        if(code.equalsIgnoreCase("njack")) code= "NJACK";
+        if(code.equalsIgnoreCase("scme")) code= "SCME";
+        if(code.equalsIgnoreCase("ace")) code= "ACE";
+        if(code.equalsIgnoreCase("sae")) code= "SAE";
+        if(code.equalsIgnoreCase("rtdc")) code= "RTDC";
+
         Cursor cursor = db.getParticularEvents(code);
         int c=0;
         cursor.moveToFirst();
@@ -66,15 +75,10 @@ public class EventList extends AppCompatActivity
                 ela.add(new Event(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5),cursor.getString(6)));
                 cursor.moveToNext();
             c++;
+            if(c>100) break;
 
         }
         String title= code;
-        if(code.equals("njack")) title="NJack";
-        else if(code.equals("spark")) title = "Sparkonics";
-        else if(code.equals("scme")) title = "SCME";
-        else if(code.equals("thesholdNchem")) title = "Threshold & Chemical";
-        else if(code.equals("rtdc")) title = "RTDC";
-
 
         getSupportActionBar().setTitle(title);
 

@@ -30,6 +30,13 @@
 
     </group>
 
+    <item android:title="Registration">
+        <menu>
+            <item android:id="@+id/nav_login" android:icon="@android:drawable/ic_popup_sync"
+                android:title="Login" />
+        </menu>
+    </item>
+
     <item android:title="Communicate">
         <menu>
             <item android:id="@+id/nav_feedback" android:icon="@android:drawable/ic_dialog_email"

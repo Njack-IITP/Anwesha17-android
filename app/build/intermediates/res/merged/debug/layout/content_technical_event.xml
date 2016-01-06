@@ -33,7 +33,7 @@
         android:id="@+id/njack"
         android:layout_marginTop="10dp"
         android:gravity="right"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/dialog_holo_light_frame"/>
     <TextView
         android:tag="spark"
@@ -47,7 +47,7 @@
         android:paddingRight="10dp"
         android:id="@+id/spark"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/dialog_holo_light_frame"/>
     <TextView
         android:tag="scme"
@@ -62,7 +62,7 @@
         android:paddingRight="10dp"
         android:id="@+id/scme"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/dialog_holo_light_frame"/>
     <TextView
 
@@ -77,23 +77,53 @@
         android:paddingRight="10dp"
         android:id="@+id/civilNchem"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/dialog_holo_light_frame"/>
-    <TextView
-        android:tag="rtdc"
-        android:layout_width="match_parent"
-        android:gravity="right"
-        android:layout_height="wrap_content"
-        android:text="RTDC"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:id="@+id/rtdc"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:background="@android:drawable/dialog_holo_light_frame"/>
+        <TextView
+            android:tag="rtdc"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="RTDC"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/rtdc"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:drawable/dialog_holo_light_frame"/>
+        <TextView
+            android:tag="sae"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:text="SAE"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/sae"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:drawable/dialog_holo_light_frame"/>
+        <TextView
+            android:tag="ace"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="ACE"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/ace"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:drawable/dialog_holo_light_frame"/>
     </LinearLayout>
     </RelativeLayout>
 </ScrollView>

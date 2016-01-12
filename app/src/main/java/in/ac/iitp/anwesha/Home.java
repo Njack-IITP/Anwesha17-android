@@ -25,12 +25,22 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         setContentView(R.layout.activity_home);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyNavigationDrawer.openLoginPage(Home.this);
-            }
-        });
+        if(AllIDS.USER_key==null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyNavigationDrawer.openLoginPage(Home.this);
+                }
+            });
+        } else {
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AllIDS.logout(getBaseContext());
+                }
+            });
+        }
 
         ((TextView)findViewById(R.id.tv_anwesha_head)).setTypeface(AllIDS.font_Anwesha);
         //

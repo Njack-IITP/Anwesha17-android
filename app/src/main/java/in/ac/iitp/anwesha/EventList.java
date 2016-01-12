@@ -58,16 +58,7 @@ public class EventList extends AppCompatActivity
 
         Intent intent=getIntent();
         String code = intent.getStringExtra("event_list");
-        /************** Fetch Data According to tag and set Title***********/
-        if(code.equalsIgnoreCase("spark")) code= "Sparkonics";
-        if(code.equalsIgnoreCase("thesholdNchem")) code= "Threshold";
-        if(code.equalsIgnoreCase("njack")) code= "NJACK";
-        if(code.equalsIgnoreCase("scme")) code= "SCME";
-        if(code.equalsIgnoreCase("ace")) code= "ACE";
-        if(code.equalsIgnoreCase("sae")) code= "SAE";
-        if(code.equalsIgnoreCase("rtdc")) code= "RTDC";
-
-        Cursor cursor = db.getParticularEvents(code);
+        Cursor cursor = db.getParticularEvents(code.replaceAll(" ",""));
         int c=0;
         cursor.moveToFirst();
         while(!cursor.isAfterLast())

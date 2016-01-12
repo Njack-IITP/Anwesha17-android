@@ -184,21 +184,6 @@ public class Event extends Activity implements View.OnTouchListener, View.OnClic
         if(tag.equals("cult"))
                 return  "Cultural";
 
-        if(tag.equals("njack"))
-                return "NJACK";
-
-        if(tag.equals("spark"))
-                return  "Sparkonics";
-
-        if(tag.equals( "scme"))
-                return  "SCME";
-
-        if(tag.equals( "thesholdNchem"))
-                return  "Threshold &amp; Chemical";
-
-        if(tag.equals( "rtdc"))
-                return  "RTDC";
-
 
 
         return null;

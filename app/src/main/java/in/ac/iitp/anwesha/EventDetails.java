@@ -3,6 +3,7 @@ package in.ac.iitp.anwesha;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,16 +15,21 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
+import java.net.HttpCookie;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -141,7 +147,56 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         //**** For Registering in Event  ******/
-        SplashMessage(name,"Comming Soon!",android.R.drawable.ic_dialog_info);
+        if(AllIDS.USER_key==null)
+        {
+            Intent in = new Intent(this,Users.class);
+            startActivity(in);
+            return;
+        }
+        String url = BackgroundFetch.BASE_URL + "/register/"+id;
+        ArrayList<Pair<String,String>> param = new ArrayList<>();
+        HMac mac = new HMac();
+        param.add(new Pair<String, String>("hmac _mapped",mac.getHash()));
+        param.add(new Pair<String, String>("content",mac.getMessage()));
+        //final ProgressDialog pd = new ProgressDialog(getBaseContext());
+        //pd.setMessage("Registering");
+        //pd.show();
+        MyHttpClient client = new MyHttpClient(url, param, true, new MyHttpClientListener() {
+            @Override
+            public void onPreExecute() {
+
+
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+                //pd.dismiss();
+                SplashMessage(name, "Registration Failed", android.R.drawable.ic_dialog_info);
+
+            }
+
+            @Override
+            public void onSuccess(Object output) {
+                String msg = "Not Registered";
+                String out = (String) output;
+                try {
+                    JSONObject ob = new JSONObject(out);
+                    boolean status = ob.getBoolean("status");
+                    msg = ob.getString("msg");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                //pd.dismiss();
+                SplashMessage(name,msg,android.R.drawable.ic_dialog_info);
+
+            }
+
+            @Override
+            public void onBackgroundSuccess(String result) {
+
+            }
+        });
+
 
         //SplashMessage(name,"Registered",android.R.drawable.ic_dialog_info);
         //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);

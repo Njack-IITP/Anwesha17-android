@@ -58,17 +58,18 @@ public class AllIDS extends Application {
 
 
 
-    static int USER_id = -1;
-    static String USER_username = null;
-    static String USER_displayName = null;
+    static String USER_anweshaID = null;
+    static String USER_name = null;
+    static String USER_key = null;
+
 
     static void saveSharedPref(Context context)
     {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("id",USER_id);
-        editor.putString("username", USER_username);
-        editor.putString("displayname",USER_displayName);
+        editor.putString("id",USER_anweshaID);
+        editor.putString("name", USER_name);
+        editor.putString("key",USER_key);
         editor.putString("cookie",MyHttpClient.getCookie());
 
         editor.commit();
@@ -77,14 +78,21 @@ public class AllIDS extends Application {
     static void readSharedPref(Context context)
     {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
-        USER_id = sp.getInt("id",-1);
-        USER_username = sp.getString("username", null);
-        USER_displayName = sp.getString("displayname",null);
+        USER_anweshaID = sp.getString("id",null);
+        USER_name = sp.getString("name", null);
+        USER_key = sp.getString("key",null);
         MyHttpClient.setCookie(sp.getString("cookie",""));
 
     }
 
+    static void logout(Context context)
+    {
+        USER_anweshaID = null;
+        USER_key = null;
+        USER_name = null;
+        saveSharedPref(context);
 
+    }
 
 
 }

@@ -46,6 +46,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -174,6 +175,13 @@ public class Users extends AppCompatActivity {
             return "Too long for Name";
         return null;
     }
+    private static String isAnweshaIDvalid(String id) {
+        if(id.length()!=7)
+            return "Invalid ID (ANWxxxx)";
+        if (!id.substring(0,3).equalsIgnoreCase("ANW"))
+            return "Invalid ID (ANWxxxx)";
+        return null;
+    }
 
     private static String isDOBValid(String dob) {
         String original = dob;
@@ -298,13 +306,14 @@ public class Users extends AppCompatActivity {
                 cancel = true;
             }
 
+            String result = null;
             // Check for a valid email address.
             if (TextUtils.isEmpty(email)) {
                 mEmailView.setError(getString(R.string.error_field_required));
                 focusView = mEmailView;
                 cancel = true;
-            } else if (!isEmailValid(email)) {
-                mEmailView.setError(getString(R.string.error_invalid_email));
+            } else if (( result = isAnweshaIDvalid(email))!=null) {
+                mEmailView.setError(result);
                 focusView = mEmailView;
                 cancel = true;
             }
@@ -327,12 +336,13 @@ public class Users extends AppCompatActivity {
          */
 
 
-        void tryLogin(String email, String password) {
+        void tryLogin(final String email, String password) {
             ArrayList<Pair<String, String>> param = new ArrayList<>();
-            param.add(new Pair<String, String>("email", email));
-            param.add(new Pair<String, String>("pass", password));
+            final String _email = email.toUpperCase();
+            param.add(new Pair<String, String>("username", _email));
+            param.add(new Pair<String, String>("password", password));
 
-            MyHttpClient client = new MyHttpClient(BackgroundFetch.BASE_URL + "/login.php", param, true, new MyHttpClientListener() {
+            MyHttpClient client = new MyHttpClient(BackgroundFetch.BASE_URL + "/login", param, true, new MyHttpClientListener() {
                 @Override
                 public void onPreExecute() {
 
@@ -346,7 +356,32 @@ public class Users extends AppCompatActivity {
                 @Override
                 public void onSuccess(Object output) {
                     String result = (String) output;
-                    //Update AllIDS variable and saveSharedPref...............
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("Registration")
+                            .setPositiveButton("Ok",null)
+                            .setMessage("Some Error Occured");
+
+
+                    try {
+                        JSONObject object = new JSONObject(result);
+                        boolean status = object.getBoolean("status");
+                        String msg = object.getString("msg");
+                        dialog.setMessage(msg);
+                        if(status)
+                        {
+                            String name = object.getString("name");
+                            String key = object.getString("key");
+                            AllIDS.USER_name = name;
+                            AllIDS.USER_key = key;
+                            AllIDS.USER_anweshaID = _email;
+                            AllIDS.saveSharedPref(getContext());
+                            getActivity().finish();
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    dialog.create().show();
 
 
                     showProgress(false, mLoginFormView, mProgressView, getResources());
@@ -536,17 +571,16 @@ public class Users extends AppCompatActivity {
                 @Override
                 public void onSuccess(Object output) {
                     String result = (String) output;
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("Registration")
+                            .setMessage("Some Error Occured!")
+                            .setPositiveButton("Ok",null);
                     try {
                         JSONArray array = new JSONArray(result);
                         int status = array.getInt(0);
                         if(status==1)
                         {
-                            AlertDialog dialog = new AlertDialog.Builder(getContext())
-                                    .setTitle("Registration")
-                                    .setMessage("Success")
-                                    .setPositiveButton("Ok",null)
-                                    .create();
-                            dialog.show();
+                            JSONObject obj = array.getJSONObject(1);
                             et_city.setText(null);
                             et_name.setText(null);
                             et_college.setText(null);
@@ -554,18 +588,20 @@ public class Users extends AppCompatActivity {
                             et_dob.setText(null);
                             mPasswordConfirm.setText(null);
                             mPasswordView.setText(null);
+                            dialog.setMessage("Your Anwesha ID : ANW"+obj.getInt("pId"));
+
 
                         }
                         else
                         {
-                            Toast.makeText(getActivity(),array.getString(1),Toast.LENGTH_SHORT).show();
+                            dialog.setMessage(array.getString(1));
+
                         }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    //Update AllIDS variable and saveSharedPref...............
-                    Toast.makeText(RegistationFragment.this.getActivity(),result,Toast.LENGTH_LONG).show();
-
+                    dialog.create().show();
                     showProgress(false, mLoginFormView, mProgressView, getResources());
                 }
 

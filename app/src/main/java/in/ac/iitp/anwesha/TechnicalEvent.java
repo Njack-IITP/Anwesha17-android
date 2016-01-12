@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class TechnicalEvent extends AppCompatActivity
         implements View.OnClickListener {
-    private   TextView njack,scme,rtdc,sparkonics,civilNchem,ace,sae;
+    private   TextView DoItYourself,LectureAndPresentation,OnTheMove,OnTheSpot,Quiz,Robotics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,31 +50,28 @@ public class TechnicalEvent extends AppCompatActivity
 
 
     public void initialise() {
-        njack = (TextView) findViewById(R.id.njack);
-        scme = (TextView) findViewById(R.id.scme);
-        rtdc = (TextView) findViewById(R.id.rtdc);
-        sparkonics = (TextView) findViewById(R.id.spark);
-        civilNchem = (TextView) findViewById(R.id.civilNchem);
+        DoItYourself = (TextView) findViewById(R.id.DoItYourself);
+        LectureAndPresentation = (TextView) findViewById(R.id.LectureAndPresentation);
+        OnTheMove = (TextView) findViewById(R.id.OnTheMove);
+        OnTheSpot = (TextView) findViewById(R.id.OnTheSpot);
+        Quiz = (TextView) findViewById(R.id.Quiz);
 
-        ace = (TextView) findViewById(R.id.ace);
-        sae = (TextView) findViewById(R.id.sae);
+        Robotics = (TextView) findViewById(R.id.Robotics);
 
 
-        njack.setTypeface(AllIDS.font_Title);
-        scme.setTypeface(AllIDS.font_Title);
-        rtdc.setTypeface(AllIDS.font_Title);
-        sparkonics.setTypeface(AllIDS.font_Title);
-        civilNchem.setTypeface(AllIDS.font_Title);
-        ace.setTypeface(AllIDS.font_Title);
-        sae.setTypeface(AllIDS.font_Title);
+        DoItYourself.setTypeface(AllIDS.font_Title);
+        LectureAndPresentation.setTypeface(AllIDS.font_Title);
+        OnTheMove.setTypeface(AllIDS.font_Title);
+        OnTheSpot.setTypeface(AllIDS.font_Title);
+        Quiz.setTypeface(AllIDS.font_Title);
+        Robotics.setTypeface(AllIDS.font_Title);
 
-        njack.setOnClickListener(this);
-        scme.setOnClickListener(this);
-        rtdc.setOnClickListener(this);
-        sparkonics.setOnClickListener(this);
-        civilNchem.setOnClickListener(this);
-        ace.setOnClickListener(this);
-        sae.setOnClickListener(this);
+        DoItYourself.setOnClickListener(this);
+        LectureAndPresentation.setOnClickListener(this);
+        OnTheMove.setOnClickListener(this);
+        OnTheSpot.setOnClickListener(this);
+        Quiz.setOnClickListener(this);
+        Robotics.setOnClickListener(this);
 
     }
 

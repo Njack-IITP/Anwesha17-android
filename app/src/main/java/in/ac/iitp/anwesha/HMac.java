@@ -2,6 +2,8 @@ package in.ac.iitp.anwesha;
 
 import android.util.Base64;
 
+import java.util.Random;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -10,10 +12,25 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class HMac {
 
+    Random ran = new Random();
     private String message = "Message";
+    private char getRandChar(){
+        if(ran.nextBoolean())
+            return (char)('a'+ran.nextInt(26)-1);
+        return (char)('A'+ran.nextInt(26)-1);
 
+
+    }
+    private String getRandomString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<15;i++)
+            sb.append(getRandChar());
+        return sb.toString();
+    }
     String getHash()
    {
+       message = getRandomString();
        try {
            String secret = AllIDS.USER_key;
            if(secret==null) return null;

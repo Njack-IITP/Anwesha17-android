@@ -109,6 +109,21 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@android:drawable/dialog_holo_light_frame"/>
+        <TextView
+            android:tag="Coding-Hacking"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:text="Coding-Hacking"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/CodingHacking"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:drawable/dialog_holo_light_frame"/>
 
     </LinearLayout>
     </RelativeLayout>

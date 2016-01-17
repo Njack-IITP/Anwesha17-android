@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/img1"
+        android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/gaganr"
         android:layout_marginBottom="5dp"
@@ -22,11 +23,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Verve\nSatanz Tantrum\nMiss Femina"
-        android:layout_marginLeft="15dp"
+
         android:textSize="37dp"
         android:textColor="#ffffff"
         android:id="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/img1"
-        android:layout_alignStart="@+id/img1" />
+        android:layout_margin="5dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/round_rect_transulent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

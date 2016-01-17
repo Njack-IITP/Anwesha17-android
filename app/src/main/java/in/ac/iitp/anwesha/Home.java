@@ -30,6 +30,7 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
                 @Override
                 public void onClick(View view) {
                     MyNavigationDrawer.openLoginPage(Home.this);
+
                 }
             });
         } else {

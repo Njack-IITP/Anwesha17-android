@@ -80,7 +80,7 @@ public class Team extends AppCompatActivity {
         ));
         list_TeamHead.add(temp);
         map_listPerson.put(temp="Security and Planning Committee", Arrays.asList(new String[]
-                        {"Aman Singh","Sheikh Sameeruddin"}
+                        {"Aman Singh","Sheikh Sameeruddin","Sreenath Keerty"}
         ));
         list_TeamHead.add(temp);
         map_listPerson.put(temp="Eco Committee", Arrays.asList(new String[]
@@ -93,6 +93,10 @@ public class Team extends AppCompatActivity {
         list_TeamHead.add(temp);
         map_listPerson.put(temp="Hospitality Committee", Arrays.asList(new String[]
                         {"Abhijeet Agnihotri","Dhruv Upadhyay","Mohammed Shiyas P C"}
+        ));
+        list_TeamHead.add(temp);
+        map_listPerson.put(temp="Literary Committee", Arrays.asList(new String[]
+                        {"Aditya Jhalani","Gaurav Garg"}
         ));
         list_TeamHead.add(temp);
 

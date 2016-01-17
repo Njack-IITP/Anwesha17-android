@@ -9,14 +9,17 @@
         android:layout_height="wrap_content"
         android:text="Person"
         android:layout_marginLeft="30dp"
-        android:layout_margin="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+
         android:gravity="left"
         android:paddingLeft="10dp"
-        android:textColor="#FFF"
+        android:textColor="#111"
         android:textSize="20dp"
         android:id="@+id/tv_team_person"
 
-        android:background="#96777777"/>
+        android:background="@drawable/round_rect_transulent"/>
 
 
 </LinearLayout>

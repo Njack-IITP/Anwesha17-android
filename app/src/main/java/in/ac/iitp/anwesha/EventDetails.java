@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,10 +18,13 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Pair;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xml.sax.SAXException;
@@ -36,7 +40,8 @@ import java.util.regex.Pattern;
 public class EventDetails extends AppCompatActivity implements View.OnClickListener {
 
     private String name,shortDesc;
-    private int id;
+    private int id, size =1 ;
+
 
     WebSyncDB db;
     static String filterLongDesc(String longdesc)
@@ -89,9 +94,10 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         //cursor.moveToFirst();
         String organisers = "Not Available";
         String rules = "Fee : "+in.getIntExtra("eventFee",0);
-        String venue = "Venue : NA\nDay : "+in.getIntExtra("eventDay",0);
+        String bottom = "Team Member : "+(size=in.getIntExtra("eventSize",1))+"\nDay : "+in.getIntExtra("eventDay",0);
         String longdesc = in.getStringExtra("eventDesc");
         String code = in.getStringExtra("eventCode");
+
         setTitle(name);
         longdesc = filterLongDesc(longdesc);
         //Matcher matcher = Pattern.compile("<")
@@ -131,7 +137,7 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         ((TextView)findViewById(R.id.event_details_subtitle)).setText("");
         ((TextView)findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
         ((TextView)findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");
-        ((TextView)findViewById(R.id.event_details_schNvenue)).setText(venue);//"> Tutorial Block (1400 Day 1)");
+        ((TextView)findViewById(R.id.event_details_schNvenue)).setText(bottom);//"> Tutorial Block (1400 Day 1)");
         ((TextView)findViewById(R.id.event_details_story)).setText(longdesc);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
         ((TextView)findViewById(R.id.event_details_story)).setTypeface(AllIDS.font_Sub1);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
 
@@ -142,10 +148,66 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
     public void goBack(View v)
     {
-        finish();
+        this.finish();
     }
     @Override
     public void onClick(View view) {
+        //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
+
+        if(size == 1)
+            postData(null,""+id);
+        else
+        {
+            LinearLayout v = new LinearLayout(this);
+            v.setOrientation(LinearLayout.VERTICAL);
+            final EditText team_name = new EditText(this);
+            team_name.setHint("Team Name");
+            v.addView(team_name);
+            final EditText[] team_members = new EditText[size-1];
+            for(int i=0;i<size-1;i++)
+            {
+                EditText et = new EditText(this);
+                et.setHint("Member "+(i+2)+" ID");
+                team_members[i]=et;
+                v.addView(et);
+            }
+            AlertDialog.Builder ad = new AlertDialog.Builder(this);
+            ad.setTitle("Group Registration");
+            ad.setView(v);
+            ad.setIcon(android.R.drawable.ic_dialog_info);
+            ad.setPositiveButton("Register", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                JSONObject obj = new JSONObject();
+                try {
+                    obj.put("name", team_name.getText().toString());
+                    ArrayList<String> list = new ArrayList<String>();
+                    for (int i2 = 0; i2 < size - 1; i2++)
+                        list.add( team_members[i].getText().toString());
+                    JSONArray array = new JSONArray(list);
+                    obj.put("IDs", array);
+                    ArrayList<Pair<String, String>> param = new ArrayList<Pair<String, String>>();
+                    param.add(new Pair<String, String>(obj.toString(), ""));
+                    String url = "group/" + id;
+                    postData(param, url);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    SplashMessage(name, "Error from App Side", android.R.drawable.ic_dialog_info);
+
+                }
+
+            }
+        });
+            ad.setNegativeButton("Cancel",null);
+            ad.show();
+
+        }
+    }
+
+    void postData(ArrayList<Pair<String,String>> param,String appurl)
+    {
         //**** For Registering in Event  ******/
         if(AllIDS.USER_key==null)
         {
@@ -153,14 +215,12 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
             startActivity(in);
             return;
         }
-        String url = BackgroundFetch.BASE_URL + "/register/"+id;
-        ArrayList<Pair<String,String>> param = new ArrayList<>();
+        String url = BackgroundFetch.BASE_URL + "/register/"+appurl;
+        if (param == null)
+            param = new ArrayList<>();
         HMac mac = new HMac();
         param.add(new Pair<String, String>("hmac _mapped",mac.getHash()));
         param.add(new Pair<String, String>("content",mac.getMessage()));
-        //final ProgressDialog pd = new ProgressDialog(getBaseContext());
-        //pd.setMessage("Registering");
-        //pd.show();
         MyHttpClient client = new MyHttpClient(url, param, true, new MyHttpClientListener() {
             @Override
             public void onPreExecute() {
@@ -199,8 +259,6 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
 
         //SplashMessage(name,"Registered",android.R.drawable.ic_dialog_info);
-        //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
-
 
     }
     public void SplashMessage(String Title,String str,int icon)

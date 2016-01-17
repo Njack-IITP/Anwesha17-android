@@ -15,15 +15,13 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:fitsSystemWindows="true" tools:openDrawer="start">
 
-
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg"
-        android:scaleType="centerCrop"/>
-
+        android:layout_marginTop="64dp"
+        android:layout_height="match_parent">
     <include layout="@layout/app_bar_sponser" android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView android:id="@+id/nav_view"
         android:layout_width="wrap_content" android:layout_height="match_parent"

@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/img2"
+        android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/abhishekr"
         android:layout_marginBottom="5dp"
@@ -23,10 +24,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Heel Turn\nSyngphony"
         android:id="@+id/textView4"
-        android:layout_marginLeft="15dp"
         android:textSize="37dp"
         android:textColor="#ffffff"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/img2"
-        android:layout_alignStart="@+id/img2" />
+
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_rect_transulent"
+        android:layout_alignParentBottom="true"  />
 </RelativeLayout>

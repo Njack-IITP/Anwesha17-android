@@ -98,6 +98,7 @@ public class EventList extends AppCompatActivity
             this.fee= fee;
             this.day = day;
             this.code= code;
+            this.size = size;
             toDisplay = EventDetails.filterLongDesc((desc));
         }
     }
@@ -142,6 +143,7 @@ public class EventList extends AppCompatActivity
             in.putExtra("eventDesc", e.desc);
             in.putExtra("eventCode", e.code);
             in.putExtra("eventDay", e.day);
+            in.putExtra("eventSize", e.size);
             in.putExtra("eventFee", e.fee);
             startActivity(in);
 

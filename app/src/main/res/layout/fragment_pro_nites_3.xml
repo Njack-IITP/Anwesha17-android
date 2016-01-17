@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/img3"
+        android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/abhishekr"
         android:layout_marginBottom="5dp"
@@ -24,9 +25,11 @@
         android:text="Rock Night"
         android:id="@+id/textView3"
         android:textSize="37dp"
+
+        android:layout_marginBottom="70dp"
         android:textColor="#ffffff"
-        android:layout_marginLeft="15dp"
-        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_rect_transulent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

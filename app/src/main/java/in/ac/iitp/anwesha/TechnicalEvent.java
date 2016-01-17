@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class TechnicalEvent extends AppCompatActivity
         implements View.OnClickListener {
-    private   TextView DoItYourself,LectureAndPresentation,OnTheMove,OnTheSpot,Quiz,Robotics;
+    private   TextView DoItYourself,LectureAndPresentation,OnTheMove,OnTheSpot,Quiz,Robotics,CodingHacking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class TechnicalEvent extends AppCompatActivity
         Quiz = (TextView) findViewById(R.id.Quiz);
 
         Robotics = (TextView) findViewById(R.id.Robotics);
+        CodingHacking = (TextView) findViewById(R.id.CodingHacking);
 
 
         DoItYourself.setTypeface(AllIDS.font_Title);
@@ -65,6 +66,7 @@ public class TechnicalEvent extends AppCompatActivity
         OnTheSpot.setTypeface(AllIDS.font_Title);
         Quiz.setTypeface(AllIDS.font_Title);
         Robotics.setTypeface(AllIDS.font_Title);
+        CodingHacking.setTypeface(AllIDS.font_Title);
 
         DoItYourself.setOnClickListener(this);
         LectureAndPresentation.setOnClickListener(this);
@@ -72,6 +74,7 @@ public class TechnicalEvent extends AppCompatActivity
         OnTheSpot.setOnClickListener(this);
         Quiz.setOnClickListener(this);
         Robotics.setOnClickListener(this);
+        CodingHacking.setOnClickListener(this);
 
     }
 

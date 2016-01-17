@@ -70,6 +70,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             Toast.makeText(activity,"Coming Soon!",Toast.LENGTH_SHORT).show();
         } else  if (id == R.id.nav_login) {
             if(openLoginPage(activity)) activity.finish();
+        } else  if (id == R.id.nav_registration) {
+            if(openRegistationPage(activity)) activity.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
@@ -145,6 +147,15 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         openActivity(context,Users.class);
         return true;
     }
+    static boolean openRegistationPage(Context context)
+    {
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        Intent in=new Intent(context,Users.class);
+        in.putExtra("reg",true);
+        context.startActivity(in);
+        return true;
+    }
+
 
 
 

@@ -3,23 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Person"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
+        android:background="@drawable/round_rect_transulent"
+        android:layout_height="wrap_content">
 
-        android:gravity="left"
-        android:paddingLeft="10dp"
-        android:textColor="#111"
-        android:textSize="20dp"
-        android:id="@+id/tv_team_person"
 
-        android:background="@drawable/round_rect_transulent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Person"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="#111"
+            android:textSize="20dp"
+            android:id="@+id/tv_team_person"
+
+    />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/call"
+            android:src="@android:drawable/ic_menu_call"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

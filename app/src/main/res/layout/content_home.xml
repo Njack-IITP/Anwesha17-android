@@ -28,6 +28,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/head_container1"
                 >
+
                 <RelativeLayout
 
                     android:layout_width="match_parent"
@@ -37,41 +38,8 @@
                     android:id="@+id/head"
 
                     android:layout_alignParentTop="true">
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:layout_marginTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:id="@+id/name_box"
-                        android:background="#10759c"
-                        android:layout_marginBottom="5dp">
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="-15sp"
-                            android:background="#ff0b2938"
-                            android:paddingTop="10sp"
-                            android:layout_weight="0.5"
-                            android:weightSum="1">
-                            <TextView
-                                android:padding="10sp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Anwesha 2016"
-                                android:gravity="center"
-                                android:textSize="30sp"
-                                android:textColor="#FFF"
-                                android:background="@drawable/anwesha_back"
-                                android:id="@+id/tv_anwesha_head"
-                                />
 
 
-
-                        </LinearLayout>
-                    </FrameLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -88,27 +56,6 @@
                             android:id="@+id/welcome"
 
                             >
-                            <!--
-                            <ImageView
-                                android:layout_width="100sp"
-                                android:layout_height="100sp"
-                                android:src="@drawable/img_bg"
-                                android:id="@+id/avatar"
-                                android:visibility="gone"/>
-                                -->
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:id="@+id/id_hiuser"
-                                android:layout_height="wrap_content"
-                                android:text="Hi, User"
-                                android:textSize="24sp"
-                                android:visibility="invisible"
-                                android:layout_marginBottom="35dp"
-                                android:layout_marginTop="110sp"
-                                android:gravity="center_horizontal"
-                                android:textColor="@color/white"
-                                />
-
 
                         </FrameLayout>
 

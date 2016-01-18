@@ -1,7 +1,9 @@
 package in.ac.iitp.anwesha;
 
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -70,7 +72,7 @@ public class AllIDS extends Application {
         editor.putString("id",USER_anweshaID);
         editor.putString("name", USER_name);
         editor.putString("key",USER_key);
-        editor.putString("cookie",MyHttpClient.getCookie());
+        //editor.putString("cookie",MyHttpClient.getCookie());
 
         editor.commit();
 
@@ -81,12 +83,13 @@ public class AllIDS extends Application {
         USER_anweshaID = sp.getString("id",null);
         USER_name = sp.getString("name", null);
         USER_key = sp.getString("key",null);
-        MyHttpClient.setCookie(sp.getString("cookie",""));
+     //   MyHttpClient.setCookie(sp.getString("cookie",""));
 
     }
 
     static void logout(Context context)
     {
+        Toast.makeText(context,"Logged Out!",Toast.LENGTH_SHORT).show();
         USER_anweshaID = null;
         USER_key = null;
         USER_name = null;
@@ -94,5 +97,25 @@ public class AllIDS extends Application {
 
     }
 
+    static void loginlogout(final Context context)
+    {
+        if(AllIDS.USER_key==null)
+            MyNavigationDrawer.openLoginPage(context);
+        else
+        {
+            AlertDialog alert =new AlertDialog.Builder(context)
+                    .setTitle("Anwesha")
+                    .setMessage("Are you sure you want to logout?")
+                    .setIcon(android.R.drawable.stat_sys_warning)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            AllIDS.logout(context);
+                        }
+                    }).setNegativeButton("No",null).create();
+            alert.show();
+        }
+    }
 
 }

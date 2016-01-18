@@ -147,7 +147,7 @@ public class Users extends AppCompatActivity {
 
     private static boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return true;
     }
 
     private static String isCityValid(String name) {
@@ -403,7 +403,7 @@ public class Users extends AppCompatActivity {
     public static class RegistationFragment extends Fragment {
 
         private AutoCompleteTextView mEmailView;
-        private EditText mPasswordView, mPasswordConfirm, et_name, et_dob, et_contact, et_city, et_college;
+        private EditText  et_name, et_dob, et_contact, et_city, et_college;
         private View mProgressView;
         private View mLoginFormView;
 
@@ -417,8 +417,6 @@ public class Users extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.registration, container, false);
             mEmailView = (AutoCompleteTextView) rootView.findViewById(R.id.email);
 
-            mPasswordView = (EditText) rootView.findViewById(R.id.password);
-            mPasswordConfirm = (EditText) rootView.findViewById(R.id.password_confirm);
             et_name = (EditText) rootView.findViewById(R.id.et_name);
             et_dob = (EditText) rootView.findViewById(R.id.et_dob);
             et_college = (EditText) rootView.findViewById(R.id.et_college);
@@ -471,8 +469,6 @@ public class Users extends AppCompatActivity {
 
             // Reset errors.
             mEmailView.setError(null);
-            mPasswordView.setError(null);
-            mPasswordConfirm.setError(null);
             et_name.setError(null);
             et_dob.setError(null);
             et_college.setError(null);
@@ -481,8 +477,6 @@ public class Users extends AppCompatActivity {
 
             // Store values at the time of the login attempt.
             String email = mEmailView.getText().toString();
-            String password = mPasswordView.getText().toString();
-            String passwordConfirm = mPasswordConfirm.getText().toString();
             String name = et_name.getText().toString();
             String dob = et_dob.getText().toString();
             String city = et_city.getText().toString();
@@ -491,17 +485,6 @@ public class Users extends AppCompatActivity {
 
 
             View focusView = null;
-
-            // Check for a valid password, if the user entered one.
-            if (!isPasswordValid(password)) {
-                mPasswordView.setError(getString(R.string.error_invalid_password));
-                focusView = mPasswordView;
-            }
-            if (!password.equals(passwordConfirm)) {
-                mPasswordConfirm.setError("Password Didn't Match");
-                focusView = mPasswordConfirm;
-            }
-
 
             String customErrorMessage = null;
             // Check for a valid email address.
@@ -538,7 +521,7 @@ public class Users extends AppCompatActivity {
                 // Show a progress spinner, and kick off a background task to
                 // perform the user login attempt.
                 showProgress(true, mLoginFormView, mProgressView, getResources());
-                tryRegister(email, password,name,contact,college,dob,city);
+                tryRegister(email,name,contact,college,dob,city);
             }
         }
 
@@ -548,7 +531,7 @@ public class Users extends AppCompatActivity {
          */
 
 
-        void tryRegister(String email, String password, String name, String mobile, String college, String dob, String city) {
+        void tryRegister(String email, String name, String mobile, String college, String dob, String city) {
             ArrayList<Pair<String, String>> param = new ArrayList<>();
             param.add(new Pair<String, String>("name", name));
             param.add(new Pair<String, String>("mobile", mobile));
@@ -589,8 +572,6 @@ public class Users extends AppCompatActivity {
                             et_college.setText(null);
                             et_contact.setText(null);
                             et_dob.setText(null);
-                            mPasswordConfirm.setText(null);
-                            mPasswordView.setText(null);
                             dialog.setMessage("Your Anwesha ID : ANW"+obj.getInt("pId"));
 
 

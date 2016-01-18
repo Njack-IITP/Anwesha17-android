@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_technical_event"
+    android:padding="20dp"
+    tools:context="in.ac.iitp.anwesha.TechnicalEvent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Day 1"
+                android:tag="day1.pdf"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/day1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/editbox_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Day 2"
+                android:tag="day2.pdf"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/day2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/editbox_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Day 3"
+                android:tag="day3.pdf"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/day3"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:background="@android:drawable/editbox_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Stage"
+                android:tag="mainstage.pdf"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/mainstage"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/editbox_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Night Schedule"
+                android:tag="night.pdf"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/night"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/editbox_background"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

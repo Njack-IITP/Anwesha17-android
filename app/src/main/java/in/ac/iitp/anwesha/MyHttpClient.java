@@ -1,8 +1,10 @@
 package in.ac.iitp.anwesha;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Pair;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
  */
 public class MyHttpClient extends AsyncTask<Void,Void,Object> {
 
+    Context context;
     private String url;
     private boolean isPost;
 
@@ -54,6 +57,9 @@ public class MyHttpClient extends AsyncTask<Void,Void,Object> {
     private JSONArray jsonArray;
     private JSONObject jsonObject;
     private Exception exception;
+
+    private int rc;
+    private  String rmsg;
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -92,6 +98,8 @@ public class MyHttpClient extends AsyncTask<Void,Void,Object> {
                     b.append((char) s);
                 result = b.toString();
                 String c=httpURLConnection.getHeaderField("set-cookie");
+                rmsg = httpURLConnection.getResponseMessage();
+                rc = httpURLConnection.getResponseCode();
                 if(c!=null)
                     cookie = c;
                 listener.onBackgroundSuccess(result);
@@ -109,7 +117,7 @@ public class MyHttpClient extends AsyncTask<Void,Void,Object> {
     @Override
     protected void onPostExecute(Object result) {
         super.onPostExecute(result);
-
+//        Toast.makeText(context,"RC :"+rc+" MSG : "+rmsg,Toast.LENGTH_SHORT).show();
         if(listener!=null)
         {
             if(result!=null)

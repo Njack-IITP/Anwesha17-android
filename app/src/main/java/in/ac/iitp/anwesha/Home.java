@@ -3,6 +3,7 @@ package in.ac.iitp.anwesha;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -25,31 +26,20 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         setContentView(R.layout.activity_home);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        if(AllIDS.USER_key==null) {
-            fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MyNavigationDrawer.openLoginPage(Home.this);
-
+                    AllIDS.loginlogout(Home.this);
                 }
             });
-        } else {
 
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    AllIDS.logout(getBaseContext());
-                }
-            });
-        }
-
-        ((TextView)findViewById(R.id.tv_anwesha_head)).setTypeface(AllIDS.font_Anwesha);
+        //((TextView)findViewById(R.id.tv_anwesha_head)).setTypeface(AllIDS.font_Anwesha);
         //
-        nameBox=findViewById(R.id.name_box);
+        //nameBox=findViewById(R.id.name_box);
         head_container=findViewById(R.id.head_container1);
         name_Box= AnimationUtils.loadAnimation(this, R.anim.title_open);
-        nameBox.startAnimation(name_Box);
-        nameBox.animate();
+        //nameBox.startAnimation(name_Box);
+        //nameBox.animate();
         //
         welcomeframe=findViewById(R.id.welcome);
         //welcome_anim=AnimationUtils.loadAnimation(this, R.anim.abc_fade_in);
@@ -97,7 +87,7 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         //l2.startAnimation(fadedrop);
         //l2.animate();
 
-        ((TextView)findViewById(R.id.id_hiuser)).setTypeface(AllIDS.font_AnweshaSub);
+       // ((TextView)findViewById(R.id.id_hiuser)).setTypeface(AllIDS.font_AnweshaSub);
 
         app_tray.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +104,9 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
                 expandImg2.animate();
             }
         });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+            app_tray.callOnClick();
+        }
 
         head_container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,10 +257,7 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        View v = findViewById(R.id.id_hiuser);
-        v.startAnimation(AnimationUtils.loadAnimation(this,R.anim.fadein));
-        v.setVisibility(View.VISIBLE);
-    }
+     }
 
     @Override
     public void onAnimationRepeat(Animation animation) {

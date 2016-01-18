@@ -1,14 +1,27 @@
 package in.ac.iitp.anwesha;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by gagan on 4/10/15.
@@ -66,10 +79,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         }else  if (id == R.id.nav_event_tech) {
             if(openSubEvent(activity,"Technical")) activity.finish();
 
-        } else  if (id == R.id.nav_feedback) {
-            Toast.makeText(activity,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        } else  if (id == R.id.nav_login) {
-            if(openLoginPage(activity)) activity.finish();
+        }else  if (id == R.id.nav_login) {
+            AllIDS.loginlogout(activity);
         } else  if (id == R.id.nav_registration) {
             if(openRegistationPage(activity)) activity.finish();
         }
@@ -92,7 +103,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openSponser(Context context)
     {
-        openActivity(context,Sponser.class);
+        openActivity(context, Sponser.class);
         return true;
     }
 
@@ -129,7 +140,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openSchedule(Context context)
     {
-        Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openScheduleDialog(context);
         //openActivity(context,Event.class);
         return false;
     }
@@ -144,7 +156,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     static boolean openLoginPage(Context context)
     {
         //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Users.class);
+        openActivity(context, Users.class);
         return true;
     }
     static boolean openRegistationPage(Context context)
@@ -178,6 +190,68 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         return false;
     }
 
+    static boolean openScheduleDialog(final Context context)
+    {
+        View.OnClickListener list = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPDF(context,(String)view.getTag());
+            }
+        };
+
+        View view = ((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.content_schedule,null);
+        view.findViewById(R.id.day1).setOnClickListener(list);
+        view.findViewById(R.id.day2).setOnClickListener(list);
+        view.findViewById(R.id.day3).setOnClickListener(list);
+        view.findViewById(R.id.night).setOnClickListener(list);
+        view.findViewById(R.id.mainstage).setOnClickListener(list);
+
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setTitle("Schedule")
+                .setView(view)
+                .setNegativeButton("Back",null)
+                .create();
+        dialog.show();
+        return false;
+
+    }
+    static  void openPDF(Context context,String name)
+    {
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Anwesha/");
+        folder.mkdirs();
+        File file = new File(folder,name);
+
+        if(!file.exists())
+        {
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+                InputStream is = context.getAssets().open("schedule/"+name);
+                byte[] bytes = new byte[1024*300];
+                int s;
+                s = is.read(bytes);
+                fos.write(bytes, 0, s);
+                fos.close();
+                is.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(file), "application/pdf");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        try {
+            context.startActivity(intent);
+        }catch (ActivityNotFoundException e)
+        {
+            Toast.makeText(context,"Sorry! Your phone is not supporting PDF",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
 
 
 }

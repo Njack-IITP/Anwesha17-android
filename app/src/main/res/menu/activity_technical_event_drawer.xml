@@ -30,10 +30,10 @@
 
     </group>
 
-    <item android:title="Login">
+    <item android:title="Session">
         <menu>
             <item android:id="@+id/nav_login" android:icon="@android:drawable/ic_popup_sync"
-                android:title="Login" />
+                android:title="Login/Logout" />
         </menu>
     </item>
     <item android:title="Registration">
@@ -43,11 +43,6 @@
         </menu>
     </item>
 
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_feedback" android:icon="@android:drawable/ic_dialog_email"
-                android:title="Feedback" />
-        </menu>
-    </item>
+
 
 </menu>

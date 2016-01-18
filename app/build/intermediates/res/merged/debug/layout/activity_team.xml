@@ -26,7 +26,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout android:id="@+id/toolbar_layout"
             android:fitsSystemWindows="true" android:layout_width="match_parent"
-            android:layout_height="match_parent" app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:layout_height="match_parent" app:layout_scrollFlags="exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary"
             >
 

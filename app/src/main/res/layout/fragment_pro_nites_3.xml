@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFF"
-    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
+    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment"
+    android:paddingBottom="64dp">
 
     <ImageView
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Rock Night"
+        android:text="Rock Night (Euphoria)"
         android:id="@+id/textView3"
         android:textSize="37dp"
 

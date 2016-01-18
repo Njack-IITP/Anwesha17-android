@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFF"
+    android:paddingBottom="64dp"
     tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
 
     <ImageView
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Heel Turn\nSyngphony"
+        android:text="Syngphony\nHeel Turn\nVerve"
         android:id="@+id/textView4"
         android:textSize="37dp"
         android:textColor="#ffffff"

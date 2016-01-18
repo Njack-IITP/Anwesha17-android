@@ -1,6 +1,9 @@
 package in.ac.iitp.anwesha;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -12,8 +15,20 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
+
+import java.util.Random;
 
 public class Home extends AppCompatActivity implements Animation.AnimationListener {
 
@@ -176,10 +191,10 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         ((TextView)findViewById(R.id.b_home_pronites)).setTypeface(AllIDS.font_AnweshaSub);
         ((TextView)findViewById(R.id.b_home_about)).setTypeface(AllIDS.font_AnweshaSub);
 
-        findViewById(R.id.app_tray).startAnimation(AnimationUtils.loadAnimation(this,R.anim.floating_home_down));
+        findViewById(R.id.app_tray).startAnimation(AnimationUtils.loadAnimation(this, R.anim.floating_home_down));
 
 
-
+        new syncNotifications();
     }
 
 
@@ -262,5 +277,72 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
     @Override
     public void onAnimationRepeat(Animation animation) {
 
+    }
+    class syncNotifications{
+        NotificationManager nm;
+        Random r;
+        RequestQueue queue;
+        syncNotifications()
+        {
+            queue = Volley.newRequestQueue(getApplicationContext());
+            nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            r = new Random();
+            checkWeb();
+        }
+
+
+        void checkWeb()
+        {
+            final String time = AllIDS.readLastNotificationTime(getApplicationContext());
+            JsonObjectRequest objectRequest = new JsonObjectRequest(BackgroundFetch.BASE_URL+"/notifications/"+time,null,new Response.Listener<JSONObject>(){
+
+                @Override
+                public void onResponse(JSONObject jsonObject) {
+                    try {
+                        if(jsonObject.getBoolean("status"))
+                        {
+                            long maxTime = Long.parseLong(time);
+                            JSONArray msg = jsonObject.getJSONArray("msgs");
+                            for(int i=0;i<msg.length();i++)
+                            {
+                                JSONObject obj = msg.getJSONObject(i);
+                                long t = obj.getLong("time");
+                                String m = obj.getString("msg");
+                                notification(m);
+
+                                if(maxTime<t)
+                                    maxTime = t;
+
+                            }
+                            AllIDS.saveLastNotificationTime(getApplicationContext(),String.valueOf(maxTime));
+
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            },new Response.ErrorListener(){
+
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                }
+            });
+            queue.add(objectRequest);
+
+        }
+        void notification(String msg)
+        {
+
+            Notification.Builder nb = new Notification.Builder(getApplicationContext())
+                    .setAutoCancel(true)
+                    .setContentTitle("Anwesha")
+                    .setContentText(msg)
+                    .setSmallIcon(R.mipmap.ic_launcher);
+            Notification notification = nb.build();
+            nm.notify(r.nextInt() ,notification);//Some Random Number + eventID
+
+
+        }
     }
 }

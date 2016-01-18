@@ -257,8 +257,12 @@ public class Users extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.activity_login, container, false);
             mEmailView = (AutoCompleteTextView) rootView.findViewById(R.id.email);
+            if(AllIDS.USER_anweshaID!=null)
+               mEmailView.setText(AllIDS.USER_anweshaID);
 
             mPasswordView = (EditText) rootView.findViewById(R.id.password);
+            if(AllIDS.USER_anweshapass!=null)
+                mPasswordView.setText(AllIDS.USER_anweshapass);
             mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -339,7 +343,7 @@ public class Users extends AppCompatActivity {
          */
 
 
-        void tryLogin(final String email, String password) {
+        void tryLogin(final String email, final String password) {
             ArrayList<Pair<String, String>> param = new ArrayList<>();
             final String _email = email.toUpperCase();
             param.add(new Pair<String, String>("username", _email));
@@ -354,13 +358,18 @@ public class Users extends AppCompatActivity {
                 @Override
                 public void onFailed(Exception e) {
                     showProgress(false, mLoginFormView, mProgressView, getResources());
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("Login")
+                            .setPositiveButton("Ok",null)
+                            .setMessage("Lost Connection!");
+                    dialog.create().show();
                 }
 
                 @Override
                 public void onSuccess(Object output) {
                     String result = (String) output;
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
-                            .setTitle("Registration")
+                            .setTitle("Login")
                             .setPositiveButton("Ok",null)
                             .setMessage("Some Error Occured");
 
@@ -377,6 +386,7 @@ public class Users extends AppCompatActivity {
                             AllIDS.USER_name = name;
                             AllIDS.USER_key = key;
                             AllIDS.USER_anweshaID = _email;
+                            AllIDS.USER_anweshapass = password;
                             AllIDS.saveSharedPref(getContext());
                             getActivity().finish();
                         }
@@ -549,7 +559,11 @@ public class Users extends AppCompatActivity {
 
                 @Override
                 public void onFailed(Exception e) {
-                    Toast.makeText(RegistationFragment.this.getActivity(),e.toString(),Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("Login")
+                            .setPositiveButton("Ok",null)
+                            .setMessage("Lost Connection!");
+                    dialog.create().show();
 
                     showProgress(false, mLoginFormView, mProgressView, getResources());
                 }

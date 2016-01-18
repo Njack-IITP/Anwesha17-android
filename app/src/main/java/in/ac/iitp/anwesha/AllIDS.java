@@ -7,8 +7,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by gagan on 4/10/15.
@@ -39,6 +46,7 @@ public class AllIDS extends Application {
     static Typeface font_Sub1;
     static Typeface font_Sub2;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -52,6 +60,7 @@ public class AllIDS extends Application {
 
         readSharedPref(getApplicationContext());
 
+        loadDatabase(getApplicationContext());
         Intent backgroundService = new Intent(this,BackgroundFetch.class);
         startService(backgroundService);
         Log.e("AllIDS", "Staring Background Service");
@@ -61,17 +70,32 @@ public class AllIDS extends Application {
 
 
     static String USER_anweshaID = null;
+    static String USER_anweshapass = null;
     static String USER_name = null;
     static String USER_key = null;
 
+
+    static String readLastNotificationTime(Context context)
+    {
+        SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
+        return sp.getString("lnt","1453131844");
+    }
+    static void saveLastNotificationTime(Context context,String time)
+    {
+        SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("lnt",time);
+        editor.commit();
+    }
 
     static void saveSharedPref(Context context)
     {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("id",USER_anweshaID);
-        editor.putString("name", USER_name);
-        editor.putString("key",USER_key);
+        //editor.putString("name", USER_name);
+        //editor.putString("key",USER_key);
+        editor.putString("pass",USER_anweshapass);
         //editor.putString("cookie",MyHttpClient.getCookie());
 
         editor.commit();
@@ -81,15 +105,22 @@ public class AllIDS extends Application {
     {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
         USER_anweshaID = sp.getString("id",null);
-        USER_name = sp.getString("name", null);
-        USER_key = sp.getString("key",null);
+        //USER_name = sp.getString("name", null);
+        USER_anweshapass = sp.getString("pass", null);
+        //USER_key = sp.getString("key",null);
      //   MyHttpClient.setCookie(sp.getString("cookie",""));
 
     }
 
     static void logout(Context context)
     {
-        Toast.makeText(context,"Logged Out!",Toast.LENGTH_SHORT).show();
+        logout(context,true);
+
+    }
+    static void logout(Context context,boolean makeToast)
+    {
+        if(makeToast)
+            Toast.makeText(context,"Logged Out!",Toast.LENGTH_SHORT).show();
         USER_anweshaID = null;
         USER_key = null;
         USER_name = null;
@@ -118,4 +149,31 @@ public class AllIDS extends Application {
         }
     }
 
+
+    static void loadDatabase(Context context)
+    {
+        File folder = new File("/data/data/in.ac.iitp.anwesha/databases/");
+        folder.mkdirs();
+        File file = new File(folder,"websyncdb");
+
+        if(!file.exists())
+        {
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+                InputStream is = context.getAssets().open("websyncdb");
+                byte[] bytes = new byte[1024*300];
+                int s;
+                s = is.read(bytes);
+                fos.write(bytes, 0, s);
+                fos.close();
+                is.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }

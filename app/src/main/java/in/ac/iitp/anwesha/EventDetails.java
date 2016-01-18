@@ -155,6 +155,13 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
 
+        if(AllIDS.USER_key==null)
+        {
+            Intent in = new Intent(this,Users.class);
+            startActivity(in);
+            return;
+        }
+
         if(size == 1)
             postData(null,null,""+id);
         else
@@ -204,17 +211,10 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     void postData(JSONArray array,String teamname,String appurl)
     {
         //**** For Registering in Event  ******/
-        if(AllIDS.USER_key==null)
-        {
-            Intent in = new Intent(this,Users.class);
-            startActivity(in);
-            return;
-        }
         String url = BackgroundFetch.BASE_URL + "/register/"+appurl;
         ArrayList   param = new ArrayList<>();
         HMac mac = new HMac();
-
-        param.add(new Pair<String, String>("hash",mac.getHash()));
+        param.add(new Pair<String, String>("hash", mac.getHash()));
         param.add(new Pair<String, String>("content",mac.getMessage()));
         param.add(new Pair<String, String>("userID",AllIDS.USER_anweshaID.substring(3)));
         if(teamname!=null)
@@ -234,7 +234,7 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailed(Exception e) {
                 //pd.dismiss();
-                SplashMessage(name, "Registration Failed"+e, android.R.drawable.ic_dialog_info);
+                SplashMessage(name, "Registration Failed", android.R.drawable.ic_dialog_info);
 
             }
 
@@ -277,6 +277,8 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     public void setReminder(View v)
     {
         SplashMessage("Anwesha","Comming Soon",android.R.drawable.ic_dialog_info);
+        if(true)
+            return;
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(this, Reminder.class);
         intent.putExtra("Notification", "true");

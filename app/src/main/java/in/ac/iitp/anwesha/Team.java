@@ -103,7 +103,7 @@ public class Team extends AppCompatActivity {
         ));
         list_TeamHead.add(temp);
         map_listPerson.put(temp = "Literary Committee", Arrays.asList(new String[]
-                        {"Aditya Jhalani", "08292346960", "Gaurav Garg", "09534089367"}
+                        {"Aditya Jhalani", "08292346960", "Kumar Gaurav", "09534089367"}
         ));
         list_TeamHead.add(temp);
 

@@ -106,7 +106,7 @@
         ﻿
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBnLDzmXX5DJ6Qpn2cJB20gm37DV380IEI" />
+            android:value="AIzaSyBqEwdesrBVeN3A4dQVDLt9p57YmeAfo54" />
 
         <service android:name=".BackgroundFetch" />
 

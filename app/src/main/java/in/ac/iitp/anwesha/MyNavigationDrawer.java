@@ -40,10 +40,10 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_event) {
+        if (id == R.id.nav_events) {
             if(openEvent(activity)) activity.finish();
 
-        } else if (id == R.id.nav_spons) {
+        } else if (id == R.id.nav_sponsors) {
             if(openSponser(activity)) activity.finish();
 
         } else if (id == R.id.nav_gallery) {
@@ -62,27 +62,16 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             if(openAbout(activity)) activity.finish();
 
         } else if (id == R.id.nav_team) {
-            if(openTeam(activity)) activity.finish();
+            if (openTeam(activity)) activity.finish();
 
-        } else  if (id == R.id.nav_event_cult) {
-            if(openSubEvent(activity,"Cultural")) activity.finish();
+        }else if(id == R.id.nav_home){
+            if(openHome(activity)) activity.finish();
 
-        }else  if (id == R.id.nav_event_eco) {
-            if(openSubEvent(activity,"Eco")) activity.finish();
-
-        }else  if (id == R.id.nav_event_lit) {
-            if(openSubEvent(activity,"Literary")) activity.finish();
-
-        }else  if (id == R.id.nav_event_mang) {
-            if(openSubEvent(activity,"Management")) activity.finish();
-
-        }else  if (id == R.id.nav_event_tech) {
-            if(openSubEvent(activity,"Technical")) activity.finish();
-
-        }else  if (id == R.id.nav_login) {
+        }else  if (id == R.id.nav_loginlogout) {
             AllIDS.loginlogout(activity);
-        } else  if (id == R.id.nav_registration) {
-            if(openRegistationPage(activity)) activity.finish();
+
+        } else if(id == R.id.nav_share){
+            //TODO: Add share option
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
@@ -135,6 +124,13 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     {
         //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
         openActivity(context,Team.class);
+        return true;
+    }
+
+    static boolean openHome(Context context)
+    {
+        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+        openActivity(context,Home.class);
         return true;
     }
 

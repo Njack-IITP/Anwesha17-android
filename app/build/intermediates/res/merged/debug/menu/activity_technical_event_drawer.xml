@@ -2,47 +2,55 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_event" android:icon="@drawable/ic_event"
-            android:title="Events">
-            <menu>
-                <item android:id="@+id/nav_event_tech" android:title="Technical" />
-                <item android:id="@+id/nav_event_cult" android:title="Cultural" />
-                <item android:id="@+id/nav_event_lit" android:title="Literary" />
-                <item android:id="@+id/nav_event_mang" android:title="Management" />
-                <item android:id="@+id/nav_event_eco" android:title="ECO" />
-
-            </menu>
-        </item>
-        <item android:id="@+id/nav_spons" android:icon="@drawable/ic_spons"
-            android:title="Sponsors" />
-        <item android:id="@+id/nav_gallery" android:icon="@drawable/ic_gallery"
-            android:title="Gallery" />
-        <item android:id="@+id/nav_pronites" android:icon="@drawable/ic_pronites"
-            android:title="Events" />
-        <item android:id="@+id/nav_schedule" android:icon="@drawable/ic_calender"
-            android:title="Schedule" />
-        <item android:id="@+id/nav_map" android:icon="@drawable/ic_map"
-            android:title="Map" />
-        <item android:id="@+id/nav_team" android:icon="@drawable/ic_team"
-            android:title="Team" />
-        <item android:id="@+id/nav_about" android:icon="@drawable/ic_about"
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/menu_home2"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_about"
             android:title="About" />
-
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_event"
+            android:title="Events" />
+        <item
+            android:id="@+id/nav_pronites"
+            android:icon="@drawable/ic_pronites"
+            android:title="Pronites" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_calender"
+            android:title="Schedule" />
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/ic_team"
+            android:title="Team" />
+        <item
+            android:id="@+id/nav_sponsors"
+            android:icon="@drawable/ic_spons"
+            android:title="Sponsors" />
     </group>
 
-    <item android:title="Session">
+    <item android:title="Extras">
         <menu>
-            <item android:id="@+id/nav_login" android:icon="@android:drawable/ic_popup_sync"
+            <item
+                android:id="@+id/nav_map"
+                android:icon="@drawable/ic_map"
+                android:title="Map" />
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_gallery"
+                android:title="Gallery" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@android:drawable/ic_menu_share"
+                android:title="Share App" />
+            <item
+                android:id="@+id/nav_loginlogout"
+                android:icon="@android:drawable/ic_menu_revert"
                 android:title="Login/Logout" />
         </menu>
     </item>
-    <item android:title="Registration">
-        <menu>
-            <item android:id="@+id/nav_registration" android:icon="@android:drawable/ic_popup_sync"
-                android:title="Registration" />
-        </menu>
-    </item>
 
-
-
-</menu><!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/menu/activity_technical_event_drawer.xml -->
+</menu>

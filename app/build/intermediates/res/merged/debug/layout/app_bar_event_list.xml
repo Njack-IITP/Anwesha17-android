@@ -19,4 +19,3 @@
     <include layout="@layout/content_event_list" />
 
 </android.support.design.widget.CoordinatorLayout>
-<!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/app_bar_event_list.xml -->

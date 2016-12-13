@@ -22,4 +22,4 @@
         android:layout_margin="7dp"
 
         android:background="@drawable/logo"/>
-</LinearLayout><!-- From: file:/home/gagan/AndroidStudioProjects/Anwesha/app/src/main/res/layout/lay_home_bottom.xml -->
+</LinearLayout>

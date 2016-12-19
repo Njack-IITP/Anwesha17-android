@@ -116,7 +116,8 @@
         <activity
             android:name=".Users"
             android:label="@string/title_activity_users"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Events"></activity>
     </application>
 
 </manifest>

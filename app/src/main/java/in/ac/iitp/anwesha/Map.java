@@ -43,10 +43,10 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         // Getting GoogleMap object from the fragment
-        googleMap = fm.getMap();
+       // googleMap = fm.getMap();
 
         // Enabling MyLocation Layer of Google Map
-        googleMap.setMyLocationEnabled(true);
+        //googleMap.setMyLocationEnabled(true);
         googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         // Invoke LoaderCallbacks to retrieve and draw already saved locations in map
         getSupportLoaderManager().initLoader(0, null, this);

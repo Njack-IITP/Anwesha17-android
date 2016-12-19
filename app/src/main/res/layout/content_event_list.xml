@@ -18,7 +18,7 @@
 
             android:divider="#000"
             android:id="@+id/event_list_lv"
-            ></ListView>
+            />
 
 
     </RelativeLayout>

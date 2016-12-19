@@ -86,7 +86,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
     }
     static boolean openEvent(Context context)
     {
-        openActivity(context, Event.class);
+        openActivity(context, Events.class);
         return true;
     }
 

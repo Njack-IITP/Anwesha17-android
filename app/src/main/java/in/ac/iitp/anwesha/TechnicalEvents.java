@@ -19,7 +19,7 @@ import java.util.List;
 
 public class TechnicalEvents extends Fragment {
     WebSyncDB db;
-
+    String s[] = {"DoItYourself","LectureAndPresentation","OnTheMove","OnTheSpot","Quiz","Robotics","CodingHacking"};
     public TechnicalEvents() {
     }
 
@@ -29,15 +29,17 @@ public class TechnicalEvents extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new WebSyncDB(getContext());
-        Cursor cursor = db.getParticularEvents("Eco".replaceAll(" ", ""));
-        int c = 0;
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            ITEMS.add(new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6)));
-            cursor.moveToNext();
-            c++;
-            if (c > 100) break;
+        for(int i=0;i<7;i++) {
+            Cursor cursor = db.getParticularEvents(s[i].replaceAll(" ", ""));
+            int c = 0;
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                ITEMS.add(new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6)));
+                cursor.moveToNext();
+                c++;
+                if (c > 100) break;
 
+            }
         }
     }
 

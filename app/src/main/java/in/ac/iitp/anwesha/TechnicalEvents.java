@@ -19,7 +19,8 @@ import java.util.List;
 
 public class TechnicalEvents extends Fragment {
     WebSyncDB db;
-    String s[] = {"DoItYourself","LectureAndPresentation","OnTheMove","OnTheSpot","Quiz","Robotics","CodingHacking"};
+    String s[] = {"DoItYourself", "LectureAndPresentation", "OnTheMove", "OnTheSpot", "Quiz", "Robotics", "CodingHacking"};
+
     public TechnicalEvents() {
     }
 
@@ -29,7 +30,7 @@ public class TechnicalEvents extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = new WebSyncDB(getContext());
-        for(int i=0;i<7;i++) {
+        for (int i = 0; i < 7; i++) {
             Cursor cursor = db.getParticularEvents(s[i].replaceAll(" ", ""));
             int c = 0;
             cursor.moveToFirst();

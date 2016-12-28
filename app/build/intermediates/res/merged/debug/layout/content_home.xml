@@ -1,289 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_home" tools:context="in.ac.iitp.anwesha.Home">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:id="@+id/homepage"
-
-        >
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg"
-            android:scaleType="centerCrop"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/head_container1"
-                >
-
-                <RelativeLayout
-
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/head"
-
-                    android:layout_alignParentTop="true">
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="bottom"
-                        android:id="@+id/head_container"
-                        android:layout_above="@+id/frameLayout"
-                        android:layout_weight="0.5"
-                        >
-                        <FrameLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="0px"
-                            android:id="@+id/welcome"
-
-                            >
-
-                        </FrameLayout>
-
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:id="@+id/frameLayout"
-                        android:orientation="vertical"
-                        android:padding="2dp"
-
-                        >
-
-
-
-
-
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="right"
-                            android:paddingRight="10dp"
-                            android:orientation="vertical">
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:background="@drawable/home_button"
-                                android:text="Events"
-                                android:textColor="#bcededed"
-                                android:id="@+id/b_home_superClubs"
-                                android:onClick="onButtonClick"/>
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:textColor="#bcededed"
-                                android:background="@drawable/home_button"
-                                android:text="Sponsor"
-
-                                android:id="@+id/b_home_sponser"
-                                android:onClick="onButtonClick"/>
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:id="@+id/b_home_galley"
-                                android:onClick="onButtonClick"
-                                android:textColor="#bcededed"
-                                android:text="Gallery"
-                                android:background="@drawable/home_button"
-                                />
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:id="@+id/b_home_team"
-                                android:onClick="onButtonClick"
-                                android:textColor="#bcededed"
-                                android:text="Team"
-                                android:background="@drawable/home_button"
-
-                                />
-                        </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingLeft="10dp"
-                                android:gravity="left">
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:text="Schedule"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:id="@+id/b_home_schedule"
-                                android:onClick="onButtonClick"
-                                android:textColor="#bcededed"
-                                android:background="@drawable/home_button"
-
-                                />
-                            <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:text="Map"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#bcededed"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:id="@+id/b_home_map"
-                                android:onClick="onButtonClick"
-                                android:background="@drawable/home_button"/>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:id="@+id/b_home_pronites"
-                                    android:onClick="onButtonClick"
-                                    android:textColor="#bcededed"
-                                    android:text="Pronites"
-                                    style="@style/Base.Widget.AppCompat.Button"
-                                    android:textStyle="italic"
-                                    android:background="@drawable/home_button"
-
-                                    />
-                                <TextView   style="@style/Base.Widget.AppCompat.Button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:onClick="onButtonClick"
-                                android:id="@+id/b_home_about"
-                                    android:textColor="#bcededed"
-                                    android:text="About"
-                                android:background="@drawable/home_button"
-
-                                />
-                        </LinearLayout>
-                        </LinearLayout>
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:id="@+id/l1"
-
-
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="96px"
-                                    android:layout_height="96px"
-                                    android:background="@drawable/ex_button1"
-                                    android:id="@+id/ex_img1"
-
-                                    />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:id="@+id/link_tray"
-
-
-                                    >
-                                    <Button
-                                        android:layout_width="96px"
-                                        android:layout_height="96px"
-                                        android:layout_margin="7dp"
-                                        android:id="@+id/b_fb"
-                                        android:background="@drawable/fb"
-                                        />
-                                    <Button
-                                        android:layout_width="96px"
-                                        android:layout_height="96px"
-                                        android:id="@+id/b_gp"
-                                        android:layout_margin="7dp"
-                                        android:background="@drawable/gp"/>
-                                    <Button
-                                        android:layout_width="96px"
-                                        android:layout_height="96px"
-                                        android:layout_margin="7dp"
-                                        android:id="@+id/b_aw"
-                                        android:background="@drawable/logo"/>
-                                </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="100px"
-                                    android:layout_height="100px"
-                                    android:background="@drawable/ex_button2"
-                                    android:id="@+id/ex_img2"
-
-                                    />
-
-                            </LinearLayout>
-
-
-
-                        </RelativeLayout>
-
-                    </LinearLayout>
-                </RelativeLayout>
-            </RelativeLayout>
-          </LinearLayout>
-    </RelativeLayout>
+    tools:context="in.ac.iitp.anwesha.Home"
+    tools:showIn="@layout/activity_home">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/app_tray"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#32383d">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/imageviewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include layout="@layout/footer" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="2dp"
+        android:background="#32383d">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/b_home_superClubs"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Events"
+                    android:textColor="#bcededed" />
+
+                <TextView
+                    android:id="@+id/b_home_sponser"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Sponsor"
+                    android:textColor="#bcededed" />
+
+                <TextView
+                    android:id="@+id/b_home_galley"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Gallery"
+                    android:textColor="#bcededed" />
 
 
-        android:gravity="center">
-        <ImageView
-            android:layout_width="96px"
-            android:layout_height="96px"
-            android:background="@drawable/ex_button1"
-            android:id="@+id/ex_imgs1"
+            </LinearLayout>
 
-            />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="96px"
-            android:layout_height="96px"
-            android:background="@drawable/ex_button2"
-            android:id="@+id/ex_imgs2"
+                <TextView
+                    android:id="@+id/b_home_schedule"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Schedule"
+                    android:textColor="#bcededed"
 
-            />
+                    />
+
+                <TextView
+                    android:id="@+id/b_home_map"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Map"
+                    android:textColor="#bcededed" />
+
+                <TextView
+                    android:id="@+id/b_home_pronites"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Pronites"
+                    android:textColor="#bcededed"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/b_home_team"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Team"
+                    android:textColor="#bcededed" />
+
+                <TextView
+                    android:id="@+id/b_home_about"
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="About"
+                    android:textColor="#bcededed" />
+
+                <TextView
+                    style="@style/Base.Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_button"
+                    android:onClick="onButtonClick"
+                    android:text="Pronites"
+                    android:textColor="#bcededed"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
+    </LinearLayout>
 
 </RelativeLayout>

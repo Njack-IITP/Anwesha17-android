@@ -50,9 +50,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Event"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Sponser"
             android:label="@string/title_activity_sponser"
             android:screenOrientation="portrait"
@@ -62,19 +59,9 @@
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".EventList"
-            android:label="@string/title_activity_event_list"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".Reminder" />
 
-        <activity
-            android:name=".TechnicalEvent"
-            android:label="@string/title_activity_technical_event"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Team"
             android:label="@string/title_activity_team"

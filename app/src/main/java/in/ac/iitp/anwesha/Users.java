@@ -7,31 +7,25 @@ import android.app.AlertDialog;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -39,7 +33,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -157,6 +150,7 @@ public class Users extends AppCompatActivity {
             return "Too long for City";
         return null;
     }
+
     private static String isCollegeValid(String name) {
         if (name.length() == 0)
             return "College can't be Empty";
@@ -164,6 +158,7 @@ public class Users extends AppCompatActivity {
             return "Too long for College";
         return null;
     }
+
     private static String isContactValid(String name) {
         if (name.length() == 0)
             return "Contact can't be Empty";
@@ -171,6 +166,7 @@ public class Users extends AppCompatActivity {
             return "Too long for Contact";
         return null;
     }
+
     private static String isNameValid(String name) {
         if (name.length() == 0)
             return "Name can't be Empty";
@@ -178,10 +174,11 @@ public class Users extends AppCompatActivity {
             return "Too long for Name";
         return null;
     }
+
     private static String isAnweshaIDvalid(String id) {
-        if(id.length()!=7)
+        if (id.length() != 7)
             return "Invalid ID (ANWxxxx)";
-        if (!id.substring(0,3).equalsIgnoreCase("ANW"))
+        if (!id.substring(0, 3).equalsIgnoreCase("ANW"))
             return "Invalid ID (ANWxxxx)";
         return null;
     }
@@ -257,11 +254,11 @@ public class Users extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.activity_login, container, false);
             mEmailView = (AutoCompleteTextView) rootView.findViewById(R.id.email);
-            if(AllIDS.USER_anweshaID!=null)
-               mEmailView.setText(AllIDS.USER_anweshaID);
+            if (AllIDS.USER_anweshaID != null)
+                mEmailView.setText(AllIDS.USER_anweshaID);
 
             mPasswordView = (EditText) rootView.findViewById(R.id.password);
-            if(AllIDS.USER_anweshapass!=null)
+            if (AllIDS.USER_anweshapass != null)
                 mPasswordView.setText(AllIDS.USER_anweshapass);
             mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
@@ -319,7 +316,7 @@ public class Users extends AppCompatActivity {
                 mEmailView.setError(getString(R.string.error_field_required));
                 focusView = mEmailView;
                 cancel = true;
-            } else if (( result = isAnweshaIDvalid(email))!=null) {
+            } else if ((result = isAnweshaIDvalid(email)) != null) {
                 mEmailView.setError(result);
                 focusView = mEmailView;
                 cancel = true;
@@ -360,7 +357,7 @@ public class Users extends AppCompatActivity {
                     showProgress(false, mLoginFormView, mProgressView, getResources());
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Login")
-                            .setPositiveButton("Ok",null)
+                            .setPositiveButton("Ok", null)
                             .setMessage("Lost Connection!");
                     dialog.create().show();
                 }
@@ -370,7 +367,7 @@ public class Users extends AppCompatActivity {
                     String result = (String) output;
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Login")
-                            .setPositiveButton("Ok",null)
+                            .setPositiveButton("Ok", null)
                             .setMessage("Some Error Occured");
 
 
@@ -379,8 +376,7 @@ public class Users extends AppCompatActivity {
                         boolean status = object.getBoolean("status");
                         String msg = object.getString("msg");
                         dialog.setMessage(msg);
-                        if(status)
-                        {
+                        if (status) {
                             String name = object.getString("name");
                             String key = object.getString("key");
                             AllIDS.USER_name = name;
@@ -413,7 +409,7 @@ public class Users extends AppCompatActivity {
     public static class RegistationFragment extends Fragment {
 
         private AutoCompleteTextView mEmailView;
-        private EditText  et_name, et_dob, et_contact, et_city, et_college;
+        private EditText et_name, et_dob, et_contact, et_city, et_college;
         private View mProgressView;
         private View mLoginFormView;
 
@@ -498,9 +494,8 @@ public class Users extends AppCompatActivity {
 
             String customErrorMessage = null;
             // Check for a valid email address.
-            if(focusView!=null);
-                else
-            if (TextUtils.isEmpty(email)) {
+            if (focusView != null) ;
+            else if (TextUtils.isEmpty(email)) {
                 mEmailView.setError(getString(R.string.error_field_required));
                 focusView = mEmailView;
             } else if (!isEmailValid(email)) {
@@ -512,13 +507,13 @@ public class Users extends AppCompatActivity {
             } else if ((customErrorMessage = isDOBValid(dob)) != null) {
                 et_dob.setError(customErrorMessage);
                 focusView = et_dob;
-            }else if ((customErrorMessage = isCityValid(city)) != null) {
+            } else if ((customErrorMessage = isCityValid(city)) != null) {
                 et_city.setError(customErrorMessage);
                 focusView = et_city;
-            }else if ((customErrorMessage = isContactValid(contact)) != null) {
+            } else if ((customErrorMessage = isContactValid(contact)) != null) {
                 et_contact.setError(customErrorMessage);
                 focusView = et_contact;
-            }else if ((customErrorMessage = isCollegeValid(college)) != null) {
+            } else if ((customErrorMessage = isCollegeValid(college)) != null) {
                 et_college.setError(customErrorMessage);
                 focusView = et_college;
             }
@@ -531,7 +526,7 @@ public class Users extends AppCompatActivity {
                 // Show a progress spinner, and kick off a background task to
                 // perform the user login attempt.
                 showProgress(true, mLoginFormView, mProgressView, getResources());
-                tryRegister(email,name,contact,college,dob,city);
+                tryRegister(email, name, contact, college, dob, city);
             }
         }
 
@@ -561,7 +556,7 @@ public class Users extends AppCompatActivity {
                 public void onFailed(Exception e) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Login")
-                            .setPositiveButton("Ok",null)
+                            .setPositiveButton("Ok", null)
                             .setMessage("Lost Connection!");
                     dialog.create().show();
 
@@ -574,24 +569,21 @@ public class Users extends AppCompatActivity {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Registration")
                             .setMessage("Some Error Occured!")
-                            .setPositiveButton("Ok",null);
+                            .setPositiveButton("Ok", null);
                     try {
                         JSONArray array = new JSONArray(result);
                         int status = array.getInt(0);
-                        if(status==1)
-                        {
+                        if (status == 1) {
                             JSONObject obj = array.getJSONObject(1);
                             et_city.setText(null);
                             et_name.setText(null);
                             et_college.setText(null);
                             et_contact.setText(null);
                             et_dob.setText(null);
-                            dialog.setMessage("Your Anwesha ID : ANW"+obj.getInt("pId"));
+                            dialog.setMessage("Your Anwesha ID : ANW" + obj.getInt("pId"));
 
 
-                        }
-                        else
-                        {
+                        } else {
                             dialog.setMessage(array.getString(1));
 
                         }

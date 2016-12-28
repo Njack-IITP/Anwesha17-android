@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,11 +27,12 @@ import java.io.InputStream;
 public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelectedListener {
 
     Activity activity;
-    public MyNavigationDrawer(Activity activity)
-    {
+
+    public MyNavigationDrawer(Activity activity) {
         this.activity = activity;
 
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -41,36 +40,36 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         int id = item.getItemId();
 
         if (id == R.id.nav_events) {
-            if(openEvent(activity)) activity.finish();
+            if (openEvent(activity)) activity.finish();
 
         } else if (id == R.id.nav_sponsors) {
-            if(openSponser(activity)) activity.finish();
+            if (openSponser(activity)) activity.finish();
 
         } else if (id == R.id.nav_gallery) {
-            if(openGallery(activity)) activity.finish();
+            if (openGallery(activity)) activity.finish();
 
         } else if (id == R.id.nav_pronites) {
-            if(openPronites(activity)) activity.finish();
+            if (openPronites(activity)) activity.finish();
 
         } else if (id == R.id.nav_schedule) {
-            if(openSchedule(activity)) activity.finish();
+            if (openSchedule(activity)) activity.finish();
 
         } else if (id == R.id.nav_map) {
-            if(openMap(activity)) activity.finish();
+            if (openMap(activity)) activity.finish();
 
         } else if (id == R.id.nav_about) {
-            if(openAbout(activity)) activity.finish();
+            if (openAbout(activity)) activity.finish();
 
         } else if (id == R.id.nav_team) {
             if (openTeam(activity)) activity.finish();
 
-        }else if(id == R.id.nav_home){
-            if(openHome(activity)) activity.finish();
+        } else if (id == R.id.nav_home) {
+            if (openHome(activity)) activity.finish();
 
-        }else  if (id == R.id.nav_loginlogout) {
+        } else if (id == R.id.nav_loginlogout) {
             AllIDS.loginlogout(activity);
 
-        } else if(id == R.id.nav_share){
+        } else if (id == R.id.nav_share) {
             //TODO: Add share option
         }
 
@@ -78,124 +77,82 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    static protected void openActivity(Context context,Class class_name)
-    {
-        Intent in=new Intent(context,class_name);
+
+    static protected void openActivity(Context context, Class class_name) {
+        Intent in = new Intent(context, class_name);
         context.startActivity(in);
 
     }
-    static boolean openEvent(Context context)
-    {
+
+    static boolean openEvent(Context context) {
         openActivity(context, Events.class);
         return true;
     }
 
-    static boolean openSponser(Context context)
-    {
+    static boolean openSponser(Context context) {
         openActivity(context, Sponser.class);
         return true;
     }
 
-    static boolean openGallery(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+    static boolean openGallery(Context context) {
         Intent in;
         in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://2016.anwesha.info/gallery.html"));
         context.startActivity(in);
 
-        //openActivity(context,Gallery.class);
         return false;
     }
 
-    static boolean openPronites(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+    static boolean openPronites(Context context) {
         openActivity(context, Pronites.class);
         return true;
     }
 
-    static boolean openAbout(Context context)
-    {
-        openActivity(context,About.class);
+    static boolean openAbout(Context context) {
+        openActivity(context, About.class);
         return true;
     }
 
-    static boolean openTeam(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Team.class);
+    static boolean openTeam(Context context) {
+        openActivity(context, Team.class);
         return true;
     }
 
-    static boolean openHome(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Home.class);
+    static boolean openHome(Context context) {
+        openActivity(context, Home.class);
         return true;
     }
 
-    static boolean openSchedule(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+    static boolean openSchedule(Context context) {
         openScheduleDialog(context);
-        //openActivity(context,Event.class);
         return false;
     }
 
-    static boolean openMap(Context context)
-    {
-       // Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        openActivity(context,Map.class);
+    static boolean openMap(Context context) {
+        openActivity(context, Map.class);
         return true;
     }
 
-    static boolean openLoginPage(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
+    static boolean openLoginPage(Context context) {
         openActivity(context, Users.class);
         return true;
     }
-    static boolean openRegistationPage(Context context)
-    {
-        //Toast.makeText(context,"Coming Soon!",Toast.LENGTH_SHORT).show();
-        Intent in=new Intent(context,Users.class);
-        in.putExtra("reg",true);
+
+    static boolean openRegistationPage(Context context) {
+        Intent in = new Intent(context, Users.class);
+        in.putExtra("reg", true);
         context.startActivity(in);
         return true;
     }
 
-
-
-
-    static boolean openSubEvent(Context context,String tag)
-    {
-        if(tag.equals("Technical"))
-        {
-            Intent in =new Intent(context,TechnicalEvent.class);
-            context.startActivity(in);
-            return true;
-
-        }
-        else {
-            Intent in = new Intent(context, EventList.class);
-            in.putExtra("event_list", tag);
-            context.startActivity(in);
-            if(Event.getEventName(tag)!=null)
-                return true;
-        }
-        return false;
-    }
-
-    static boolean openScheduleDialog(final Context context)
-    {
+    static boolean openScheduleDialog(final Context context) {
         View.OnClickListener list = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openPDF(context,(String)view.getTag());
+                openPDF(context, (String) view.getTag());
             }
         };
 
-        View view = ((LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.content_schedule,null);
+        View view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.content_schedule, null);
         view.findViewById(R.id.day1).setOnClickListener(list);
         view.findViewById(R.id.day2).setOnClickListener(list);
         view.findViewById(R.id.day3).setOnClickListener(list);
@@ -205,24 +162,23 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setTitle("Schedule")
                 .setView(view)
-                .setNegativeButton("Back",null)
+                .setNegativeButton("Back", null)
                 .create();
         dialog.show();
         return false;
 
     }
-    static  void openPDF(Context context,String name)
-    {
-        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Anwesha/");
-        folder.mkdirs();
-        File file = new File(folder,name);
 
-        if(!file.exists())
-        {
+    static void openPDF(Context context, String name) {
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Anwesha/");
+        folder.mkdirs();
+        File file = new File(folder, name);
+
+        if (!file.exists()) {
             try {
                 FileOutputStream fos = new FileOutputStream(file);
-                InputStream is = context.getAssets().open("schedule/"+name);
-                byte[] bytes = new byte[1024*300];
+                InputStream is = context.getAssets().open("schedule/" + name);
+                byte[] bytes = new byte[1024 * 300];
                 int s;
                 s = is.read(bytes);
                 fos.write(bytes, 0, s);
@@ -241,13 +197,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         try {
             context.startActivity(intent);
-        }catch (ActivityNotFoundException e)
-        {
-            Toast.makeText(context,"Sorry! Your phone is not supporting PDF",Toast.LENGTH_SHORT).show();
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, "Sorry! Your phone is not supporting PDF", Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
-
 }

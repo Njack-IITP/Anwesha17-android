@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,23 +20,6 @@ import java.io.InputStream;
  * Created by gagan on 4/10/15.
  */
 public class AllIDS extends Application {
-    static int BACKGROUND_HOME = R.drawable.bg;
-
-    /*
-    static int ICON_archives = R.drawable.archives;
-    static int ICON_events = R.drawable.events;
-    static int ICON_gallery = R.drawable.gallery;
-    static int ICON_home = R.drawable.home;
-    static int ICON_pronites = R.drawable.pronites;
-    static int ICON_schedule = R.drawable.schedule;
-    static int ICON_sponsors = R.drawable.sponsors;
-    static int ICON_team = R.drawable.team;
-
-    static int SOCIAL_fb = R.drawable.fb;
-    static int SOCIAL_yt = R.drawable.yt;
-    static int SOCIAL_tw = R.drawable.tw;
-    static int SOCIAL_gp = R.drawable.gp;
-*/
 
     static Typeface font_Anwesha;
     static Typeface font_AnweshaSub;
@@ -51,22 +33,21 @@ public class AllIDS extends Application {
     public void onCreate() {
         super.onCreate();
 
-        font_Anwesha = Typeface.createFromAsset(getAssets(),"fonts/ardestine.ttf");
-        font_AnweshaSub =  Typeface.createFromAsset(getAssets(),"fonts/caviardreams.ttf");//Typeface.SERIF;//Typeface.createFromAsset(getAssets(),"fonts/agencyfb.tff");
+        font_Anwesha = Typeface.createFromAsset(getAssets(), "fonts/ardestine.ttf");
+        font_AnweshaSub = Typeface.createFromAsset(getAssets(), "fonts/caviardreams.ttf");//Typeface.SERIF;//Typeface.createFromAsset(getAssets(),"fonts/agencyfb.tff");
 
-        font_Title = Typeface.createFromAsset(getAssets(),"fonts/modeka.otf");
+        font_Title = Typeface.createFromAsset(getAssets(), "fonts/modeka.otf");
         font_Sub1 = Typeface.SERIF;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
         font_Sub2 = Typeface.DEFAULT;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
 
         readSharedPref(getApplicationContext());
 
         loadDatabase(getApplicationContext());
-        Intent backgroundService = new Intent(this,BackgroundFetch.class);
+        Intent backgroundService = new Intent(this, BackgroundFetch.class);
         startService(backgroundService);
         Log.e("AllIDS", "Staring Background Service");
 
     }
-
 
 
     static String USER_anweshaID = null;
@@ -75,52 +56,49 @@ public class AllIDS extends Application {
     static String USER_key = null;
 
 
-    static String readLastNotificationTime(Context context)
-    {
+    static String readLastNotificationTime(Context context) {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
-        return sp.getString("lnt","1453131844");
+        return sp.getString("lnt", "1453131844");
     }
-    static void saveLastNotificationTime(Context context,String time)
-    {
+
+    static void saveLastNotificationTime(Context context, String time) {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString("lnt",time);
+        editor.putString("lnt", time);
         editor.commit();
     }
 
-    static void saveSharedPref(Context context)
-    {
+    static void saveSharedPref(Context context) {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString("id",USER_anweshaID);
+        editor.putString("id", USER_anweshaID);
         //editor.putString("name", USER_name);
         //editor.putString("key",USER_key);
-        editor.putString("pass",USER_anweshapass);
+        editor.putString("pass", USER_anweshapass);
         //editor.putString("cookie",MyHttpClient.getCookie());
 
         editor.commit();
 
     }
-    static void readSharedPref(Context context)
-    {
+
+    static void readSharedPref(Context context) {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
-        USER_anweshaID = sp.getString("id",null);
+        USER_anweshaID = sp.getString("id", null);
         //USER_name = sp.getString("name", null);
         USER_anweshapass = sp.getString("pass", null);
         //USER_key = sp.getString("key",null);
-     //   MyHttpClient.setCookie(sp.getString("cookie",""));
+        //   MyHttpClient.setCookie(sp.getString("cookie",""));
 
     }
 
-    static void logout(Context context)
-    {
-        logout(context,true);
+    static void logout(Context context) {
+        logout(context, true);
 
     }
-    static void logout(Context context,boolean makeToast)
-    {
-        if(makeToast)
-            Toast.makeText(context,"Logged Out!",Toast.LENGTH_SHORT).show();
+
+    static void logout(Context context, boolean makeToast) {
+        if (makeToast)
+            Toast.makeText(context, "Logged Out!", Toast.LENGTH_SHORT).show();
         USER_anweshaID = null;
         USER_key = null;
         USER_name = null;
@@ -128,13 +106,11 @@ public class AllIDS extends Application {
 
     }
 
-    static void loginlogout(final Context context)
-    {
-        if(AllIDS.USER_key==null)
+    static void loginlogout(final Context context) {
+        if (AllIDS.USER_key == null)
             MyNavigationDrawer.openLoginPage(context);
-        else
-        {
-            AlertDialog alert =new AlertDialog.Builder(context)
+        else {
+            AlertDialog alert = new AlertDialog.Builder(context)
                     .setTitle("Anwesha")
                     .setMessage("Are you sure you want to logout?")
                     .setIcon(android.R.drawable.stat_sys_warning)
@@ -144,24 +120,22 @@ public class AllIDS extends Application {
 
                             AllIDS.logout(context);
                         }
-                    }).setNegativeButton("No",null).create();
+                    }).setNegativeButton("No", null).create();
             alert.show();
         }
     }
 
 
-    static void loadDatabase(Context context)
-    {
+    static void loadDatabase(Context context) {
         File folder = new File("/data/data/in.ac.iitp.anwesha/databases/");
         folder.mkdirs();
-        File file = new File(folder,"websyncdb");
+        File file = new File(folder, "websyncdb");
 
-        if(!file.exists())
-        {
+        if (!file.exists()) {
             try {
                 FileOutputStream fos = new FileOutputStream(file);
                 InputStream is = context.getAssets().open("websyncdb");
-                byte[] bytes = new byte[1024*300];
+                byte[] bytes = new byte[1024 * 300];
                 int s;
                 s = is.read(bytes);
                 fos.write(bytes, 0, s);

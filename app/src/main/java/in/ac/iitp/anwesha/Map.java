@@ -12,10 +12,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.view.Menu;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,13 +24,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import in.ac.iitp.anwesha.R;
-
 public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, OnMapClickListener {
 
     GoogleMap googleMap;
-    double x,y;
-    int flag=0,flag2=0;
+    double x, y;
+    int flag = 0, flag2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +39,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         // Getting GoogleMap object from the fragment
-       // googleMap = fm.getMap();
+        // googleMap = fm.getMap();
 
         // Enabling MyLocation Layer of Google Map
         //googleMap.setMyLocationEnabled(true);
@@ -72,7 +68,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         });  */
     }
 
-    public void initialise(){
+    public void initialise() {
         LatLng iit = new LatLng(25.535721, 84.851003);
         MarkerOptions op1 = new MarkerOptions();
         op1.position(iit).title("IIT Patna")
@@ -127,7 +123,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         m7.showInfoWindow();
     }
 
-    private void drawMarker(LatLng point,String info){
+    private void drawMarker(LatLng point, String info) {
         // Creating an instance of MarkerOptions
         MarkerOptions markerOptions = new MarkerOptions();
 
@@ -138,7 +134,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         googleMap.addMarker(markerOptions);
     }
 
-    private class LocationInsertTask extends AsyncTask<ContentValues, Void, Void>{
+    private class LocationInsertTask extends AsyncTask<ContentValues, Void, Void> {
         @Override
         protected Void doInBackground(ContentValues... contentValues) {
 
@@ -148,7 +144,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         }
     }
 
-    private class LocationDeleteTask extends AsyncTask<Void, Void, Void>{
+    private class LocationDeleteTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
 
@@ -174,18 +170,18 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
     public void onLoadFinished(Loader<Cursor> arg0,
                                Cursor arg1) {
         int locationCount = 0;
-        double lat=0;
-        double lng=0;
-        String info="";
+        double lat = 0;
+        double lng = 0;
+        String info = "";
 
         // Number of locations available in the SQLite database table
         locationCount = arg1.getCount();
-        if(locationCount>0){
+        if (locationCount > 0) {
             // Move the current record pointer to the first row of the table
             arg1.moveToFirst();
         }
 
-        for(int i=0;i<locationCount;i++){
+        for (int i = 0; i < locationCount; i++) {
 
             // Get the latitude
             lat = arg1.getDouble(arg1.getColumnIndex(LocationsDB.FIELD_LAT));
@@ -200,15 +196,15 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             LatLng location = new LatLng(lat, lng);
 
             // Drawing the marker in the Google Maps
-            drawMarker(location,info);
+            drawMarker(location, info);
 
             // Traverse the pointer to the next row
             arg1.moveToNext();
         }
 
-        if(locationCount>0){
+        if (locationCount > 0) {
             // Moving CameraPosition to last clicked position
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat,lng)));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lng)));
 
             // Setting the zoom level in the map on last position  is clicked
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
@@ -221,35 +217,34 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
     }
 
 
-
     @Override
     public void onMapClick(LatLng arg0) {
         // TODO Auto-generated method stub
-        x=arg0.latitude;
-        y=arg0.longitude;
-        final AlertDialog alert2=new AlertDialog.Builder(Map.this).create();
-        AlertDialog alert=new AlertDialog.Builder(Map.this).create();
+        x = arg0.latitude;
+        y = arg0.longitude;
+        final AlertDialog alert2 = new AlertDialog.Builder(Map.this).create();
+        AlertDialog alert = new AlertDialog.Builder(Map.this).create();
         alert.setTitle("Anwesha");
-        alert.setButton(AlertDialog.BUTTON_POSITIVE,"Toggle View", new DialogInterface.OnClickListener() {
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Toggle View", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                if(flag==1){
+                if (flag == 1) {
                     googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                    flag=0;
-                }else{
+                    flag = 0;
+                } else {
                     googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    flag=1;
+                    flag = 1;
                 }
             }
         });
-        alert.setButton(AlertDialog.BUTTON_NEGATIVE,"Place a pinpoint", new DialogInterface.OnClickListener() {
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "Place a pinpoint", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                flag2=1;
+                flag2 = 1;
                 ///Toast.makeText(getApplicationContext(), "Abhishek", Toast.LENGTH_SHORT).show();
                 alert2.show();
                 dialog.dismiss();
@@ -274,13 +269,13 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
 
-                MarkerOptions op=new MarkerOptions();
-                op.position(new LatLng(x,y)).title(input.getText().toString());
+                MarkerOptions op = new MarkerOptions();
+                op.position(new LatLng(x, y)).title(input.getText().toString());
                 googleMap.addMarker(op);
                 ContentValues contentValues = new ContentValues();
 
                 // Setting latitude in ContentValues
-                contentValues.put(LocationsDB.FIELD_LAT, x );
+                contentValues.put(LocationsDB.FIELD_LAT, x);
 
                 // Setting longitude in ContentValues
                 contentValues.put(LocationsDB.FIELD_LNG, y);

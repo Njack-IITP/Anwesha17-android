@@ -12,15 +12,13 @@ public class WebSyncDB extends SQLiteOpenHelper {
 
     private static int VERSION = 1;
 
-    static final String EVENT_ID ="id";
-    static final String EVENT_NAME ="name";
-    static final String EVENT_fee ="fee";
-    static final String EVENT_day ="day";
-    static final String EVENT_size ="size";
-    static final String EVENT_code ="code";
-    static final String EVENT_details ="details";
-
-
+    static final String EVENT_ID = "id";
+    static final String EVENT_NAME = "name";
+    static final String EVENT_fee = "fee";
+    static final String EVENT_day = "day";
+    static final String EVENT_size = "size";
+    static final String EVENT_code = "code";
+    static final String EVENT_details = "details";
 
 
     private static final String TABLE_EVENT = "Event";
@@ -49,7 +47,7 @@ public class WebSyncDB extends SQLiteOpenHelper {
 
     public long insertEvent(ContentValues[] contentValues) {
         mDB.delete(TABLE_EVENT, null, null);
-        for(ContentValues cv : contentValues)
+        for (ContentValues cv : contentValues)
             mDB.insert(TABLE_EVENT, null, cv);
         return contentValues.length;
     }
@@ -59,10 +57,11 @@ public class WebSyncDB extends SQLiteOpenHelper {
     }
 
     public Cursor getAllEvents() {
-        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size,EVENT_code,EVENT_details}, null, null, null, null, null);
+        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day, EVENT_size, EVENT_code, EVENT_details}, null, null, null, null, null);
     }
+
     public Cursor getParticularEvents(String code) {
-        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day,EVENT_size,EVENT_code,EVENT_details}, EVENT_code + "=?", new String[]{code}, null, null, null);
+        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day, EVENT_size, EVENT_code, EVENT_details}, EVENT_code + "=?", new String[]{code}, null, null, null);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

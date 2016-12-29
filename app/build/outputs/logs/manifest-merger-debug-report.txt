@@ -37,10 +37,12 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:12:5-67
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-gcm:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/AndroidManifest.xml:21:5-66
+MERGED from [com.daimajia.slider:library:1.1.5] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/AndroidManifest.xml:11:5-67
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:12:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:13:5-81
+MERGED from [com.daimajia.slider:library:1.1.5] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/AndroidManifest.xml:12:5-81
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:13:22-78
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -274,6 +276,7 @@ MERGED from [com.android.support:support-core-utils:24.2.0] /home/cc15/Documents
 MERGED from [com.android.support:support-media-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.daimajia.slider:library:1.1.5] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v13:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.0/AndroidManifest.xml:23:9-52
 	android:targetSdkVersion
@@ -305,3 +308,5 @@ ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documen
 		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:86-145
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:19-85
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-110:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE

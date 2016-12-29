@@ -26,18 +26,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
 import java.util.Random;
 
-public class Home extends AppCompatActivity implements Animation.AnimationListener {
+public class Home extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
-    private View nameBox,welcomeframe,head,head_container;
-    private Animation name_Box,welcome_anim,header,tray_anim,tray_anim1,img1_anim,img2_anim,moveout1,moveout2,fadedrop;
+    private SliderLayout mDemoSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +51,36 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
 
+        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Hannibal",R.drawable.sliding_image1);
+        file_maps.put("Big Bang Theory",R.drawable.sliding_image2);
+        file_maps.put("House of Cards",R.drawable.sliding_image3);
+        file_maps.put("Game of Thrones", R.drawable.sliding_image4);
 
+        for(String name : file_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
+
+            mDemoSlider.addSlider(textSliderView);
+        }
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
+        mDemoSlider.addOnPageChangeListener(this);
+        mDemoSlider.startAutoCycle();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -62,6 +95,12 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
         new syncNotifications();
     }
 
+    /*@Override
+    protected void onStop() {
+        // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
+       // mDemoSlider.stopAutoCycle();
+        //super.onStop();
+    }*/
 
 
     public void onButtonClick(View v)
@@ -101,18 +140,19 @@ public class Home extends AppCompatActivity implements Animation.AnimationListen
     }
 
     @Override
-    public void onAnimationStart(Animation animation) {
-
+    public void onSliderClick(BaseSliderView slider) {
     }
 
     @Override
-    public void onAnimationEnd(Animation animation) {
-     }
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
     @Override
-    public void onAnimationRepeat(Animation animation) {
-
+    public void onPageSelected(int position) {
     }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {}
+
     class syncNotifications{
         NotificationManager nm;
         Random r;

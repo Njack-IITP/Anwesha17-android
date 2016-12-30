@@ -83,14 +83,9 @@
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="in.ac.iitp.anwesha.Gallery" />
         <activity
             android:name="in.ac.iitp.anwesha.Pronites"
             android:label="@string/title_activity_pro_nites"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="in.ac.iitp.anwesha.Map"
-            android:label="Map"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
@@ -102,10 +97,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         ﻿
+        <!--
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBqEwdesrBVeN3A4dQVDLt9p57YmeAfo54" />
-
+        -->
         <service android:name="in.ac.iitp.anwesha.BackgroundFetch" />
 
         <activity
@@ -116,6 +112,14 @@
             android:label="@string/title_activity_users"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="in.ac.iitp.anwesha.Events" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="in.ac.iitp.anwesha.Map"
+            android:label="@string/title_activity_map" />
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-110:12
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-114:12
 	package
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
@@ -77,9 +77,9 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:25:5-72
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:25:22-69
 application
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:27:5-108:19
-MERGED from [com.android.support:design:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/24.2.0/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:cardview-v7:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.0/AndroidManifest.xml:22:5-20
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:27:5-112:19
+MERGED from [com.android.support:design:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/AndroidManifest.xml:24:5-19
 MERGED from [com.google.firebase:firebase-appindexing:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.0.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-common:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:4:5-7:19
@@ -89,16 +89,16 @@ MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/cc15/Documen
 MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v13:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:appcompat-v7:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.0/AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-v4:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v13:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:31:9-41
 	android:supportsRtl
@@ -189,73 +189,67 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:70:9-74
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:74:13-56
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:71:13-34
-activity#in.ac.iitp.anwesha.Gallery
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:75:9-45
-	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:75:19-42
 activity#in.ac.iitp.anwesha.Pronites
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:76:9-79:59
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:75:9-78:59
 	android:label
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:78:13-61
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:77:13-61
 	android:theme
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:79:13-56
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:78:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:77:13-37
-activity#in.ac.iitp.anwesha.Map
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:80:9-83:59
-	android:label
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:82:13-32
-	android:theme
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:83:13-56
-	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:81:13-32
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:76:13-37
 provider#in.ac.iitp.anwesha.LocationsContentProvider
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:85:9-88:40
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:80:9-83:40
 	android:authorities
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:87:13-63
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:82:13-63
 	android:exported
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:88:13-37
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:83:13-37
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:86:13-53
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:81:13-53
 meta-data#com.google.android.gms.version
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:90:9-92:69
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:85:9-87:69
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:92:13-66
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:87:13-66
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:91:13-58
-meta-data#com.google.android.maps.v2.API_KEY
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:94:9-96:71
-	android:value
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:96:13-68
-	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:95:13-62
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:86:13-58
 service#in.ac.iitp.anwesha.BackgroundFetch
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:98:9-52
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:94:9-52
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:98:18-49
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:94:18-49
 activity#in.ac.iitp.anwesha.LoginActivity
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:100:9-102:60
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:96:9-98:60
 	android:label
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:102:13-57
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:98:13-57
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:101:13-42
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:97:13-42
 activity#in.ac.iitp.anwesha.Users
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:103:9-106:59
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:99:9-102:59
 	android:label
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:105:13-57
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:101:13-57
 	android:theme
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:106:13-56
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:102:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:104:13-34
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:100:13-34
 activity#in.ac.iitp.anwesha.Events
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:107:9-53
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:103:9-44
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:107:19-41
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:103:19-41
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:105:9-107:55
+	android:value
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:107:13-52
+	android:name
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:106:13-58
+activity#in.ac.iitp.anwesha.Map
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:109:9-111:57
+	android:label
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:111:13-55
+	android:name
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:110:13-32
 uses-sdk
 INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/24.2.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:cardview-v7:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-maps:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/AndroidManifest.xml:23:5-42
 MERGED from [com.google.firebase:firebase-appindexing:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-common:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/AndroidManifest.xml:3:5-42
@@ -265,20 +259,20 @@ MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/cc15/Documen
 MERGED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-tasks:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:support-v13:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.0/AndroidManifest.xml:21:5-23:55
-MERGED from [com.android.support:appcompat-v7:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.0/AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:recyclerview-v7:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-media-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-v13:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.1/AndroidManifest.xml:21:5-23:55
+MERGED from [com.android.support:appcompat-v7:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:recyclerview-v7:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/AndroidManifest.xml:21:5-23:58
 MERGED from [com.daimajia.slider:library:1.1.5] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.daimajia.slider/library/1.1.5/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v13:24.2.0] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.0/AndroidManifest.xml:23:9-52
+		ADDED from [com.android.support:support-v13:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.2.1/AndroidManifest.xml:23:9-52
 	android:targetSdkVersion
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
@@ -309,4 +303,4 @@ ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documen
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/AndroidManifest.xml:19:19-85
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-110:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-114:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE

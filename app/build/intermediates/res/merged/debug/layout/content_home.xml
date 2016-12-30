@@ -21,8 +21,8 @@
 
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#32383d">
+            android:layout_height="match_parent">
+            <!--android:background="#32383d" -->
 
             <com.daimajia.slider.library.SliderLayout
                 android:id="@+id/slider"
@@ -43,8 +43,8 @@
         android:layout_weight="1.3"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:padding="2dp"
-        android:background="#32383d">
+        android:padding="2dp">
+       <!-- android:background="#32383d" -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,7 +68,8 @@
                     android:background="@drawable/home_button"
                     android:onClick="onButtonClick"
                     android:text="Events"
-                    android:textColor="#bcededed" />
+                    android:textColor="#bcededed"
+                    android:alpha="0.8"/>
 
                 <TextView
                     android:id="@+id/b_home_sponser"

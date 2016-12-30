@@ -1,6 +1,7 @@
 package in.ac.iitp.anwesha;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -52,17 +53,6 @@ public class Sponser extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-
     class CAdapter extends ArrayAdapter<Integer> {
         ArrayList<Integer> l = new ArrayList<>();
         int resource = R.layout.lay_sponser_row;
@@ -92,6 +82,17 @@ public class Sponser extends AppCompatActivity {
             View view = getLayoutInflater().inflate(resource, null);
             ((ImageView) view.findViewById(R.id.iv_s1)).setImageResource(getItem(position));
             return view;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            Intent in = new Intent(this,Home.class);
+            startActivity(in);
         }
     }
 

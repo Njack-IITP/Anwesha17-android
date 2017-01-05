@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#0b5270</color>
     <color name="colorAccent">#11113e</color> -->
 
-    <color name="colorPrimary">#795548</color>
+    <color name="colorPrimary">#e0a772</color>
     <color name="colorPrimaryDark">#4e342e</color>
-    <color name="colorAccent">#3e2723</color>
+    <color name="colorAccent">#4e342e</color>
 
     <color name="themeColor">#1f84b3</color>
     <color name="themeColorDark">#0b5270</color>

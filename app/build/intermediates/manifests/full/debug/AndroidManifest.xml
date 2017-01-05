@@ -48,13 +48,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name="in.ac.iitp.anwesha.Home"
             android:label="@string/title_activity_home"
@@ -109,8 +103,14 @@
             android:label="@string/title_activity_login" />
         <activity
             android:name="in.ac.iitp.anwesha.Users"
-            android:label="@string/title_activity_users"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="in.ac.iitp.anwesha.Events" />
 
         <meta-data

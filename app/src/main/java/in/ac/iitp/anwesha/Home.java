@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -49,6 +51,8 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getPreferences().edit().putBoolean("login", true).apply();
+        Log.v("chirag",getPreferences().getBoolean("login",false)+"");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -94,6 +98,11 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
 
 
         new syncNotifications();
+    }
+
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login",MODE_PRIVATE);
+        return sharedPref;
     }
 
     /*@Override

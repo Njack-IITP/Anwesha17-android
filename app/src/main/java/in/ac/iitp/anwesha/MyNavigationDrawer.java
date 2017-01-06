@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
@@ -20,6 +21,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by gagan on 4/10/15.
@@ -67,7 +70,16 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             if (openHome(activity)) activity.finish();
 
         } else if (id == R.id.nav_loginlogout) {
-            AllIDS.loginlogout(activity);
+                    Toast.makeText(activity, "Logged Out!", Toast.LENGTH_SHORT).show();
+       /* USER_anweshaID = null;
+        USER_key = null;
+        USER_name = null;
+        saveSharedPref(context);
+        */
+                getPreferences().edit().putBoolean("login", false).apply();
+                Intent intent;
+                intent = new Intent(activity, Users.class);
+                activity.startActivity(intent);
 
         } else if (id == R.id.nav_share) {
             //TODO: Add share option
@@ -76,6 +88,10 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = activity.getSharedPreferences("login",MODE_PRIVATE);
+        return sharedPref;
     }
 
     static protected void openActivity(Context context, Class class_name) {

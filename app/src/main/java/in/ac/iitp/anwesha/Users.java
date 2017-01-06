@@ -4,16 +4,26 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -21,6 +31,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -31,7 +42,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -44,71 +57,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Users extends AppCompatActivity {
 
-    /**
-     * The {@link PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        Intent intent;
+        if (getPreferences().getBoolean("login", false)) {
+            intent = new Intent(this, WelcomeScreen.class);
+            Log.v("chirag","chirag");
+            startActivity(intent);
+            finish();
+        }
+        else {
+            setContentView(R.layout.activity_users);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new LoginFragment(), "login").commit();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        }
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private static void showProgress(final boolean show, final View mLoginFormView, final View mProgressView, Resources resources) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime);
-
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
+    private SharedPreferences getPreferences() {
+         SharedPreferences sharedPref = getApplication().getSharedPreferences("login",MODE_PRIVATE);
+        return sharedPref;
     }
 
     private static boolean isEmailValid(String email) {
@@ -222,8 +200,8 @@ public class Users extends AppCompatActivity {
      */
     public static class LoginFragment extends Fragment {
 
-        private AutoCompleteTextView mEmailView;
-        private EditText mPasswordView;
+        private TextInputLayout mEmailView;
+        private TextInputLayout mPasswordView;
         private View mProgressView;
         private View mLoginFormView;
 
@@ -231,25 +209,21 @@ public class Users extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.activity_login, container, false);
-            mEmailView = (AutoCompleteTextView) rootView.findViewById(R.id.email);
-            if (AllIDS.USER_anweshaID != null)
-                mEmailView.setText(AllIDS.USER_anweshaID);
+            mEmailView = (TextInputLayout) rootView.findViewById(R.id.email);
 
-            mPasswordView = (EditText) rootView.findViewById(R.id.password);
-            if (AllIDS.USER_anweshapass != null)
-                mPasswordView.setText(AllIDS.USER_anweshapass);
-            mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            mPasswordView = (TextInputLayout) rootView.findViewById(R.id.password);
+
+            TextView signup = (TextView) rootView.findViewById(R.id.sign_up);
+            signup.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                    if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                        attemptLogin();
-                        return true;
-                    }
-                    return false;
+                public void onClick(View v) {
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.content_frame, new RegistationFragment(), "signup").commit();
+
                 }
             });
-
-            Button mEmailSignInButton = (Button) rootView.findViewById(R.id.email_sign_in_button);
+            Button mEmailSignInButton = (Button) rootView.findViewById(R.id.log_in);
             mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -257,8 +231,6 @@ public class Users extends AppCompatActivity {
                 }
             });
 
-            mLoginFormView = rootView.findViewById(R.id.login_form);
-            mProgressView = rootView.findViewById(R.id.login_progress);
             return rootView;
         }
 
@@ -275,8 +247,8 @@ public class Users extends AppCompatActivity {
             mPasswordView.setError(null);
 
             // Store values at the time of the login attempt.
-            String email = mEmailView.getText().toString();
-            String password = mPasswordView.getText().toString();
+            String email = mEmailView.getEditText().getText().toString();
+            String password = mPasswordView.getEditText().getText().toString();
 
             boolean cancel = false;
             View focusView = null;
@@ -307,7 +279,6 @@ public class Users extends AppCompatActivity {
             } else {
                 // Show a progress spinner, and kick off a background task to
                 // perform the user login attempt.
-                showProgress(true, mLoginFormView, mProgressView, getResources());
                 tryLogin(email, password);
             }
         }
@@ -324,6 +295,10 @@ public class Users extends AppCompatActivity {
             param.add(new Pair<String, String>("username", _email));
             param.add(new Pair<String, String>("password", password));
 
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Logging in...");
+            progressDialog.show();
+
             MyHttpClient client = new MyHttpClient(BackgroundFetch.BASE_URL + "/login", param, true, new MyHttpClientListener() {
                 @Override
                 public void onPreExecute() {
@@ -332,7 +307,7 @@ public class Users extends AppCompatActivity {
 
                 @Override
                 public void onFailed(Exception e) {
-                    showProgress(false, mLoginFormView, mProgressView, getResources());
+                    progressDialog.dismiss();
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Login")
                             .setPositiveButton("Ok", null)
@@ -342,12 +317,12 @@ public class Users extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(Object output) {
+                    progressDialog.dismiss();
                     String result = (String) output;
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                             .setTitle("Login")
                             .setPositiveButton("Ok", null)
                             .setMessage("Some Error Occured");
-
 
                     try {
                         JSONObject object = new JSONObject(result);
@@ -361,7 +336,9 @@ public class Users extends AppCompatActivity {
                             AllIDS.USER_key = key;
                             AllIDS.USER_anweshaID = _email;
                             AllIDS.USER_anweshapass = password;
-                            AllIDS.saveSharedPref(getContext());
+                            Intent intent;
+                            intent = new Intent(getActivity(), Home.class);
+                            startActivity(intent);
                             getActivity().finish();
                         }
 
@@ -370,8 +347,6 @@ public class Users extends AppCompatActivity {
                     }
                     dialog.create().show();
 
-
-                    showProgress(false, mLoginFormView, mProgressView, getResources());
                 }
 
                 @Override
@@ -379,9 +354,8 @@ public class Users extends AppCompatActivity {
 
                 }
             });
+
         }
-
-
     }
 
     public static class RegistationFragment extends Fragment {
@@ -390,6 +364,8 @@ public class Users extends AppCompatActivity {
         private EditText et_name, et_dob, et_contact, et_city, et_college;
         private View mProgressView;
         private View mLoginFormView;
+        private DatePicker datePicker;
+        private Calendar calendar;
 
         private RadioButton rb_sex_male, rb_sex_female;
 
@@ -408,6 +384,13 @@ public class Users extends AppCompatActivity {
             et_city = (EditText) rootView.findViewById(R.id.et_city);
 
 
+            final ImageView datepicker = (ImageView) rootView.findViewById(R.id.datepicker);
+            datepicker.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectdate();
+                }
+            });
             Button mEmailSignInButton = (Button) rootView.findViewById(R.id.b_register);
             mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -437,13 +420,34 @@ public class Users extends AppCompatActivity {
                 }
             });
 
-
-            mLoginFormView = rootView.findViewById(R.id.login_form);
-            mProgressView = rootView.findViewById(R.id.login_progress);
             return rootView;
         }
 
+        public void selectdate() {
 
+            Calendar newCalendar = Calendar.getInstance();
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    monthOfYear++;
+                    if(monthOfYear==11 || monthOfYear==12) {
+                        if(dayOfMonth<10)
+                            et_dob.setText(year + "-" + monthOfYear + "-" + "0"+dayOfMonth);
+                        else
+                            et_dob.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                    }
+                    else{
+                        if(dayOfMonth<10)
+                            et_dob.setText(year + "-" + "0" + monthOfYear + "-" + "0"+dayOfMonth);
+                        else
+                            et_dob.setText(year+"-"+"0"+monthOfYear+"-"+dayOfMonth);
+                    }
+                }
+
+            },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.show();
+
+        }
         /**
          * Attempts to sign in or register the account specified by the login form.
          * If there are form errors (invalid email, missing fields, etc.), the
@@ -503,7 +507,6 @@ public class Users extends AppCompatActivity {
             } else {
                 // Show a progress spinner, and kick off a background task to
                 // perform the user login attempt.
-                showProgress(true, mLoginFormView, mProgressView, getResources());
                 tryRegister(email, name, contact, college, dob, city);
             }
         }
@@ -524,6 +527,10 @@ public class Users extends AppCompatActivity {
             param.add(new Pair<String, String>("dob", dob));
             param.add(new Pair<String, String>("city", city));
 
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Registering...");
+            progressDialog.show();
+
             MyHttpClient client = new MyHttpClient(BackgroundFetch.BASE_URL + "/user/register/User", param, true, new MyHttpClientListener() {
                 @Override
                 public void onPreExecute() {
@@ -532,22 +539,20 @@ public class Users extends AppCompatActivity {
 
                 @Override
                 public void onFailed(Exception e) {
+                    progressDialog.dismiss();
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
-                            .setTitle("Login")
+                            .setTitle("Registration")
                             .setPositiveButton("Ok", null)
                             .setMessage("Lost Connection!");
                     dialog.create().show();
 
-                    showProgress(false, mLoginFormView, mProgressView, getResources());
                 }
 
                 @Override
                 public void onSuccess(Object output) {
+                    progressDialog.dismiss();
                     String result = (String) output;
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
-                            .setTitle("Registration")
-                            .setMessage("Some Error Occured!")
-                            .setPositiveButton("Ok", null);
+
                     try {
                         JSONArray array = new JSONArray(result);
                         int status = array.getInt(0);
@@ -558,19 +563,34 @@ public class Users extends AppCompatActivity {
                             et_college.setText(null);
                             et_contact.setText(null);
                             et_dob.setText(null);
-                            dialog.setMessage("Your Anwesha ID : ANW" + obj.getInt("pId"));
 
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                                    .setTitle("Registration")
+                                    .setMessage("Your Anwesha ID : ANW" + obj.getInt("pId"))
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent;
+                                    intent = new Intent(getActivity(), Home.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                            });
+                            dialog.create().show();
 
                         } else {
-                            dialog.setMessage(array.getString(1));
-
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                                    .setTitle("Registration")
+                                    .setMessage(array.getString(1))
+                                    .setPositiveButton("Ok", null);
+                            dialog.create().show();
                         }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    dialog.create().show();
-                    showProgress(false, mLoginFormView, mProgressView, getResources());
+
+
                 }
 
                 @Override
@@ -582,42 +602,9 @@ public class Users extends AppCompatActivity {
 
 
     }
-
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            if (position == 0)
-                return new LoginFragment();
-            else return new RegistationFragment();
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 2;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Login";
-                case 1:
-                    return "Registration";
-
-            }
-            return null;
-        }
+    @Override
+    public void onBackPressed() {
+            this.finishAffinity();
     }
+
 }

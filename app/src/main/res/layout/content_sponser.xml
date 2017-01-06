@@ -1,147 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:orientation="vertical">
+
     <LinearLayout
-        android:layout_marginTop="?attr/actionBarSize"
-            android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
 
         >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ListView
+                android:id="@+id/grid_other_sponser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:tag="3"
-                android:visibility="gone"
-                android:id="@+id/grid_other_sponser"
-                >
-            </ListView>
+                android:visibility="gone"></ListView>
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title Sponsor"
+                android:layout_marginTop="10dp"
+                android:background="#96777777"
                 android:gravity="center"
+                android:text="Title Sponsor"
+
                 android:textColor="#FFF"
 
-                android:textSize="20dp"
+                android:textSize="20dp" />
 
-                android:background="#96777777"/>
             <ImageView
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerInside"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:src="@drawable/s_bsbcl"/>
+                android:layout_marginTop="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/s_bsbcl" />
 
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Powered By | In Association With"
+                android:layout_marginTop="10dp"
+                android:background="#96777777"
                 android:gravity="center"
+                android:text="Powered By | In Association With"
                 android:textColor="#FFF"
-                android:textSize="20dp"
 
-                android:background="#96777777"/>
+                android:textSize="20dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_weight="1"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/s_vodafone_logo"
-                    android:layout_marginRight="10dp"/>
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_margin="10dp"
                     android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
                     android:scaleType="centerInside"
+                    android:src="@drawable/s_vodafone_logo" />
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/s_toi"/>
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/s_toi" />
             </LinearLayout>
 
 
-
-
-
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#96777777"
                 android:gravity="center"
                 android:text="Other Sponsors"
                 android:textColor="#FFF"
-                android:textSize="20dp"
 
-                android:background="#96777777"/>
+                android:textSize="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_beltron"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_beltron" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_allahabad_bank"
-                    android:scaleType="centerInside"
 
                     />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_biharlogo"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_biharlogo" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_radiomirchi"
-                    android:scaleType="centerInside"
 
                     />
 
@@ -149,23 +152,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_ebay"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_ebay" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_io"
-                    android:scaleType="centerInside"
 
                     />
 
@@ -173,23 +177,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_sbi"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_sbi" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_sp"
-                    android:scaleType="centerInside"
 
                     />
 
@@ -197,23 +202,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_webx99"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_webx99" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_spykar"
-                    android:scaleType="centerInside"
 
                     />
 
@@ -221,75 +227,77 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_panache"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_panache" />
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
+                    android:scaleType="centerInside"
                     android:src="@drawable/s_cc"
-                    android:scaleType="centerInside"
 
                     />
 
             </LinearLayout>
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#96777777"
                 android:gravity="center"
                 android:text="Dress Courtesy"
                 android:textColor="#FFF"
-                android:textSize="20dp"
 
-                android:background="#96777777"/>
+                android:textSize="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_pcm"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_pcm" />
             </LinearLayout>
+
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#96777777"
                 android:gravity="center"
                 android:text="Mall Partner"
                 android:textColor="#FFF"
-                android:textSize="20dp"
 
-                android:background="#96777777"/>
+                android:textSize="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/s_centra"
                     android:scaleType="centerInside"
-                    />
+                    android:src="@drawable/s_centra" />
             </LinearLayout>
 
 

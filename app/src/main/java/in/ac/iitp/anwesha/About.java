@@ -65,6 +65,60 @@ public class About extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            Intent in = new Intent(this, Home.class);
+            startActivity(in);
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView;
+            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
+                rootView = inflater.inflate(R.layout.fragment_about, container, false);
+                ((TextView) rootView.findViewById(R.id.about_anwesha)).setTypeface(AllIDS.font_Anwesha);
+                ((TextView) rootView.findViewById(R.id.about_ttdl)).setTypeface(AllIDS.font_AnweshaSub);
+                ((TextView) rootView.findViewById(R.id.about_story)).setTypeface(AllIDS.font_Title);
+
+
+            } else {
+                rootView = inflater.inflate(R.layout.fragment_about_dev, container, false);
+                ((TextView) rootView.findViewById(R.id.about_appteam)).setTypeface(AllIDS.font_Title);
+            }
+            return rootView;
+        }
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -99,61 +153,6 @@ public class About extends AppCompatActivity {
 
             }
             return null;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView;
-            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
-                rootView = inflater.inflate(R.layout.fragment_about, container, false);
-                ((TextView) rootView.findViewById(R.id.about_anwesha)).setTypeface(AllIDS.font_Anwesha);
-                ((TextView) rootView.findViewById(R.id.about_ttdl)).setTypeface(AllIDS.font_AnweshaSub);
-                ((TextView) rootView.findViewById(R.id.about_story)).setTypeface(AllIDS.font_Title);
-
-
-            } else {
-                rootView = inflater.inflate(R.layout.fragment_about_dev, container, false);
-                ((TextView) rootView.findViewById(R.id.about_appteam)).setTypeface(AllIDS.font_Title);
-            }
-            return rootView;
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            Intent in = new Intent(this,Home.class);
-            startActivity(in);
         }
     }
 }

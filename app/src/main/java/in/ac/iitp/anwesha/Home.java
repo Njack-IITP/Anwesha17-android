@@ -1,15 +1,11 @@
 package in.ac.iitp.anwesha;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,11 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,12 +29,11 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Random;
 
-public class Home extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
+public class Home extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private SliderLayout mDemoSlider;
 
@@ -52,19 +42,19 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getPreferences().edit().putBoolean("login", true).apply();
-        Log.v("chirag",getPreferences().getBoolean("login",false)+"");
+        Log.v("chirag", getPreferences().getBoolean("login", false) + "");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
+        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
 
-        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Hannibal",R.drawable.sliding_image1);
-        file_maps.put("Big Bang Theory",R.drawable.sliding_image2);
-        file_maps.put("House of Cards",R.drawable.sliding_image3);
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Hannibal", R.drawable.sliding_image1);
+        file_maps.put("Big Bang Theory", R.drawable.sliding_image2);
+        file_maps.put("House of Cards", R.drawable.sliding_image3);
         file_maps.put("Game of Thrones", R.drawable.sliding_image4);
 
-        for(String name : file_maps.keySet()){
+        for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(this);
             // initialize a SliderLayout
             textSliderView
@@ -76,7 +66,7 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
             //add your extra information
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
-                    .putString("extra",name);
+                    .putString("extra", name);
 
             mDemoSlider.addSlider(textSliderView);
         }
@@ -96,12 +86,11 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
 
 
-
         new syncNotifications();
     }
 
     private SharedPreferences getPreferences() {
-        SharedPreferences sharedPref = getApplication().getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
         return sharedPref;
     }
 
@@ -113,12 +102,10 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
     }*/
 
 
-    public void onButtonClick(View v)
-    {
-        int id= v.getId();
+    public void onButtonClick(View v) {
+        int id = v.getId();
         Intent in;
-        switch (id)
-        {
+        switch (id) {
             case R.id.b_home_superClubs:
                 MyNavigationDrawer.openEvent(this);
                 break;
@@ -154,21 +141,33 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
 
     @Override
     public void onPageSelected(int position) {
     }
 
     @Override
-    public void onPageScrollStateChanged(int state) {}
+    public void onPageScrollStateChanged(int state) {
+    }
 
-    class syncNotifications{
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            this.finishAffinity();
+        }
+    }
+
+    class syncNotifications {
         NotificationManager nm;
         Random r;
         RequestQueue queue;
-        syncNotifications()
-        {
+
+        syncNotifications() {
             queue = Volley.newRequestQueue(getApplicationContext());
             nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
             r = new Random();
@@ -176,30 +175,27 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         }
 
 
-        void checkWeb()
-        {
+        void checkWeb() {
             final String time = AllIDS.readLastNotificationTime(getApplicationContext());
-            JsonObjectRequest objectRequest = new JsonObjectRequest(BackgroundFetch.BASE_URL+"/notifications/"+time,null,new Response.Listener<JSONObject>(){
+            JsonObjectRequest objectRequest = new JsonObjectRequest(BackgroundFetch.BASE_URL + "/notifications/" + time, null, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject jsonObject) {
                     try {
-                        if(jsonObject.getBoolean("status"))
-                        {
+                        if (jsonObject.getBoolean("status")) {
                             long maxTime = Long.parseLong(time);
                             JSONArray msg = jsonObject.getJSONArray("msgs");
-                            for(int i=0;i<msg.length();i++)
-                            {
+                            for (int i = 0; i < msg.length(); i++) {
                                 JSONObject obj = msg.getJSONObject(i);
                                 long t = obj.getLong("time");
                                 String m = obj.getString("msg");
                                 notification(m);
 
-                                if(maxTime<t)
+                                if (maxTime < t)
                                     maxTime = t;
 
                             }
-                            AllIDS.saveLastNotificationTime(getApplicationContext(),String.valueOf(maxTime));
+                            AllIDS.saveLastNotificationTime(getApplicationContext(), String.valueOf(maxTime));
 
 
                         }
@@ -207,7 +203,7 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
                         e.printStackTrace();
                     }
                 }
-            },new Response.ErrorListener(){
+            }, new Response.ErrorListener() {
 
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
@@ -216,8 +212,8 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
             queue.add(objectRequest);
 
         }
-        void notification(String msg)
-        {
+
+        void notification(String msg) {
 
             Notification.Builder nb = new Notification.Builder(getApplicationContext())
                     .setAutoCancel(true)
@@ -225,18 +221,9 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
                     .setContentText(msg)
                     .setSmallIcon(R.mipmap.ic_launcher);
             Notification notification = nb.build();
-            nm.notify(r.nextInt() ,notification);//Some Random Number + eventID
+            nm.notify(r.nextInt(), notification);//Some Random Number + eventID
 
 
-        }
-    }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            this.finishAffinity();
         }
     }
 }

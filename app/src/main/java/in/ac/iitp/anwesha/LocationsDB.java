@@ -9,16 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class LocationsDB extends SQLiteOpenHelper {
 
-    private static String DBNAME = "locationmarkersqlite";
-
-    private static int VERSION = 1;
     public static final String FIELD_ROW_ID = "_id";
     public static final String FIELD_LAT = "lat";
-
     public static final String FIELD_LNG = "lng";
     public static final String FIELD_INFO = "info";
-
     private static final String DATABASE_TABLE = "locations";
+    private static String DBNAME = "locationmarkersqlite";
+    private static int VERSION = 1;
     private SQLiteDatabase mDB;
 
     public LocationsDB(Context context) {

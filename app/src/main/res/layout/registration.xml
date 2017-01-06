@@ -7,29 +7,31 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
-        <ImageView
-            android:layout_width="3000dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/login" />
-        <TextView
+
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anwesha 2017"
-            android:typeface="monospace"
-            android:textColor="@color/colorPrimary"
-            android:textSize="30dp"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:layout_width="3000dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/login" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Anwesha 2017"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp"
+                android:typeface="monospace" />
+        </FrameLayout>
 
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
@@ -39,7 +41,6 @@
 
 
         <LinearLayout
-            android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -61,27 +62,30 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text=" Sex"/>
+                    android:layout_weight="1"
+                    android:text=" Sex"
+                    android:textSize="18sp" />
+
                 <RadioButton
+                    android:id="@+id/rb_sex_male"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:id="@+id/rb_sex_male"
-                    android:text="Male"/>
+                    android:text="Male" />
+
                 <RadioButton
+                    android:id="@+id/rb_sex_female"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/rb_sex_female"
-                    android:text="Female"/>
+                    android:text="Female" />
 
 
             </RadioGroup>
@@ -103,44 +107,46 @@
             </android.support.design.widget.TextInputLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter DOB (YYYY-MM-DD)"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/datepicker"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@android:drawable/ic_menu_my_calendar" />
+
+            </LinearLayout>
+
             <android.support.design.widget.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/et_dob"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter DOB (YYYY-MM-DD)"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/datepicker"
-                android:layout_gravity="center_vertical"
-                android:src="@android:drawable/ic_menu_my_calendar"/>
-
-        </LinearLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/et_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contact"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -154,20 +160,20 @@
                     android:maxLines="1"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_city"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="City"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-                    <EditText
-                        android:id="@+id/et_city"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="City"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-
+            </android.support.design.widget.TextInputLayout>
 
 
             <Button

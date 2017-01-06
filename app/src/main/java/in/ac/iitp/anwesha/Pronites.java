@@ -23,12 +23,10 @@ import java.util.Random;
 
 public class Pronites extends AppCompatActivity {
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
     static ImageView i1;
     static ImageView i2;
     static ImageView i3;
-
+    private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -59,38 +57,22 @@ public class Pronites extends AppCompatActivity {
 
     }
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Day 1";
-                case 1:
-                    return "Day 2";
-                case 2:
-                    return "Day 3";
-            }
-            return null;
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            Intent in = new Intent(this, Home.class);
+            startActivity(in);
         }
     }
 
     public static class PlaceholderFragment extends Fragment {
         private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
 
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
@@ -98,9 +80,6 @@ public class Pronites extends AppCompatActivity {
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override
@@ -144,14 +123,34 @@ public class Pronites extends AppCompatActivity {
             return rootView;
         }
     }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            Intent in = new Intent(this,Home.class);
-            startActivity(in);
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return PlaceholderFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Day 1";
+                case 1:
+                    return "Day 2";
+                case 2:
+                    return "Day 3";
+            }
+            return null;
         }
     }
 }

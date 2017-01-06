@@ -1,36 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFF"
+    android:orientation="vertical"
     android:paddingBottom="64dp"
     tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
 
     <ImageView
+        android:id="@+id/img1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/img1"
-        android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/gaganr"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        />
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/gaganr"
+        android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="SandArt\nClassical Performances\nDJ Night"
+        android:layout_alignParentBottom="true"
 
-        android:textSize="37dp"
-        android:textColor="#ffffff"
-        android:id="@+id/textView2"
+        android:layout_alignParentLeft="true"
         android:layout_margin="5dp"
         android:layout_marginBottom="70dp"
         android:background="@drawable/round_rect_transulent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true" />
+        android:text="SandArt\nClassical Performances\nDJ Night"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="37dp" />
 </RelativeLayout>

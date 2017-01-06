@@ -1,7 +1,6 @@
 package in.ac.iitp.anwesha;
 
 
-import android.*;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -16,10 +15,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.view.Menu;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,10 +27,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.jar.*;
-
-import in.ac.iitp.anwesha.R;
 
 public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, OnMapClickListener, OnMapReadyCallback {
 
@@ -74,7 +67,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }else{
+        } else {
             googleMap.setMyLocationEnabled(true);
         }
         googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
@@ -85,6 +78,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         googleMap.setOnMapClickListener(this);
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -98,7 +92,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
     }
 
 
-    public void initialise(){
+    public void initialise() {
         LatLng iit = new LatLng(25.535721, 84.851003);
         MarkerOptions op1 = new MarkerOptions();
         op1.position(iit).title("IIT Patna")
@@ -153,7 +147,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         m7.showInfoWindow();
     }
 
-    private void drawMarker(LatLng point,String info){
+    private void drawMarker(LatLng point, String info) {
         // Creating an instance of MarkerOptions
         MarkerOptions markerOptions = new MarkerOptions();
 
@@ -163,27 +157,6 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         // Adding marker on the Google Map
         googleMap.addMarker(markerOptions);
     }
-
-    private class LocationInsertTask extends AsyncTask<ContentValues, Void, Void>{
-        @Override
-        protected Void doInBackground(ContentValues... contentValues) {
-
-            /** Setting up values to insert the clicked location into SQLite database */
-            getContentResolver().insert(LocationsContentProvider.CONTENT_URI, contentValues[0]);
-            return null;
-        }
-    }
-
-    private class LocationDeleteTask extends AsyncTask<Void, Void, Void>{
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            /** Deleting all the locations stored in SQLite database */
-            getContentResolver().delete(LocationsContentProvider.CONTENT_URI, null, null);
-            return null;
-        }
-    }
-
 
     @Override
     public Loader<Cursor> onCreateLoader(int arg0,
@@ -200,18 +173,18 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
     public void onLoadFinished(Loader<Cursor> arg0,
                                Cursor arg1) {
         int locationCount = 0;
-        double lat=0;
-        double lng=0;
-        String info="";
+        double lat = 0;
+        double lng = 0;
+        String info = "";
 
         // Number of locations available in the SQLite database table
         locationCount = arg1.getCount();
-        if(locationCount>0){
+        if (locationCount > 0) {
             // Move the current record pointer to the first row of the table
             arg1.moveToFirst();
         }
 
-        for(int i=0;i<locationCount;i++){
+        for (int i = 0; i < locationCount; i++) {
 
             // Get the latitude
             lat = arg1.getDouble(arg1.getColumnIndex(LocationsDB.FIELD_LAT));
@@ -226,15 +199,15 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             LatLng location = new LatLng(lat, lng);
 
             // Drawing the marker in the Google Maps
-            drawMarker(location,info);
+            drawMarker(location, info);
 
             // Traverse the pointer to the next row
             arg1.moveToNext();
         }
 
-        if(locationCount>0){
+        if (locationCount > 0) {
             // Moving CameraPosition to last clicked position
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat,lng)));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lng)));
 
             // Setting the zoom level in the map on last position  is clicked
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
@@ -246,36 +219,34 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         // TODO Auto-generated method stub
     }
 
-
-
     @Override
     public void onMapClick(LatLng arg0) {
         // TODO Auto-generated method stub
-        x=arg0.latitude;
-        y=arg0.longitude;
-        final AlertDialog alert2=new AlertDialog.Builder(Map.this).create();
-        AlertDialog alert=new AlertDialog.Builder(Map.this).create();
+        x = arg0.latitude;
+        y = arg0.longitude;
+        final AlertDialog alert2 = new AlertDialog.Builder(Map.this).create();
+        AlertDialog alert = new AlertDialog.Builder(Map.this).create();
         alert.setTitle("Anwesha");
-        alert.setButton(AlertDialog.BUTTON_POSITIVE,"Toggle View", new DialogInterface.OnClickListener() {
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Toggle View", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                if(flag==1){
+                if (flag == 1) {
                     googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                    flag=0;
-                }else{
+                    flag = 0;
+                } else {
                     googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    flag=1;
+                    flag = 1;
                 }
             }
         });
-        alert.setButton(AlertDialog.BUTTON_NEGATIVE,"Place a pinpoint", new DialogInterface.OnClickListener() {
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "Place a pinpoint", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-                flag2=1;
+                flag2 = 1;
                 ///Toast.makeText(getApplicationContext(), "Abhishek", Toast.LENGTH_SHORT).show();
                 alert2.show();
                 dialog.dismiss();
@@ -300,13 +271,13 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
 
-                MarkerOptions op=new MarkerOptions();
-                op.position(new LatLng(x,y)).title(input.getText().toString());
+                MarkerOptions op = new MarkerOptions();
+                op.position(new LatLng(x, y)).title(input.getText().toString());
                 googleMap.addMarker(op);
                 ContentValues contentValues = new ContentValues();
 
                 // Setting latitude in ContentValues
-                contentValues.put(LocationsDB.FIELD_LAT, x );
+                contentValues.put(LocationsDB.FIELD_LAT, x);
 
                 // Setting longitude in ContentValues
                 contentValues.put(LocationsDB.FIELD_LNG, y);
@@ -331,5 +302,25 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
                 dialog.dismiss();
             }
         });
+    }
+
+    private class LocationInsertTask extends AsyncTask<ContentValues, Void, Void> {
+        @Override
+        protected Void doInBackground(ContentValues... contentValues) {
+
+            /** Setting up values to insert the clicked location into SQLite database */
+            getContentResolver().insert(LocationsContentProvider.CONTENT_URI, contentValues[0]);
+            return null;
+        }
+    }
+
+    private class LocationDeleteTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            /** Deleting all the locations stored in SQLite database */
+            getContentResolver().delete(LocationsContentProvider.CONTENT_URI, null, null);
+            return null;
+        }
     }
 }

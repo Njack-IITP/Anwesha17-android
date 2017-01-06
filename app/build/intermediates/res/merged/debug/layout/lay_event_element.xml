@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="4dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:clickable="false"
-        android:layout_margin="10dp"
-        >
+        card_view:cardCornerRadius="4dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2"
-            android:layout_toLeftOf="@+id/fab"
-            android:layout_toStartOf="@+id/fab">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:scaleType="center"
-                android:background="@android:drawable/presence_invisible"/>
+                android:layout_toLeftOf="@+id/fab"
+                android:layout_toStartOf="@+id/fab"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:drawable/presence_invisible"
+                    android:scaleType="center"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_event_list_element"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Example Event"
+                    android:textColor="#222"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
             <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_event_list_element_desc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#222"
-                android:textSize="20sp"
-                android:id="@+id/tv_event_list_element"
-                android:text="Example Event"/>
-        </LinearLayout>
-        <TextView
-            android:layout_marginLeft="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#444"
-            android:textSize="16sp"
-            android:id="@+id/tv_event_list_element_desc"
-            android:text="Short Story"
-            android:layout_marginTop="22dp"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_alignParentLeft="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="22dp"
+                android:layout_toLeftOf="@+id/fab"
+                android:layout_toStartOf="@+id/fab"
 
-            android:maxLines="2"
+                android:maxLines="2"
 
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/fab"
-            android:layout_toStartOf="@+id/fab" />
+                android:text="Short Story"
+                android:textColor="#444"
+                android:textSize="16sp" />
 
-        <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-            android:layout_width="50dp" android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@android:drawable/ic_menu_send"
-            android:layout_alignParentRight="true"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:src="@android:drawable/ic_menu_send" />
 
 
         </RelativeLayout>

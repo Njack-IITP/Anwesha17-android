@@ -1,36 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFF"
-    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment"
-    android:paddingBottom="64dp">
+    android:orientation="vertical"
+    android:paddingBottom="64dp"
+    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
 
     <ImageView
+        android:id="@+id/img3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/img3"
-        android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/abhishekr"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        />
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/abhishekr"
+        android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Rock Night (Euphoria)"
-        android:id="@+id/textView3"
-        android:textSize="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
 
         android:layout_marginBottom="70dp"
-        android:textColor="#ffffff"
-        android:layout_margin="5dp"
         android:background="@drawable/round_rect_transulent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true" />
+        android:text="Rock Night (Euphoria)"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="37dp" />
 </RelativeLayout>

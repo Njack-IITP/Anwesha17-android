@@ -1,107 +1,121 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#0099cc"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
     tools:context=".WelcomeScreen">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        tools:context=".WelcomeScreen"
-        android:background="@drawable/pirates_backround">
-    <!--    <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:src="@drawable/bg"
-            android:scaleType="centerCrop"/>
-        --><ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:alpha="0.0"
-            android:background="@android:drawable/dialog_holo_light_frame"/>
+        android:layout_height="match_parent"
+        android:background="@drawable/pirates_backround"
+        tools:context=".WelcomeScreen">
+        <!--    <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/bg"
+                android:scaleType="centerCrop"/>
+            --><ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:alpha="0.0"
+        android:background="@android:drawable/dialog_holo_light_frame" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:visibility="visible"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:visibility="visible">
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/iitp"/>
+                android:src="@drawable/iitp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Presents"
                 android:textColor="#EFFF"
-                android:textSize="30dp"/>
+                android:textSize="30dp" />
 
         </LinearLayout>
+
         <ImageView
+            android:id="@+id/logo"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:scaleType="fitCenter"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo"
-            android:id="@+id/logo"/>
+            android:src="@drawable/logo" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_weight="2"
-                android:layout_height="match_parent"/>
-        <RelativeLayout
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="100dp"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/rl_welcome_screenback">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fest_name"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
 
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="#DFFF"
-                android:id="@+id/tv_anwesha_text" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fest_desc"
-                android:gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/themeColorDark"
-                android:alpha="0.7"
-                android:id="@+id/tv_anwesha_desc"
-                android:layout_below="@+id/tv_anwesha_text"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp" />
-        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="100dp"
+                android:layout_weight="3">
 
-           </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_anwesha_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
 
-        <View android:id="@+id/proceed"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal" android:layout_margin="0dp"
-            android:visibility="gone"/>
+                    android:text="@string/fest_name"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_anwesha_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_anwesha_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:alpha="0.7"
+                    android:gravity="center_horizontal"
+                    android:text="@string/fest_desc"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="0dp"
+            android:visibility="gone" />
     </RelativeLayout>
 
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:fitsSystemWindows="true">
-
 
 
     </FrameLayout>

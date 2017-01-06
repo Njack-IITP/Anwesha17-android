@@ -18,12 +18,11 @@ import java.util.List;
  */
 
 public class EcoEvents extends Fragment {
+    public List<EventData> ITEMS = new ArrayList<EventData>();
     WebSyncDB db;
 
     public EcoEvents() {
     }
-
-    public List<EventData> ITEMS = new ArrayList<EventData>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

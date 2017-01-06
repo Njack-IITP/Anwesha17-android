@@ -1,28 +1,16 @@
 package in.ac.iitp.anwesha;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Pair;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 public class Team extends AppCompatActivity {
 
@@ -50,13 +38,14 @@ public class Team extends AppCompatActivity {
         intent.setData(Uri.parse(uri));
         startActivity(intent);
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            Intent in = new Intent(this,Home.class);
+            Intent in = new Intent(this, Home.class);
             startActivity(in);
         }
     }

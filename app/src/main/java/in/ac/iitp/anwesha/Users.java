@@ -1,44 +1,24 @@
 package in.ac.iitp.anwesha;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Patterns;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -62,32 +42,6 @@ import java.util.Calendar;
 public class Users extends AppCompatActivity {
 
     private GoogleApiClient client;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Intent intent;
-        if (getPreferences().getBoolean("login", false)) {
-            intent = new Intent(this, WelcomeScreen.class);
-            Log.v("chirag","chirag");
-            startActivity(intent);
-            finish();
-        }
-        else {
-            setContentView(R.layout.activity_users);
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new LoginFragment(), "login").commit();
-
-        }
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-
-    private SharedPreferences getPreferences() {
-         SharedPreferences sharedPref = getApplication().getSharedPreferences("login",MODE_PRIVATE);
-        return sharedPref;
-    }
 
     private static boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
@@ -155,6 +109,30 @@ public class Users extends AppCompatActivity {
     }
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent intent;
+        if (getPreferences().getBoolean("login", false)) {
+            intent = new Intent(this, WelcomeScreen.class);
+            Log.v("chirag", "chirag");
+            startActivity(intent);
+            finish();
+        } else {
+            setContentView(R.layout.activity_users);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new LoginFragment(), "login").commit();
+
+        }
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
 
@@ -194,6 +172,10 @@ public class Users extends AppCompatActivity {
         client.disconnect();
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -430,24 +412,24 @@ public class Users extends AppCompatActivity {
 
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                     monthOfYear++;
-                    if(monthOfYear==11 || monthOfYear==12) {
-                        if(dayOfMonth<10)
-                            et_dob.setText(year + "-" + monthOfYear + "-" + "0"+dayOfMonth);
+                    if (monthOfYear == 11 || monthOfYear == 12) {
+                        if (dayOfMonth < 10)
+                            et_dob.setText(year + "-" + monthOfYear + "-" + "0" + dayOfMonth);
                         else
                             et_dob.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
-                    }
-                    else{
-                        if(dayOfMonth<10)
-                            et_dob.setText(year + "-" + "0" + monthOfYear + "-" + "0"+dayOfMonth);
+                    } else {
+                        if (dayOfMonth < 10)
+                            et_dob.setText(year + "-" + "0" + monthOfYear + "-" + "0" + dayOfMonth);
                         else
-                            et_dob.setText(year+"-"+"0"+monthOfYear+"-"+dayOfMonth);
+                            et_dob.setText(year + "-" + "0" + monthOfYear + "-" + dayOfMonth);
                     }
                 }
 
-            },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+            }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
             datePickerDialog.show();
 
         }
+
         /**
          * Attempts to sign in or register the account specified by the login form.
          * If there are form errors (invalid email, missing fields, etc.), the
@@ -568,14 +550,14 @@ public class Users extends AppCompatActivity {
                                     .setTitle("Registration")
                                     .setMessage("Your Anwesha ID : ANW" + obj.getInt("pId"))
                                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent;
-                                    intent = new Intent(getActivity(), Home.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
-                                }
-                            });
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent;
+                                            intent = new Intent(getActivity(), Home.class);
+                                            startActivity(intent);
+                                            getActivity().finish();
+                                        }
+                                    });
                             dialog.create().show();
 
                         } else {
@@ -601,10 +583,6 @@ public class Users extends AppCompatActivity {
         }
 
 
-    }
-    @Override
-    public void onBackPressed() {
-            this.finishAffinity();
     }
 
 }

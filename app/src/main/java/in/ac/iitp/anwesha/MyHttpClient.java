@@ -16,19 +16,33 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+interface MyHttpClientListener {
+    public void onPreExecute();
+
+    public void onFailed(Exception e);
+
+    public void onSuccess(Object output);//Mostly String,, may be something else in special case
+
+    public void onBackgroundSuccess(String result);
+
+}
+
 /**
  * Created by gagan on 4/1/16.
  */
 public class MyHttpClient extends AsyncTask<Void, Void, Object> {
 
+    private static String cookie;
     Context context;
     private String url;
     private boolean isPost;
-
     private ArrayList<Pair<String, String>> param;
     private MyHttpClientListener listener;
-    private static String cookie;
-
+    private JSONArray jsonArray;
+    private JSONObject jsonObject;
+    private Exception exception;
+    private int rc;
+    private String rmsg;
     MyHttpClient(String url, ArrayList param, boolean isPost, MyHttpClientListener listener) {
         this.url = url;
         this.isPost = isPost;
@@ -37,12 +51,12 @@ public class MyHttpClient extends AsyncTask<Void, Void, Object> {
         execute();  //Start Everything
     }
 
-    public static void setCookie(String cookie) {
-        MyHttpClient.cookie = cookie;
-    }
-
     public static String getCookie() {
         return cookie;
+    }
+
+    public static void setCookie(String cookie) {
+        MyHttpClient.cookie = cookie;
     }
 
     @Override
@@ -51,13 +65,6 @@ public class MyHttpClient extends AsyncTask<Void, Void, Object> {
         if (listener != null)
             listener.onPreExecute();
     }
-
-    private JSONArray jsonArray;
-    private JSONObject jsonObject;
-    private Exception exception;
-
-    private int rc;
-    private String rmsg;
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -125,16 +132,5 @@ public class MyHttpClient extends AsyncTask<Void, Void, Object> {
 
     }
 
-
-}
-
-interface MyHttpClientListener {
-    public void onPreExecute();
-
-    public void onFailed(Exception e);
-
-    public void onSuccess(Object output);//Mostly String,, may be something else in special case
-
-    public void onBackgroundSuccess(String result);
 
 }

@@ -14,40 +14,40 @@ public class HMac {
 
     Random ran = new Random();
     private String message = "Message";
-    private char getRandChar(){
-        if(ran.nextBoolean())
-            return (char)('a'+ran.nextInt(26)-1);
-        return (char)('A'+ran.nextInt(26)-1);
+
+    private char getRandChar() {
+        if (ran.nextBoolean())
+            return (char) ('a' + ran.nextInt(26) - 1);
+        return (char) ('A' + ran.nextInt(26) - 1);
 
 
     }
-    private String getRandomString()
-    {
+
+    private String getRandomString() {
         StringBuilder sb = new StringBuilder();
-        for(int i=0;i<15;i++)
+        for (int i = 0; i < 15; i++)
             sb.append(getRandChar());
         return sb.toString();
     }
-    String getHash()
-   {
-       message = getRandomString();
-       try {
-           String secret = AllIDS.USER_key;
-           if(secret==null) return null;
 
-           Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-           SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
-           sha256_HMAC.init(secret_key);
+    String getHash() {
+        message = getRandomString();
+        try {
+            String secret = AllIDS.USER_key;
+            if (secret == null) return null;
 
-           String hash = Base64.encodeToString(sha256_HMAC.doFinal(message.getBytes()), Base64.DEFAULT);
-           return hash;
-       }
-       catch (Exception e){
-           return null;
-       }
-   }
-    String getMessage()
-    {
+            Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
+            sha256_HMAC.init(secret_key);
+
+            String hash = Base64.encodeToString(sha256_HMAC.doFinal(message.getBytes()), Base64.DEFAULT);
+            return hash;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    String getMessage() {
         return message;
     }
 }

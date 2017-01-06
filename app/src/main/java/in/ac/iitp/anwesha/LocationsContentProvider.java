@@ -9,30 +9,34 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.net.Uri;
 
-public class LocationsContentProvider extends ContentProvider{
+public class LocationsContentProvider extends ContentProvider {
 
     public static final String PROVIDER_NAME = "in.ac.iitp.anwesha.locations";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/locations" );
+    public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/locations");
     private static final int LOCATIONS = 1;
-    private static final UriMatcher uriMatcher ;
+    private static final UriMatcher uriMatcher;
+
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(PROVIDER_NAME, "locations", LOCATIONS);
     }
+
     LocationsDB mLocationsDB;
+
     public boolean onCreate() {
         mLocationsDB = new LocationsDB(getContext());
         return true;
     }
+
     public Uri insert(Uri uri, ContentValues values) {
         long rowID = mLocationsDB.insert(values);
-        Uri _uri=null;
-        if(rowID>0){
-            _uri=ContentUris.withAppendedId(CONTENT_URI, rowID);
-        }else{
-            try{
+        Uri _uri = null;
+        if (rowID > 0) {
+            _uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
+        } else {
+            try {
                 throw new SQLException("Failed to insert : " + uri);
-            }catch(SQLException e){
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
             return _uri;
@@ -45,16 +49,19 @@ public class LocationsContentProvider extends ContentProvider{
         cnt = mLocationsDB.del();
         return cnt;
     }
+
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        if(uriMatcher.match(uri)==LOCATIONS){
+        if (uriMatcher.match(uri) == LOCATIONS) {
             return mLocationsDB.getAllLocations();
         }
         return null;
     }
+
     public String getType(Uri uri) {
         return null;
     }
+
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {

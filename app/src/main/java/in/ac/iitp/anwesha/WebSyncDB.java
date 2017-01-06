@@ -8,10 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class WebSyncDB extends SQLiteOpenHelper {
 
-    private static String DBNAME = "websyncdb";
-
-    private static int VERSION = 1;
-
     static final String EVENT_ID = "id";
     static final String EVENT_NAME = "name";
     static final String EVENT_fee = "fee";
@@ -19,9 +15,9 @@ public class WebSyncDB extends SQLiteOpenHelper {
     static final String EVENT_size = "size";
     static final String EVENT_code = "code";
     static final String EVENT_details = "details";
-
-
     private static final String TABLE_EVENT = "Event";
+    private static String DBNAME = "websyncdb";
+    private static int VERSION = 1;
     private SQLiteDatabase mDB;
 
     public WebSyncDB(Context context) {

@@ -36,7 +36,7 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(context,EventDetails.class);
+                Intent in = new Intent(context, EventDetails.class);
                 in.putExtra("eventID", mValues.get(position).id);
                 in.putExtra("eventName", mValues.get(position).name);
                 in.putExtra("eventDesc", mValues.get(position).desc);
@@ -66,7 +66,7 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
             tv.setTypeface(AllIDS.font_AnweshaSub);
             tvdesc = (TextView) view.findViewById(R.id.tv_event_list_element_desc);
             tvdesc.setTypeface(AllIDS.font_Sub1);
-            v= view.findViewById(R.id.fab);
+            v = view.findViewById(R.id.fab);
         }
     }
 }

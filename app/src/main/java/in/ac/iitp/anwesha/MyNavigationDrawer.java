@@ -36,64 +36,6 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_events) {
-            if (openEvent(activity)) activity.finish();
-
-        } else if (id == R.id.nav_sponsors) {
-            if (openSponser(activity)) activity.finish();
-
-        } else if (id == R.id.nav_gallery) {
-            if (openGallery(activity)) activity.finish();
-
-        } else if (id == R.id.nav_pronites) {
-            if (openPronites(activity)) activity.finish();
-
-        } else if (id == R.id.nav_schedule) {
-            if (openSchedule(activity)) activity.finish();
-
-        } else if (id == R.id.nav_map) {
-            if (openMap(activity)) activity.finish();
-
-        } else if (id == R.id.nav_about) {
-            if (openAbout(activity)) activity.finish();
-
-        } else if (id == R.id.nav_team) {
-            if (openTeam(activity)) activity.finish();
-
-        } else if (id == R.id.nav_home) {
-            if (openHome(activity)) activity.finish();
-
-        } else if (id == R.id.nav_loginlogout) {
-                    Toast.makeText(activity, "Logged Out!", Toast.LENGTH_SHORT).show();
-       /* USER_anweshaID = null;
-        USER_key = null;
-        USER_name = null;
-        saveSharedPref(context);
-        */
-                getPreferences().edit().putBoolean("login", false).apply();
-                Intent intent;
-                intent = new Intent(activity, Users.class);
-                activity.startActivity(intent);
-
-        } else if (id == R.id.nav_share) {
-            //TODO: Add share option
-        }
-
-        DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-    private SharedPreferences getPreferences() {
-        SharedPreferences sharedPref = activity.getSharedPreferences("login",MODE_PRIVATE);
-        return sharedPref;
-    }
-
     static protected void openActivity(Context context, Class class_name) {
         Intent in = new Intent(context, class_name);
         context.startActivity(in);
@@ -216,5 +158,64 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         } catch (ActivityNotFoundException e) {
             Toast.makeText(context, "Sorry! Your phone is not supporting PDF", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_events) {
+            if (openEvent(activity)) activity.finish();
+
+        } else if (id == R.id.nav_sponsors) {
+            if (openSponser(activity)) activity.finish();
+
+        } else if (id == R.id.nav_gallery) {
+            if (openGallery(activity)) activity.finish();
+
+        } else if (id == R.id.nav_pronites) {
+            if (openPronites(activity)) activity.finish();
+
+        } else if (id == R.id.nav_schedule) {
+            if (openSchedule(activity)) activity.finish();
+
+        } else if (id == R.id.nav_map) {
+            if (openMap(activity)) activity.finish();
+
+        } else if (id == R.id.nav_about) {
+            if (openAbout(activity)) activity.finish();
+
+        } else if (id == R.id.nav_team) {
+            if (openTeam(activity)) activity.finish();
+
+        } else if (id == R.id.nav_home) {
+            if (openHome(activity)) activity.finish();
+
+        } else if (id == R.id.nav_loginlogout) {
+            Toast.makeText(activity, "Logged Out!", Toast.LENGTH_SHORT).show();
+       /* USER_anweshaID = null;
+        USER_key = null;
+        USER_name = null;
+        saveSharedPref(context);
+        */
+            getPreferences().edit().putBoolean("login", false).apply();
+            Intent intent;
+            intent = new Intent(activity, Users.class);
+            activity.startActivity(intent);
+
+        } else if (id == R.id.nav_share) {
+            //TODO: Add share option
+        }
+
+        DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = activity.getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
     }
 }

@@ -25,6 +25,7 @@ public class BackgroundFetch extends Service {
     final static String BASE_URL = "http://2017.anwesha.info";
     RequestQueue queue;
     WebSyncDB db;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -37,14 +38,14 @@ public class BackgroundFetch extends Service {
     public void onCreate() {
         super.onCreate();
         db = new WebSyncDB(getApplicationContext());
-        Log.e("BackgroundFetch","Service Created");
+        Log.e("BackgroundFetch", "Service Created");
 
     }
 
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
-        Log.e("BackgroundFetch","Service Started");
+        Log.e("BackgroundFetch", "Service Started");
         JsonArrayRequest events = new JsonArrayRequest(BASE_URL + "/allEvents", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
@@ -54,32 +55,30 @@ public class BackgroundFetch extends Service {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.e("BackgroundFetch","Cound't Fetch Event list");
+                Log.e("BackgroundFetch", "Cound't Fetch Event list");
             }
         });
-        queue =  Volley.newRequestQueue(getApplicationContext());
+        queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(events);
 
     }
 
-    void updateEvents(JSONArray jsonArray)
-    {
+    void updateEvents(JSONArray jsonArray) {
         try {
-        JSONArray array = jsonArray.getJSONArray(1);// Second Element
-        ContentValues[] contentValues=new ContentValues[array.length()];
-            for(int i=0;i<array.length();i++)
-            {
+            JSONArray array = jsonArray.getJSONArray(1);// Second Element
+            ContentValues[] contentValues = new ContentValues[array.length()];
+            for (int i = 0; i < array.length(); i++) {
                 JSONObject row = array.getJSONObject(i);
                 ContentValues cv = new ContentValues();
-                cv.put(WebSyncDB.EVENT_ID,row.getInt("eveId"));
-                cv.put(WebSyncDB.EVENT_NAME,row.getString("eveName"));
-                cv.put(WebSyncDB.EVENT_fee,row.getInt("fee"));
-                cv.put(WebSyncDB.EVENT_day,row.getInt("day"));
-                cv.put(WebSyncDB.EVENT_size,row.getInt("size"));
-                cv.put(WebSyncDB.EVENT_code,row.getString("code"));
-                cv.put(WebSyncDB.EVENT_details,row.getString("details"));
+                cv.put(WebSyncDB.EVENT_ID, row.getInt("eveId"));
+                cv.put(WebSyncDB.EVENT_NAME, row.getString("eveName"));
+                cv.put(WebSyncDB.EVENT_fee, row.getInt("fee"));
+                cv.put(WebSyncDB.EVENT_day, row.getInt("day"));
+                cv.put(WebSyncDB.EVENT_size, row.getInt("size"));
+                cv.put(WebSyncDB.EVENT_code, row.getString("code"));
+                cv.put(WebSyncDB.EVENT_details, row.getString("details"));
 
-                contentValues[i]=cv;
+                contentValues[i] = cv;
 
             }
             db.insertEvent(contentValues);
@@ -92,7 +91,6 @@ public class BackgroundFetch extends Service {
         }
 
     }
-
 
 
 }

@@ -9,20 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventsListFragment extends Fragment {
 
-    WebSyncDB db;
-
-     public EventsListFragment() {
-    }
-
     public List<List<EventData>> GroupITEMS = new ArrayList<List<EventData>>(5);
-
-    private String EventType[] = {"Cultural","Technical","Literary","Management","Eco"};
+    WebSyncDB db;
     int i;
+    private String EventType[] = {"Cultural", "Technical", "Literary", "Management", "Eco"};
+    public EventsListFragment() {
+    }
 
     public static EventsListFragment newInstance(int id) {
         Bundle args = new Bundle();
@@ -39,11 +37,11 @@ public class EventsListFragment extends Fragment {
         db = new WebSyncDB(getContext());
         //ITEMS.clear();
         if (getArguments() != null) {
-        i = this.getArguments().getInt("message");
+            i = this.getArguments().getInt("message");
         }
 
         List<EventData> ITEMS = new ArrayList<>();
-        if(!EventType[i].equals("Technical")) {
+        if (!EventType[i].equals("Technical")) {
             Cursor cursor = db.getParticularEvents(EventType[i].replaceAll(" ", ""));
             int c = 0;
             cursor.moveToFirst();
@@ -69,8 +67,8 @@ public class EventsListFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            if(i!=1)
-            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(GroupITEMS.get(i),getContext()));
+            if (i != 1)
+                recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(GroupITEMS.get(i), getContext()));
         }
         return view;
     }

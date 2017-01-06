@@ -25,11 +25,9 @@ import java.util.ArrayList;
 
 public class EventDetails extends AppCompatActivity implements View.OnClickListener {
 
+    WebSyncDB db;
     private String name, shortDesc;
     private int id, size = 1;
-
-
-    WebSyncDB db;
 
     static String filterLongDesc(String longdesc) {
         longdesc = longdesc.replaceAll("<[^>]*>", "");

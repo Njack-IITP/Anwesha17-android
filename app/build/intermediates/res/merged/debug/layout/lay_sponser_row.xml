@@ -1,85 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:scaleType="centerInside"
             android:id="@+id/iv_s1"
-            />
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:scaleType="centerInside" />
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_weight="1"
             android:padding="5dp"
-            android:visibility="gone"
-            android:id="@+id/iv_s2"
             android:scaleType="centerInside"
+            android:visibility="gone"
 
             />
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_weight="1"
-            android:id="@+id/iv_s3"
             android:padding="5dp"
             android:scaleType="centerInside"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:scaleType="centerInside"
-            android:padding="5dp"
-            android:visibility="gone"
             android:layout_weight="1"
-            android:id="@+id/iv_s4"
-            />
+            android:padding="5dp"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
 
-            android:id="@+id/tv_s1"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
-            android:id="@+id/tv_s2"
             android:visibility="gone"
 
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/tv_s3"
             android:padding="5dp"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_weight="1"
-            android:id="@+id/tv_s4"
-            android:visibility="gone"
-            />
+            android:padding="5dp"
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

@@ -20,12 +20,12 @@ import java.util.ArrayList;
 public class Sponser extends AppCompatActivity {
 
 
+    CAdapter adapter;
     private ListView ll_others;
     private int OtherIDs[] = {R.drawable.s_ebay, R.drawable.s_io, R.drawable.s_sbi, R.drawable.s_sp};
     private String OtherText[] = {"Hospitality Partner", null, null, null, null, "Strategic Sponsors", null, null};
     private int columns;
     private int MAX_WIDTH;
-    CAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,17 @@ public class Sponser extends AppCompatActivity {
         MAX_WIDTH = ll_others.getWidth();
         columns = Integer.parseInt((String) ll_others.getTag());
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            Intent in = new Intent(this, Home.class);
+            startActivity(in);
+        }
     }
 
     class CAdapter extends ArrayAdapter<Integer> {
@@ -82,17 +93,6 @@ public class Sponser extends AppCompatActivity {
             View view = getLayoutInflater().inflate(resource, null);
             ((ImageView) view.findViewById(R.id.iv_s1)).setImageResource(getItem(position));
             return view;
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            Intent in = new Intent(this,Home.class);
-            startActivity(in);
         }
     }
 

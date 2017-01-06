@@ -27,34 +27,10 @@ public class AllIDS extends Application {
     static Typeface font_Title;
     static Typeface font_Sub1;
     static Typeface font_Sub2;
-
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        font_Anwesha = Typeface.createFromAsset(getAssets(), "fonts/ardestine.ttf");
-        font_AnweshaSub = Typeface.createFromAsset(getAssets(), "fonts/caviardreams.ttf");//Typeface.SERIF;//Typeface.createFromAsset(getAssets(),"fonts/agencyfb.tff");
-
-        font_Title = Typeface.createFromAsset(getAssets(), "fonts/modeka.otf");
-        font_Sub1 = Typeface.SERIF;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
-        font_Sub2 = Typeface.DEFAULT;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
-
-        readSharedPref(getApplicationContext());
-
-        loadDatabase(getApplicationContext());
-        Intent backgroundService = new Intent(this, BackgroundFetch.class);
-        startService(backgroundService);
-        Log.e("AllIDS", "Staring Background Service");
-
-    }
-
-
     static String USER_anweshaID = null;
     static String USER_anweshapass = null;
     static String USER_name = null;
     static String USER_key = null;
-
 
     static String readLastNotificationTime(Context context) {
         SharedPreferences sp = context.getSharedPreferences("userdetails", MODE_PRIVATE);
@@ -125,7 +101,6 @@ public class AllIDS extends Application {
         }
     }
 
-
     static void loadDatabase(Context context) {
         File folder = new File("/data/data/in.ac.iitp.anwesha/databases/");
         folder.mkdirs();
@@ -148,6 +123,26 @@ public class AllIDS extends Application {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        font_Anwesha = Typeface.createFromAsset(getAssets(), "fonts/ardestine.ttf");
+        font_AnweshaSub = Typeface.createFromAsset(getAssets(), "fonts/caviardreams.ttf");//Typeface.SERIF;//Typeface.createFromAsset(getAssets(),"fonts/agencyfb.tff");
+
+        font_Title = Typeface.createFromAsset(getAssets(), "fonts/modeka.otf");
+        font_Sub1 = Typeface.SERIF;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
+        font_Sub2 = Typeface.DEFAULT;//Typeface.createFromAsset(context.getAssets(),"BebasNeue.tff");
+
+        readSharedPref(getApplicationContext());
+
+        loadDatabase(getApplicationContext());
+        Intent backgroundService = new Intent(this, BackgroundFetch.class);
+        startService(backgroundService);
+        Log.e("AllIDS", "Staring Background Service");
 
     }
 }

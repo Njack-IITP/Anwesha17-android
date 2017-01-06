@@ -1,49 +1,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
-    <android.support.v7.widget.CardView
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-    <TextView android:id="@+id/about_anwesha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Anwesha"
 
-        android:layout_gravity="center"
-        android:textSize="45sp"
-        android:textColor="#000"
-        />
-    <TextView android:id="@+id/about_ttdl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=".Think.Dream.Live"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:textColor="@color/colorAccent"
-        />
-    <ScrollView
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView android:id="@+id/about_story"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:text="@string/about_anwesha"
-        />
-    </ScrollView>
-    </LinearLayout>
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/img6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/about_anwesha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="Anwesha"
+                android:textColor="#000"
+                android:textSize="45sp" />
+
+            <TextView
+                android:id="@+id/about_ttdl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Think.Dream.Live"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/about_story"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:text="@string/about_anwesha"
+                    android:textSize="20sp" />
+            </ScrollView>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 

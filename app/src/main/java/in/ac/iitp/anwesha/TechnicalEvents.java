@@ -18,13 +18,12 @@ import java.util.List;
  */
 
 public class TechnicalEvents extends Fragment {
+    public List<EventData> ITEMS = new ArrayList<EventData>();
     WebSyncDB db;
     String s[] = {"DoItYourself", "LectureAndPresentation", "OnTheMove", "OnTheSpot", "Quiz", "Robotics", "CodingHacking"};
 
     public TechnicalEvents() {
     }
-
-    public List<EventData> ITEMS = new ArrayList<EventData>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

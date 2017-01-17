@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -40,6 +41,11 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         Intent in = new Intent(context, class_name);
         context.startActivity(in);
 
+    }
+
+    static boolean openSocial(Context context) {
+        openActivity(context, SocialActivity.class);
+        return true;
     }
 
     static boolean openEvent(Context context) {
@@ -194,16 +200,34 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             if (openHome(activity)) activity.finish();
 
         } else if (id == R.id.nav_loginlogout) {
-            Toast.makeText(activity, "Logged Out!", Toast.LENGTH_SHORT).show();
+
+            final android.support.v7.app.AlertDialog dialog = new android.support.v7.app.AlertDialog.Builder(activity)
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure ?")
+                    .setPositiveButton("YES", null)
+                    .setNegativeButton("NO", null)
+                    .create();
+            dialog.show();
+
+            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(mToolkit, "Project Successfully Saved",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Logged Out!", Toast.LENGTH_SHORT).show();
+                    getPreferences().edit().putInt("loginflag", 0).apply();
+                    Intent intent;
+                    intent = new Intent(activity, Users.class);
+                    activity.startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+
        /* USER_anweshaID = null;
         USER_key = null;
         USER_name = null;
         saveSharedPref(context);
         */
-            getPreferences().edit().putBoolean("login", false).apply();
-            Intent intent;
-            intent = new Intent(activity, Users.class);
-            activity.startActivity(intent);
+
 
         } else if (id == R.id.nav_share) {
             //TODO: Add share option
@@ -213,6 +237,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     private SharedPreferences getPreferences() {
         SharedPreferences sharedPref = activity.getSharedPreferences("login", MODE_PRIVATE);

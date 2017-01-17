@@ -3,6 +3,7 @@ package in.ac.iitp.anwesha;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,10 +11,17 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,21 +38,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
 public class Home extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private SliderLayout mDemoSlider;
+    int loginflag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getPreferences().edit().putBoolean("login", true).apply();
-        Log.v("chirag", getPreferences().getBoolean("login", false) + "");
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        loginflag = (int) b.get("loginflag");
+        String id = (String) b.get("id");
+        String username = (String) b.get("name");
+
+        getPreferences().edit().putInt("loginflag", loginflag).apply();
+        getPreferences().edit().putString("id", id).apply();
+        getPreferences().edit().putString("name", username).apply();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
 
@@ -84,7 +104,14 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
-
+        View headerview = navigationView.getHeaderView(0);
+        TextView headerId = (TextView) headerview.findViewById(R.id.header_id);
+        TextView headerName = (TextView) headerview.findViewById(R.id.header_name);
+        headerId.setText(id);
+        headerName.setText(username);
+        if(loginflag == 2 ){
+            navigationView.getMenu().findItem(R.id.nav_loginlogout).setVisible(false);
+        }
 
         new syncNotifications();
     }
@@ -101,6 +128,29 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         //super.onStop();
     }*/
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
+
+        if(loginflag == 2){
+            getMenuInflater().inflate(R.menu.menu_home, menu);
+        }
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.action_login){
+            getPreferences().edit().putInt("loginflag", 0).apply();
+            Intent intent = new Intent(this,Users.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void onButtonClick(View v) {
         int id = v.getId();
@@ -131,7 +181,8 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
             case R.id.b_home_about:
                 MyNavigationDrawer.openAbout(this);
                 break;
-
+            case R.id.b_home_social:
+                MyNavigationDrawer.openSocial(this);
 
         }
     }

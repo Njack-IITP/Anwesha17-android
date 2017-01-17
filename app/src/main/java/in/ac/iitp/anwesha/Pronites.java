@@ -1,6 +1,7 @@
 package in.ac.iitp.anwesha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -28,6 +29,8 @@ public class Pronites extends AppCompatActivity {
     static ImageView i3;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    int loginflag;
+    String id,username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,22 @@ public class Pronites extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
+        View headerview = navigationView.getHeaderView(0);
+        TextView headerId = (TextView) headerview.findViewById(R.id.header_id);
+        TextView headerName = (TextView) headerview.findViewById(R.id.header_name);
+        id = getPreferences().getString("id", "Anwesha 2017");
+        username = getPreferences().getString("name", "Think.Dream.Live");
+        loginflag = getPreferences().getInt("loginflag", 0);
+        headerId.setText(id);
+        headerName.setText(username);
+        if(loginflag == 2 ){
+            navigationView.getMenu().findItem(R.id.nav_loginlogout).setVisible(false);
+        }
 
+    }
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
     }
 
     @Override
@@ -64,6 +82,9 @@ public class Pronites extends AppCompatActivity {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             Intent in = new Intent(this, Home.class);
+            in.putExtra("loginflag",loginflag);
+            in.putExtra("name",username);
+            in.putExtra("id",id);
             startActivity(in);
         }
     }

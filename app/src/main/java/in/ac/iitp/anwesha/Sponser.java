@@ -2,6 +2,7 @@ package in.ac.iitp.anwesha;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,8 @@ public class Sponser extends AppCompatActivity {
     private String OtherText[] = {"Hospitality Partner", null, null, null, null, "Strategic Sponsors", null, null};
     private int columns;
     private int MAX_WIDTH;
+    String username,id;
+    int loginflag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,17 @@ public class Sponser extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
+        View headerview = navigationView.getHeaderView(0);
+        TextView headerId = (TextView) headerview.findViewById(R.id.header_id);
+        TextView headerName = (TextView) headerview.findViewById(R.id.header_name);
+        id = getPreferences().getString("id", "Anwesha 2017");
+        username = getPreferences().getString("name", "Think.Dream.Live");
+        loginflag = getPreferences().getInt("loginflag", 0);
+        headerId.setText(id);
+        headerName.setText(username);
+        if(loginflag == 2 ){
+            navigationView.getMenu().findItem(R.id.nav_loginlogout).setVisible(false);
+        }
 
 
         ll_others = (ListView) findViewById(R.id.grid_other_sponser);
@@ -52,6 +67,10 @@ public class Sponser extends AppCompatActivity {
         columns = Integer.parseInt((String) ll_others.getTag());
 
     }
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
+    }
 
     @Override
     public void onBackPressed() {
@@ -60,6 +79,9 @@ public class Sponser extends AppCompatActivity {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             Intent in = new Intent(this, Home.class);
+            in.putExtra("loginflag",loginflag);
+            in.putExtra("name",username);
+            in.putExtra("id",id);
             startActivity(in);
         }
     }

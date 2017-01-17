@@ -69,7 +69,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Events"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         android:id="@+id/b_home_sponser"
@@ -82,7 +83,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Sponsor"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         android:id="@+id/b_home_galley"
@@ -95,7 +97,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Gallery"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
 
                 </LinearLayout>
@@ -118,7 +121,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Schedule"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         android:id="@+id/b_home_map"
@@ -131,7 +135,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Map"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         android:id="@+id/b_home_pronites"
@@ -144,7 +149,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Pronites"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                 </LinearLayout>
 
@@ -165,7 +171,8 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="Team"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         android:id="@+id/b_home_about"
@@ -178,10 +185,12 @@
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
                         android:text="About"
-                        android:textColor="#bcededed" />
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                     <TextView
                         style="@style/Base.Widget.AppCompat.Button"
+                        android:id="@+id/b_home_social"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="2dp"
@@ -189,8 +198,9 @@
                         android:alpha="0.8"
                         android:background="@drawable/home_button"
                         android:onClick="onButtonClick"
-                        android:text="Pronites"
-                        android:textColor="#bcededed" />
+                        android:text="Social"
+                        android:textColor="#bcededed"
+                        android:textSize="@dimen/home_activity_text_size"/>
 
                 </LinearLayout>
             </LinearLayout>

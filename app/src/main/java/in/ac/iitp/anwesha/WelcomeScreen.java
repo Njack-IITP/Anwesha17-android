@@ -1,6 +1,7 @@
 package in.ac.iitp.anwesha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -121,10 +122,17 @@ public class WelcomeScreen extends AppCompatActivity implements Animation.Animat
     public void onAnimationRepeat(Animation animation) {
 
     }
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
+    }
 
     @Override
     public void onClick(View view) {
         Intent in = new Intent(this, Home.class);
+        in.putExtra("loginflag",getPreferences().getInt("loginflag", 0));
+        in.putExtra("id",getPreferences().getString("id", "Anwesha 2017"));
+        in.putExtra("name",getPreferences().getString("name", "Think.Dream.Live"));
         startActivity(in);
         finish();
     }

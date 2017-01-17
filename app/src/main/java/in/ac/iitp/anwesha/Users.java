@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -112,7 +113,7 @@ public class Users extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent;
-        if (getPreferences().getBoolean("login", false)) {
+        if (getPreferences().getInt("loginflag", 0) != 0) {
             intent = new Intent(this, WelcomeScreen.class);
             Log.v("chirag", "chirag");
             startActivity(intent);
@@ -172,11 +173,6 @@ public class Users extends AppCompatActivity {
         client.disconnect();
     }
 
-    @Override
-    public void onBackPressed() {
-        this.finishAffinity();
-    }
-
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -213,6 +209,17 @@ public class Users extends AppCompatActivity {
                 }
             });
 
+            TextView skip = (TextView) rootView.findViewById(R.id.skip);
+            skip.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),Home.class);
+                    intent.putExtra("loginflag",2);
+                    intent.putExtra("id","Anwesha 2017");
+                    intent.putExtra("name","Think.Dream.Live");
+                    getActivity().startActivity(intent);
+                }
+            });
             return rootView;
         }
 
@@ -320,6 +327,9 @@ public class Users extends AppCompatActivity {
                             AllIDS.USER_anweshapass = password;
                             Intent intent;
                             intent = new Intent(getActivity(), Home.class);
+                            intent.putExtra("loginflag",1);
+                            intent.putExtra("id",_email);
+                            intent.putExtra("name",name);
                             startActivity(intent);
                             getActivity().finish();
                         }
@@ -338,6 +348,8 @@ public class Users extends AppCompatActivity {
             });
 
         }
+
+
     }
 
     public static class RegistationFragment extends Fragment {
@@ -509,6 +521,12 @@ public class Users extends AppCompatActivity {
             param.add(new Pair<String, String>("dob", dob));
             param.add(new Pair<String, String>("city", city));
 
+            final Intent intent;
+            intent = new Intent(getActivity(), Home.class);
+            intent.putExtra("name",name);
+
+            AllIDS.USER_name = name;
+
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Registering...");
             progressDialog.show();
@@ -545,15 +563,19 @@ public class Users extends AppCompatActivity {
                             et_college.setText(null);
                             et_contact.setText(null);
                             et_dob.setText(null);
+                            final int anwid = obj.getInt("pId");
 
                             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
-                                    .setTitle("Registration")
-                                    .setMessage("Your Anwesha ID : ANW" + obj.getInt("pId"))
+                                    .setTitle("Registration Successful")
+                                    .setMessage("Your Anwesha ID : ANW" + anwid + "\n" + "You will receive a confirmation e-mail soon")
                                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent;
-                                            intent = new Intent(getActivity(), Home.class);
+                                            AllIDS.USER_anweshaID = "ANW" + anwid;
+
+                                            intent.putExtra("loginflag",1);
+                                            intent.putExtra("id","ANW"+anwid);
+
                                             startActivity(intent);
                                             getActivity().finish();
                                         }
@@ -562,7 +584,7 @@ public class Users extends AppCompatActivity {
 
                         } else {
                             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
-                                    .setTitle("Registration")
+                                    .setTitle("Registration Unsuccessful")
                                     .setMessage(array.getString(1))
                                     .setPositiveButton("Ok", null);
                             dialog.create().show();
@@ -583,6 +605,18 @@ public class Users extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.Fragment fragment = fragmentManager.findFragmentByTag("login");
+        if (fragment != null && fragment.isVisible()) {
+            this.finishAffinity();
+        } else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new LoginFragment(), "login").commit();
+        }
     }
 
 }

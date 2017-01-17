@@ -120,6 +120,10 @@
         <activity
             android:name="in.ac.iitp.anwesha.Map"
             android:label="@string/title_activity_map" />
+        <activity
+            android:name="in.ac.iitp.anwesha.SocialActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"

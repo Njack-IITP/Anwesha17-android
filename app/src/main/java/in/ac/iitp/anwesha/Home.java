@@ -3,7 +3,6 @@ package in.ac.iitp.anwesha;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,17 +10,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,8 +32,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -69,10 +61,11 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
 
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Hannibal", R.drawable.sliding_image1);
-        file_maps.put("Big Bang Theory", R.drawable.sliding_image2);
-        file_maps.put("House of Cards", R.drawable.sliding_image3);
-        file_maps.put("Game of Thrones", R.drawable.sliding_image4);
+
+        file_maps.put("Day 1", R.drawable.sliding_image2);
+        file_maps.put("The Majestic Campus", R.drawable.sliding_image4);
+        file_maps.put("The Eastern Sails", R.drawable.sliding_image1);
+        file_maps.put("IIT Patna MUN", R.drawable.sliding_image3);
 
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(this);

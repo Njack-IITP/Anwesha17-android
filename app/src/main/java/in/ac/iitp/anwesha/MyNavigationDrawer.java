@@ -81,8 +81,12 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         return true;
     }
 
-    static boolean openHome(Context context) {
-        openActivity(context, Home.class);
+    boolean openHome(Context context) {
+        Intent intent = new Intent(context,Home.class);
+        intent.putExtra("loginflag",getPreferences().getInt("loginflag", 0));
+        intent.putExtra("id",getPreferences().getString("id", "Anwesha 2017"));
+        intent.putExtra("name",getPreferences().getString("name", "Think.Dream.Live"));
+        context.startActivity(intent);
         return true;
     }
 
@@ -229,8 +233,8 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
         */
 
 
-        } else if (id == R.id.nav_share) {
-            //TODO: Add share option
+        } else if (id == R.id.nav_social) {
+            if (openSocial(activity)) activity.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);

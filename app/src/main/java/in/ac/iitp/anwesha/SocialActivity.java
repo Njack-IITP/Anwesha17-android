@@ -46,6 +46,80 @@ public class SocialActivity extends AppCompatActivity {
         }
 
     }
+
+    void getOpenFacebookPage()
+    {
+
+        Intent in;
+        try {
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/163423960356924"));
+            startActivity(in);
+        } catch (Exception e) {
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/anwesha.iitpatna"));
+            startActivity(in);
+        }
+
+    }
+    void getOpenGooglePPage() {
+
+        Intent in;
+        try {
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("android-app://com.google.android.apps.plus/https/plus.google.com/+iitpatna"));
+            in.setPackage("com.google.android.apps.plus");
+            startActivity(in);
+
+        } catch (Exception e) {
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/+iitpatna"));
+            startActivity(in);
+        }
+
+    }
+
+    void getOpenInstagramPage() {
+
+        Intent in;
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/anwesha.iitp/"));
+            startActivity(in);
+
+
+    }
+    void getOpenYoutubePage() {
+
+        Intent in;
+
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCVVdnGvmkm-Z9v9IKAq77JQ"));
+            startActivity(in);
+
+
+    }
+
+    void getOpenWebsitePage() {
+
+        Intent in;
+            in = new Intent(Intent.ACTION_VIEW, Uri.parse("https://2017.anwesha.info"));
+            startActivity(in);
+
+    }
+    public void onIconClick(View view){
+        int id = view.getId();
+        switch(id){
+            case R.id.facebook:
+                getOpenFacebookPage();
+                break;
+            case R.id.googleplus:
+                getOpenGooglePPage();
+                break;
+            case R.id.instagram:
+                getOpenInstagramPage();
+                break;
+            case R.id.youtube:
+                getOpenYoutubePage();
+                break;
+            case R.id.website:
+                getOpenWebsitePage();
+                break;
+        }
+    }
     private SharedPreferences getPreferences() {
         SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
         return sharedPref;

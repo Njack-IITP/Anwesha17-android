@@ -70,13 +70,72 @@ public class BackgroundFetch extends Service {
             for (int i = 0; i < array.length(); i++) {
                 JSONObject row = array.getJSONObject(i);
                 ContentValues cv = new ContentValues();
-                cv.put(WebSyncDB.EVENT_ID, row.getInt("eveId"));
-                cv.put(WebSyncDB.EVENT_NAME, row.getString("eveName"));
-                cv.put(WebSyncDB.EVENT_fee, row.getInt("fee"));
-                cv.put(WebSyncDB.EVENT_day, row.getInt("day"));
-                cv.put(WebSyncDB.EVENT_size, row.getInt("size"));
-                cv.put(WebSyncDB.EVENT_code, row.getString("code"));
-                cv.put(WebSyncDB.EVENT_details, row.getString("details"));
+
+                try {
+                    cv.put(WebSyncDB.EVENT_ID, row.getInt("eveId"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_ID, 0);
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_NAME, row.getString("eveName"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_NAME, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_fee, row.getInt("fee"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_fee, 0);
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_day, row.getInt("day"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_day, 0);
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_size, row.getInt("size"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_size, 0);
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_code, row.getInt("code"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_code, 0);
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_tagline, row.getString("tagline"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_tagline, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_date, row.getString("date"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_date, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_time, row.getString("time"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_time, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_venue, row.getString("venue"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_venue, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_organisers, row.getString("organisers"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_organisers, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_short_desc, row.getString("short_desc"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_short_desc, " ");
+                }
+                try {
+                    cv.put(WebSyncDB.EVENT_long_desc, row.getString("long_desc"));
+                } catch (JSONException e){
+                    cv.put(WebSyncDB.EVENT_long_desc, " ");
+                }
 
                 contentValues[i] = cv;
 

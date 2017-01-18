@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,33 +18,33 @@ import java.util.List;
  * Created by cc15 on 19/12/16.
  */
 
-public class EcoEvents extends Fragment {
-    public List<EventData> ITEMS = new ArrayList<EventData>();
-    WebSyncDB db;
+public class ArtsEvents extends Fragment {
 
-    public EcoEvents() {
+
+    public ArtsEvents newInstance( List<EventData> artsEvents) {
+        ArtsEvents f = new ArtsEvents();
+        // Supply index input as an argument.
+        Bundle args = new Bundle();
+        args.putSerializable("artsevents", (Serializable) artsEvents);
+
+        f.setArguments(args);
+        return f;
+    }
+
+    public ArtsEvents() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new WebSyncDB(getContext());
-        Cursor cursor = db.getParticularEvents("Eco".replaceAll(" ", ""));
-        int c = 0;
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            ITEMS.add(new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6)));
-            cursor.moveToNext();
-            c++;
-            if (c > 100) break;
-
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_eventslist_list, container, false);
+        Bundle bundle = getArguments();
+        List <EventData> ITEMS = (List<EventData>) bundle.getSerializable("artsevents");
 
         if (view instanceof RecyclerView) {
             Context context = view.getContext();

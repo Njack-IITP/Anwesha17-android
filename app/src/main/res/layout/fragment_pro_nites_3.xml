@@ -29,7 +29,7 @@
 
         android:layout_marginBottom="70dp"
         android:background="@drawable/round_rect_transulent"
-        android:text="Rock Night (Euphoria)"
+        android:text="Rock Night "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
         android:textSize="37dp" />

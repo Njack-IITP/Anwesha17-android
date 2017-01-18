@@ -14,10 +14,16 @@ public class WebSyncDB extends SQLiteOpenHelper {
     static final String EVENT_day = "day";
     static final String EVENT_size = "size";
     static final String EVENT_code = "code";
-    static final String EVENT_details = "details";
+    static final String EVENT_tagline = "tagline";
+    static final String EVENT_date = "date";
+    static final String EVENT_time = "time";
+    static final String EVENT_venue = "venue";
+    static final String EVENT_organisers = "organisers";
+    static final String EVENT_short_desc = "short_desc";
+    static final String EVENT_long_desc = "long_desc";
     private static final String TABLE_EVENT = "Event";
     private static String DBNAME = "websyncdb";
-    private static int VERSION = 1;
+    private static int VERSION = 2;
     private SQLiteDatabase mDB;
 
     public WebSyncDB(Context context) {
@@ -28,15 +34,20 @@ public class WebSyncDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "create table " + TABLE_EVENT + " ( " +
-                EVENT_ID + " int(3) , " +
+                EVENT_ID + " int(3), " +
                 EVENT_NAME + " varchar(35), " +
                 EVENT_fee + " int(4), " +
                 EVENT_day + " int(1), " +
                 EVENT_size + " int(2), " +
-                EVENT_code + " varchar(35), " +
-                EVENT_details + " varchar(1000) " +
-
-                " ) ";
+                EVENT_code + " int(2), " +
+                EVENT_tagline + " varchar(300), "+
+                EVENT_date + " varchar(20), " +
+                EVENT_time + " varchar(20), "+
+                EVENT_venue + " varchar(30), "+
+                EVENT_organisers + " varchar(100), "+
+                EVENT_short_desc + " varchar(1000), "+
+                EVENT_long_desc + " varchar(1000) " +
+                ")";
         db.execSQL(sql);
 
     }
@@ -53,13 +64,15 @@ public class WebSyncDB extends SQLiteOpenHelper {
     }
 
     public Cursor getAllEvents() {
-        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day, EVENT_size, EVENT_code, EVENT_details}, null, null, null, null, null);
+        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day, EVENT_size, EVENT_code, EVENT_tagline, EVENT_date, EVENT_time, EVENT_venue, EVENT_organisers, EVENT_short_desc, EVENT_long_desc}, null, null, null, null, null);
     }
 
-    public Cursor getParticularEvents(String code) {
-        return mDB.query(TABLE_EVENT, new String[]{EVENT_ID, EVENT_NAME, EVENT_fee, EVENT_day, EVENT_size, EVENT_code, EVENT_details}, EVENT_code + "=?", new String[]{code}, null, null, null);
-    }
-
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENT);
+
+        // Create tables again
+        onCreate(db);
     }
 }

@@ -29,8 +29,8 @@
         android:layout_margin="5dp"
         android:layout_marginBottom="70dp"
         android:background="@drawable/round_rect_transulent"
-        android:text="SandArt\nClassical Performances\nDJ Night"
+        android:text="Vineeth Vincet (Beat Boxing)\nTapabrata Chakraborty (Mentalist)\n Bhunger Khan and Group (Classical singing)\nDJ Tejas"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="37dp" />
+        android:textSize="28dp" />
 </RelativeLayout>

@@ -36,8 +36,8 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         longdesc = longdesc.replaceAll("\r", "\n");
         longdesc = longdesc.replaceAll("\n{2,}", "\n\n");
         longdesc = longdesc.trim();
-        longdesc = longdesc.substring(longdesc.indexOf("\n"));
-        longdesc = longdesc.trim();
+        //longdesc = longdesc.substring(longdesc.indexOf("\n"));
+        //longdesc = longdesc.trim();
 
         return longdesc;
 

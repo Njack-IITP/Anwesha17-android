@@ -31,7 +31,7 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.tv.setText(mValues.get(position).name);
-        holder.tvdesc.setText(mValues.get(position).toDisplay);
+        holder.tvdesc.setText(mValues.get(position).toDisplay_long);
 
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
                 Intent in = new Intent(context, EventDetails.class);
                 in.putExtra("eventID", mValues.get(position).id);
                 in.putExtra("eventName", mValues.get(position).name);
-                in.putExtra("eventDesc", mValues.get(position).desc);
+                in.putExtra("eventDesc", mValues.get(position).long_desc);
                 in.putExtra("eventCode", mValues.get(position).code);
                 in.putExtra("eventDay", mValues.get(position).day);
                 in.putExtra("eventSize", mValues.get(position).size);

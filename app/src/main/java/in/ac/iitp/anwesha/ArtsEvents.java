@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -20,15 +22,33 @@ import java.util.List;
 
 public class ArtsEvents extends Fragment {
 
+    public List<EventData> ArtsEvents = new ArrayList<EventData>();
 
-    public ArtsEvents newInstance( List<EventData> artsEvents) {
-        ArtsEvents f = new ArtsEvents();
-        // Supply index input as an argument.
-        Bundle args = new Bundle();
-        args.putSerializable("artsevents", (Serializable) artsEvents);
+    public java.util.Map <Integer, EventData> m1  = new HashMap<>();
+    WebSyncDB db;
+    int maxId = 0;
 
-        f.setArguments(args);
-        return f;
+    private void getAllEvents(){
+        ArtsEvents.clear();
+        db = new WebSyncDB(getContext());
+        Cursor cursor = db.getAllEvents();
+        int c = 0;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            m1.put(cursor.getInt(0),new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12)));
+            maxId = Math.max(maxId,cursor.getInt(0));
+            cursor.moveToNext();
+            c++;
+            if (c > 200) break;
+        }
+
+        for(int i=4;i<=maxId;i++){
+            if(m1.containsKey(i)) {
+                if (m1.get(m1.get(i).code).code == 2) {
+                    ArtsEvents.add(m1.get(i));
+                }
+            }
+        }
     }
 
     public ArtsEvents() {
@@ -43,14 +63,14 @@ public class ArtsEvents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_eventslist_list, container, false);
-        Bundle bundle = getArguments();
-        List <EventData> ITEMS = (List<EventData>) bundle.getSerializable("artsevents");
+
+        getAllEvents();
 
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(ITEMS, getContext()));
+            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(ArtsEvents, getContext()));
             return view;
         }
         return view;

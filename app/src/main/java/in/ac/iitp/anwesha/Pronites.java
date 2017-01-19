@@ -114,9 +114,9 @@ public class Pronites extends AppCompatActivity {
                 ((TextView) rootView.findViewById(R.id.textView2)).setTypeface(AllIDS.font_AnweshaSub);
                 i = (rand.nextInt(100)) % 2;
                 if (i == 0) {
-                    ((ImageView) rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha);
+                    ((ImageView) rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha6);
                 } else {
-                    ((ImageView) rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha5);
+                    ((ImageView) rootView.findViewById(R.id.img1)).setBackgroundResource(R.drawable.anwesha6);
                 }
 
             } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
@@ -124,9 +124,9 @@ public class Pronites extends AppCompatActivity {
                 ((TextView) rootView.findViewById(R.id.textView4)).setTypeface(AllIDS.font_AnweshaSub);
                 i = (rand.nextInt(100)) % 2;
                 if (i == 0) {
-                    ((ImageView) rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha2);
+                    ((ImageView) rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha5);
                 } else {
-                    ((ImageView) rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha3);
+                    ((ImageView) rootView.findViewById(R.id.img2)).setBackgroundResource(R.drawable.anwesha);
                 }
 
 

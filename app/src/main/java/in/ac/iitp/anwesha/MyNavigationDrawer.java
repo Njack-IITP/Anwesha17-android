@@ -60,7 +60,7 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
 
     static boolean openGallery(Context context) {
         Intent in;
-        in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://2016.anwesha.info/gallery.html"));
+        in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://2017.anwesha.info/gallery/"));
         context.startActivity(in);
 
         return false;
@@ -189,7 +189,13 @@ public class MyNavigationDrawer implements NavigationView.OnNavigationItemSelect
             if (openPronites(activity)) activity.finish();
 
         } else if (id == R.id.nav_schedule) {
-            if (openSchedule(activity)) activity.finish();
+            //if (openSchedule(activity)) activity.finish();
+            final android.support.v7.app.AlertDialog dialog = new android.support.v7.app.AlertDialog.Builder(activity)
+                    .setTitle("Schedule")
+                    .setMessage("Coming Soon!!")
+                    .setPositiveButton("Okay", null)
+                    .create();
+            dialog.show();
 
         } else if (id == R.id.nav_map) {
             if (openMap(activity)) activity.finish();

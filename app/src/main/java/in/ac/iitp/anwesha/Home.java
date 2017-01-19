@@ -10,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -166,7 +167,13 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
                 MyNavigationDrawer.openGallery(this);
                 break;
             case R.id.b_home_schedule:
-                MyNavigationDrawer.openSchedule(this);
+                //MyNavigationDrawer.openSchedule(this);
+                final AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setTitle("Schedule")
+                        .setMessage("Coming Soon!!")
+                        .setPositiveButton("Okay", null)
+                        .create();
+                dialog.show();
                 break;
             case R.id.b_home_map:
                 MyNavigationDrawer.openMap(this);

@@ -471,27 +471,27 @@ public class Users extends AppCompatActivity {
             String customErrorMessage = null;
             // Check for a valid email address.
             if (focusView != null) ;
-            else if (TextUtils.isEmpty(email)) {
+            else if ((customErrorMessage = isNameValid(name)) != null) {
+                et_name.setError(customErrorMessage);
+                focusView = et_name;
+            } else if (TextUtils.isEmpty(email)) {
                 mEmailView.setError(getString(R.string.error_field_required));
                 focusView = mEmailView;
             } else if (!isEmailValid(email)) {
                 mEmailView.setError(getString(R.string.error_invalid_email));
                 focusView = mEmailView;
-            } else if ((customErrorMessage = isNameValid(name)) != null) {
-                et_name.setError(customErrorMessage);
-                focusView = et_name;
             } else if ((customErrorMessage = isDOBValid(dob)) != null) {
                 et_dob.setError(customErrorMessage);
                 focusView = et_dob;
-            } else if ((customErrorMessage = isCityValid(city)) != null) {
-                et_city.setError(customErrorMessage);
-                focusView = et_city;
             } else if ((customErrorMessage = isContactValid(contact)) != null) {
                 et_contact.setError(customErrorMessage);
                 focusView = et_contact;
             } else if ((customErrorMessage = isCollegeValid(college)) != null) {
                 et_college.setError(customErrorMessage);
                 focusView = et_college;
+            } else if ((customErrorMessage = isCityValid(city)) != null) {
+                et_city.setError(customErrorMessage);
+                focusView = et_city;
             }
 
             if (focusView != null) {

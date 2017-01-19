@@ -101,10 +101,10 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
         Marker m1 = googleMap.addMarker(op1);
         m1.showInfoWindow();
         // Move the camera instantly to location with a zoom of 15.
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iit, 17));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iit, 15));
 
         // Zoom in, animating the camera.
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(18), 2000, null);
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
         LatLng bh = new LatLng(25.541070, 84.850971);
         MarkerOptions op3 = new MarkerOptions();
@@ -210,7 +210,7 @@ public class Map extends FragmentActivity implements LoaderCallbacks<Cursor>, On
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lng)));
 
             // Setting the zoom level in the map on last position  is clicked
-            googleMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+            googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         }
     }
 

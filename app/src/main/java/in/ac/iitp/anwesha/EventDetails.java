@@ -26,8 +26,8 @@ import java.util.ArrayList;
 public class EventDetails extends AppCompatActivity implements View.OnClickListener {
 
     WebSyncDB db;
-    private String name, shortDesc;
-    private int id, size = 1;
+    String date,time,venue,short_desc,long_desc,organisers,name,fee,bottom;
+    int size,id,code;
 
     static String filterLongDesc(String longdesc) {
         longdesc = longdesc.replaceAll("<[^>]*>", "");
@@ -67,40 +67,63 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
         name = in.getStringExtra("eventName");
 
-        //if(in.hasExtra("eventDesc"))
-        //    shortDesc = in.getStringExtra("eventDesc");
-        //else shortDesc = "";
         id = in.getIntExtra("eventID", -1);
-        //Toast.makeText(this,name+","+shortDesc+","+id,Toast.LENGTH_SHORT).show();
+
         if (id == -1) {
             finish();
             return;
         }
-        /************** Fetch Data According to tag and set Title***********/
-        //Cursor cursor = db.getAllEvents();
-        //cursor.moveToFirst();
-        String organisers = "Not Available";
-        String rules = "Fee : " + in.getIntExtra("eventFee", 0);
-        String bottom = "Team Member : " + (size = in.getIntExtra("eventSize", 1));
-        String longdesc = in.getStringExtra("eventDesc");
-        String code = in.getStringExtra("eventCode");
+
+        organisers = "Organisers : \n" + in.getStringExtra("organisers");
+        fee  = "Fee : Rs " + in.getIntExtra("eventFee", 0);
+        bottom = "Team Member : " + (size = in.getIntExtra("eventSize", 1));
+        long_desc = in.getStringExtra("eventDesc");
+        if(long_desc == null)
+            long_desc = "To be updated soon";
+        short_desc = in.getStringExtra("short_desc");
+
+        if(in.getStringExtra("date") == null)
+            date = "Date : TBD" ;
+        else
+            date = "Date : " + in.getStringExtra("date");
+
+        if(in.getStringExtra("time") == null)
+            time = "Time : TBD" ;
+        else
+            time = "Time : " + in.getStringExtra("time");
+
+        if(in.getStringExtra("venue") == null)
+            venue = "Venue : TBD" ;
+        else
+            venue = "Venue : " + in.getStringExtra("venue");
 
         setTitle(name);
-        longdesc = filterLongDesc(longdesc);
+        if(long_desc !=null)
+            long_desc = filterLongDesc(long_desc);
+        if(short_desc !=null)
+            short_desc = filterLongDesc(short_desc);
 
-        ((TextView) findViewById(R.id.event_details_title)).setText(code);
-        ((TextView) findViewById(R.id.event_details_title)).setTypeface(AllIDS.font_AnweshaSub);
+
+        ((TextView) findViewById(R.id.event_short_story)).setText(short_desc);
 
         ((TextView) findViewById(R.id.event_details_subtitle)).setText("");
-        ((TextView) findViewById(R.id.event_details_organisers)).setText(organisers);//"> Gagan Kumar\n> Abhishek Kumar");
-        ((TextView) findViewById(R.id.event_details_rules)).setText(rules);//"> Don't do legal Work\n> Smash The Arena");
-        ((TextView) findViewById(R.id.event_details_schNvenue)).setText(bottom);//"> Tutorial Block (1400 Day 1)");
-        ((TextView) findViewById(R.id.event_details_story)).setText(longdesc);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
+
+        ((TextView) findViewById(R.id.event_details_story)).setText(long_desc);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
         ((TextView) findViewById(R.id.event_details_story)).setTypeface(AllIDS.font_Sub1);//"A very long Story\n\n\n\n\n\n\n\n\n\nGot It.....\tNow\n\n\n\n\n\n\n\n\n\n\nReally Long\n\n Got it!!");
+
+        ((TextView) findViewById(R.id.event_date_time)).setText(date + "\n" + time + "\n" + venue + "\n\n" + organisers);
+
+        ((TextView) findViewById(R.id.event_team)).setText(bottom);
 
         (findViewById(R.id.event_details_register)).setOnClickListener(this);
 
+        if(short_desc == null || short_desc.equals("null") || short_desc.equals(" ")){
+            findViewById(R.id.short_story_card).setVisibility(View.INVISIBLE);
+        }
 
+        if(long_desc == null || long_desc.equals("null") || long_desc.equals(" ")){
+            findViewById(R.id.long_story_card).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void goBack(View v) {

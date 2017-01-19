@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,15 +23,33 @@ public class ManagementEvents extends Fragment {
 
     public ManagementEvents() {
     }
+    public List<EventData> ManagementEvents = new ArrayList<EventData>();
 
-    public ManagementEvents newInstance( List<EventData> managementEvents) {
-        ManagementEvents f = new ManagementEvents();
-        // Supply index input as an argument.
-        Bundle args = new Bundle();
-        args.putSerializable("managementEvents", (Serializable) managementEvents);
+    public java.util.Map <Integer, EventData> m1  = new HashMap<>();
+    WebSyncDB db;
+    int maxId = 0;
 
-        f.setArguments(args);
-        return f;
+    private void getAllEvents(){
+        ManagementEvents.clear();
+        db = new WebSyncDB(getContext());
+        Cursor cursor = db.getAllEvents();
+        int c = 0;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            m1.put(cursor.getInt(0),new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12)));
+            maxId = Math.max(maxId,cursor.getInt(0));
+            cursor.moveToNext();
+            c++;
+            if (c > 200) break;
+        }
+
+        for(int i=4;i<=maxId;i++){
+            if(m1.containsKey(i)) {
+                if (m1.get(m1.get(i).code).code == 3) {
+                    ManagementEvents.add(m1.get(i));
+                }
+            }
+        }
     }
 
     @Override
@@ -43,14 +62,13 @@ public class ManagementEvents extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_eventslist_list, container, false);
 
-        Bundle bundle = getArguments();
-        List <EventData> ITEMS = (List<EventData>) bundle.getSerializable("managementEvents");
+        getAllEvents();
 
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(ITEMS, getContext()));
+            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(ManagementEvents, getContext()));
             return view;
         }
         return view;

@@ -3,6 +3,7 @@ package in.ac.iitp.anwesha;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,13 +22,6 @@ import java.util.ArrayList;
 
 public class Sponser extends AppCompatActivity {
 
-
-    CAdapter adapter;
-    private ListView ll_others;
-    private int OtherIDs[] = {R.drawable.s_ebay, R.drawable.s_io, R.drawable.s_sbi, R.drawable.s_sp};
-    private String OtherText[] = {"Hospitality Partner", null, null, null, null, "Strategic Sponsors", null, null};
-    private int columns;
-    private int MAX_WIDTH;
     String username,id;
     int loginflag;
 
@@ -59,13 +53,15 @@ public class Sponser extends AppCompatActivity {
             navigationView.getMenu().findItem(R.id.nav_loginlogout).setVisible(false);
         }
 
-
-        ll_others = (ListView) findViewById(R.id.grid_other_sponser);
-        adapter = new CAdapter(this);
-        ll_others.setAdapter(adapter);
-        MAX_WIDTH = ll_others.getWidth();
-        columns = Integer.parseInt((String) ll_others.getTag());
-
+        ImageView imageView = (ImageView) findViewById(R.id.anshul_homes);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in;
+                in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.anshulhomes.com"));
+                startActivity(in);
+            }
+        });
     }
     private SharedPreferences getPreferences() {
         SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
@@ -83,38 +79,6 @@ public class Sponser extends AppCompatActivity {
             in.putExtra("name",username);
             in.putExtra("id",id);
             startActivity(in);
-        }
-    }
-
-    class CAdapter extends ArrayAdapter<Integer> {
-        ArrayList<Integer> l = new ArrayList<>();
-        int resource = R.layout.lay_sponser_row;
-
-        public CAdapter(Context context) {
-            super(context, R.layout.lay_sponser_row);
-        }
-
-        @Override
-        public void add(Integer object) {
-            super.add(object);
-            l.add(object);
-        }
-
-        @Override
-        public int getCount() {
-            return l.size();
-        }
-
-        @Override
-        public Integer getItem(int position) {
-            return l.get(position);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(resource, null);
-            ((ImageView) view.findViewById(R.id.iv_s1)).setImageResource(getItem(position));
-            return view;
         }
     }
 

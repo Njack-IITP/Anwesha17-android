@@ -245,7 +245,7 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:107:9-1
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:108:13-58
 activity#in.ac.iitp.anwesha.Map
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:111:9-114:51
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:111:9-114:52
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:114:13-49
 	android:label

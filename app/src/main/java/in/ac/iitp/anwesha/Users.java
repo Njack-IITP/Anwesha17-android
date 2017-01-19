@@ -567,21 +567,25 @@ public class Users extends AppCompatActivity {
                             et_college.setText(null);
                             et_contact.setText(null);
                             et_dob.setText(null);
+                            mEmailView.setText(null);
                             final int anwid = obj.getInt("pId");
-
+                           // getPreferences().edit().putString("userkey", obj.getString("key")).apply();
                             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
                                     .setTitle("Registration Successful")
-                                    .setMessage("Your Anwesha ID : ANW" + anwid + "\n" + "You will receive a confirmation e-mail soon")
+                                    .setMessage("Your Anwesha ID : ANW" + anwid + "\n" + "You will receive a confirmation e-mail soon. PLease confirm your email id from the link given in the mail and login again.")
                                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            AllIDS.USER_anweshaID = "ANW" + anwid;
+                                            //AllIDS.USER_anweshaID = "ANW" + anwid;
 
-                                            intent.putExtra("loginflag",1);
-                                            intent.putExtra("id","ANW"+anwid);
+                                            //intent.putExtra("loginflag",1);
+                                            //intent.putExtra("id","ANW"+anwid);
 
-                                            startActivity(intent);
-                                            getActivity().finish();
+                                            //startActivity(intent);
+                                            //getActivity().finish();
+                                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                            fragmentManager.beginTransaction()
+                                                    .replace(R.id.content_frame, new LoginFragment(), "login").commit();
                                         }
                                     });
                             dialog.create().show();
@@ -608,7 +612,10 @@ public class Users extends AppCompatActivity {
             });
         }
 
-
+        private SharedPreferences getPreferences() {
+            SharedPreferences sharedPref = getActivity().getApplication().getSharedPreferences("login", MODE_PRIVATE);
+            return sharedPref;
+        }
     }
 
     @Override

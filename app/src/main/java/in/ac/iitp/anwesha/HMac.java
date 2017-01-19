@@ -1,5 +1,6 @@
 package in.ac.iitp.anwesha;
 
+import android.content.SharedPreferences;
 import android.util.Base64;
 
 import java.util.Random;
@@ -30,10 +31,9 @@ public class HMac {
         return sb.toString();
     }
 
-    String getHash() {
+    String getHash(String secret) {
         message = getRandomString();
         try {
-            String secret = AllIDS.USER_key;
             if (secret == null) return null;
 
             Mac sha256_HMAC = Mac.getInstance("HmacSHA256");

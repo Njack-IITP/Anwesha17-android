@@ -325,6 +325,7 @@ public class Users extends AppCompatActivity {
                             AllIDS.USER_key = key;
                             AllIDS.USER_anweshaID = _email;
                             AllIDS.USER_anweshapass = password;
+                            getPreferences().edit().putString("userkey", key).apply();
                             Intent intent;
                             intent = new Intent(getActivity(), Home.class);
                             intent.putExtra("loginflag",1);
@@ -348,7 +349,10 @@ public class Users extends AppCompatActivity {
             });
 
         }
-
+        private SharedPreferences getPreferences() {
+            SharedPreferences sharedPref = getActivity().getApplication().getSharedPreferences("login", MODE_PRIVATE);
+            return sharedPref;
+        }
 
     }
 

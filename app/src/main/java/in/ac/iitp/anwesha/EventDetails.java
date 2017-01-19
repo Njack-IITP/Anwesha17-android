@@ -3,14 +3,17 @@ package in.ac.iitp.anwesha;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
@@ -28,6 +31,9 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     WebSyncDB db;
     String date,time,venue,short_desc,long_desc,organisers,name,fee,bottom;
     int size,id,code;
+
+    int loginflag;
+    String u_id,username;
 
     static String filterLongDesc(String longdesc) {
         longdesc = longdesc.replaceAll("<[^>]*>", "");
@@ -61,7 +67,17 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new MyNavigationDrawer(this));
-
+        View headerview = navigationView.getHeaderView(0);
+        TextView headerId = (TextView) headerview.findViewById(R.id.header_id);
+        TextView headerName = (TextView) headerview.findViewById(R.id.header_name);
+        u_id = getPreferences().getString("id", "Anwesha 2017");
+        username = getPreferences().getString("name", "Think.Dream.Live");
+        loginflag = getPreferences().getInt("loginflag", 0);
+        headerId.setText(u_id);
+        headerName.setText(username);
+        if(loginflag == 2 ){
+            navigationView.getMenu().findItem(R.id.nav_loginlogout).setVisible(false);
+        }
 
         Intent in = getIntent();
 
@@ -73,10 +89,10 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
             finish();
             return;
         }
-
+        size = in.getIntExtra("eventSize", 1);
         organisers = "Organisers : \n" + in.getStringExtra("organisers");
         fee  = "Fee : Rs " + in.getIntExtra("eventFee", 0);
-        bottom = "Team Member : " + (size = in.getIntExtra("eventSize", 1));
+        bottom = "Team Member : " + size;
         long_desc = in.getStringExtra("eventDesc");
         if(long_desc == null)
             long_desc = "To be updated soon";
@@ -126,6 +142,11 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private SharedPreferences getPreferences() {
+        SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPref;
+    }
+
     public void goBack(View v) {
         this.finish();
     }
@@ -134,11 +155,28 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         //SplashMessage(name,"Registration Failed",android.R.drawable.ic_dialog_alert);
 
-        if (AllIDS.USER_key == null) {
-            Intent in = new Intent(this, Users.class);
-            startActivity(in);
+        if (loginflag == 2) {
+            final AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle("Login")
+                    .setMessage("You have to login in order to register for this event.")
+                    .setPositiveButton("Login", null)
+                    .setNegativeButton("Cancel", null)
+                    .create();
+            dialog.show();
+
+            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getPreferences().edit().putInt("loginflag", 0).apply();
+                    Intent in = new Intent(getApplication(), Users.class);
+                    startActivity(in);
+                    dialog.dismiss();
+                }
+            });
+
             return;
         }
+
 
         if (size == 1)
             postData(null, null, "" + id);
@@ -186,12 +224,17 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
     void postData(JSONArray array, String teamname, String appurl) {
         //**** For Registering in Event  ******/
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Registering...");
+        progressDialog.show();
+
         String url = BackgroundFetch.BASE_URL + "/register/" + appurl;
-        ArrayList param = new ArrayList<>();
+
+        ArrayList<Pair<String,String>> param = new ArrayList<>();
         HMac mac = new HMac();
-        param.add(new Pair<String, String>("hash", mac.getHash()));
+        param.add(new Pair<String, String>("hash", mac.getHash(getPreferences().getString("userkey",username))));
         param.add(new Pair<String, String>("content", mac.getMessage()));
-        param.add(new Pair<String, String>("userID", AllIDS.USER_anweshaID.substring(3)));
+        param.add(new Pair<String, String>("userID",u_id.substring(3)));
         if (teamname != null)
             param.add(new Pair<String, String>("name", teamname));
         if (array != null)
@@ -207,15 +250,17 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFailed(Exception e) {
-                //pd.dismiss();
-                SplashMessage(name, "Registration Failed", android.R.drawable.ic_dialog_info);
+                progressDialog.dismiss();
+                SplashMessage(name, "Registration Failed");
 
             }
 
             @Override
             public void onSuccess(Object output) {
+                progressDialog.dismiss();
                 String msg = "Not Registered";
                 String out = (String) output;
+
 
                 try {
                     JSONObject ob = new JSONObject(out);
@@ -225,7 +270,7 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
                     e.printStackTrace();
                 }
                 //pd.dismiss();
-                SplashMessage(name, msg, android.R.drawable.ic_dialog_info);
+                SplashMessage(name, msg);
 
             }
 
@@ -239,16 +284,16 @@ public class EventDetails extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void SplashMessage(String Title, String str, int icon) {
+    public void SplashMessage(String Title, String str) {
         AlertDialog.Builder ad = new AlertDialog.Builder(this);
         ad.setTitle(Title);
         ad.setMessage(str);
-        ad.setIcon(icon);
+        ad.setPositiveButton("Okay",null);
         ad.show();
     }
 
     public void setReminder(View v) {
-        SplashMessage("Anwesha", "Comming Soon", android.R.drawable.ic_dialog_info);
+        SplashMessage("Anwesha", "Comming Soon!!");
         if (true)
             return;
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);

@@ -3,6 +3,7 @@ package in.ac.iitp.anwesha;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +32,12 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.tv.setText(mValues.get(position).name);
-        if(mValues.get(position).tagline.equals(" ") || mValues.get(position).tagline == null || mValues.get(position).tagline.equals("null"))
+        if(mValues.get(position).tagline.equals(" ") || mValues.get(position).tagline == null || mValues.get(position).tagline.equals("null") || mValues.get(position).tagline.equals(""))
             holder.tvdesc.setText(mValues.get(position).short_desc);
         else
             holder.tvdesc.setText(mValues.get(position).tagline);
+
+        Log.v("chirag",holder.tvdesc.getText().toString());
 
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override

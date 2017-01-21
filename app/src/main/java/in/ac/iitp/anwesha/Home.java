@@ -63,10 +63,11 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
 
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
 
-        file_maps.put("Day 1", R.drawable.sliding_image2);
+        file_maps.put("Vineeth Vincent", R.drawable.sliding_image2);
         file_maps.put("DJ Tejas", R.drawable.sliding_image4);
         file_maps.put("The Eastern Sails", R.drawable.sliding_image1);
         file_maps.put("IIT Patna MUN", R.drawable.sliding_image3);
+        file_maps.put("Parikrama", R.drawable.sliding_image5);
 
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(this);
@@ -85,7 +86,7 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
             mDemoSlider.addSlider(textSliderView);
         }
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);

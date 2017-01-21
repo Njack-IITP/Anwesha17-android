@@ -113,7 +113,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="in.ac.iitp.anwesha.Events" />
+        <activity
+            android:name="in.ac.iitp.anwesha.Events"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

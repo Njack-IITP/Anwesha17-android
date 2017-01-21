@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/website"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
         android:src="@mipmap/ic_launcher"
         android:onClick="onIconClick"/>
 

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Sponser"
+    tools:showIn="@layout/activity_sponser">
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <LinearLayout
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -69,6 +77,32 @@
                     android:src="@drawable/p_airtel"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Innovation Partner"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="20dp"
+                android:background="#96777777"
+                android:layout_marginBottom="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_incubation"
+                    android:scaleType="centerInside"
+                    />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -100,7 +134,6 @@
                     android:padding="5dp"
                     android:src="@drawable/s_sbi"
                     android:scaleType="centerInside"
-
                     />
 
             </LinearLayout>
@@ -125,6 +158,21 @@
                     android:src="@drawable/s_beltron"
                     android:scaleType="centerInside"
 
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_thomson"
+                    android:scaleType="centerInside"
                     />
 
             </LinearLayout>
@@ -211,7 +259,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Event Sponsor"
+                android:text="Event Sponsors"
                 android:gravity="center"
                 android:textColor="#FFF"
                 android:textSize="20dp"
@@ -222,7 +270,32 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="63dp">
+                android:layout_marginBottom="20dp">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_boi"
+                    android:scaleType="centerInside"
+                    />
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_india_toursm"
+                    android:scaleType="centerInside"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
@@ -234,9 +307,63 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Web Partner"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#96777777"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_webx99"
+                    android:scaleType="centerInside"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Security Partner"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:textSize="20dp"
+                android:background="#96777777"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/s_bvg"
+                    android:scaleType="centerInside"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
 
 
 </ScrollView>
+
+</FrameLayout>

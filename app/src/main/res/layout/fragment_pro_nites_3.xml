@@ -22,8 +22,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="?attr/actionBarSize"
         android:background="@drawable/round_rect_transulent"
-        android:text="Rock Night "
+        android:text="Rock Night \nParikrama\nAgnee"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="37dp" />
+        android:textSize="30dp" />
 </RelativeLayout>

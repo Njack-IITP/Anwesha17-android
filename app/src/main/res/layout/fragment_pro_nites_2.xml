@@ -26,5 +26,5 @@
         android:text="Syngphony\nHeel Turn\nVerve"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="37dp" />
+        android:textSize="30dp" />
 </RelativeLayout>

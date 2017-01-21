@@ -135,9 +135,9 @@ public class Pronites extends AppCompatActivity {
                 ((TextView) rootView.findViewById(R.id.textView3)).setTypeface(AllIDS.font_AnweshaSub);
                 i = (rand.nextInt(100)) % 2;
                 if (i == 0) {
-                    ((ImageView) rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.anwesha4);
+                    ((ImageView) rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.parikrama);
                 } else {
-                    ((ImageView) rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.anwesha1);
+                    ((ImageView) rootView.findViewById(R.id.img3)).setBackgroundResource(R.drawable.agnee);
                 }
 
             }

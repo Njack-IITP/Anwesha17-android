@@ -24,8 +24,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="?attr/actionBarSize"
         android:background="@drawable/round_rect_transulent"
-        android:text="Vineeth Vincet (Beat Boxing)\nTapabrata Chakraborty (Mentalist)\nBhunger Khan and Group (Classical singing)\nDJ Tejas"
+        android:text="Vineeth Vincet (Beat Boxing)\nTapabrata Chakraborty (The Mentalist)\nBhunger Khan and Group (Classical singing)\nDJ Tejas"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
 </RelativeLayout>

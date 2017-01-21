@@ -64,7 +64,7 @@ public class Home extends AppCompatActivity implements BaseSliderView.OnSliderCl
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
 
         file_maps.put("Day 1", R.drawable.sliding_image2);
-        file_maps.put("The Majestic Campus", R.drawable.sliding_image4);
+        file_maps.put("DJ Tejas", R.drawable.sliding_image4);
         file_maps.put("The Eastern Sails", R.drawable.sliding_image1);
         file_maps.put("IIT Patna MUN", R.drawable.sliding_image3);
 

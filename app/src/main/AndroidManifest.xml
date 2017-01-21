@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.ac.iitp.anwesha">
+    package="in.ac.iitp.anwesha2k17">
 
     <permission
-        android:name="in.ac.iitp.anwesha.permission.MAPS_RECEIVE"
+        android:name="in.ac.iitp.anwesha2k17.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:name=".AllIDS"
+        android:name="in.ac.iitp.anwesha2k17.AllIDS"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,48 +33,48 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeScreen"
+            android:name="in.ac.iitp.anwesha2k17.WelcomeScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".Home"
+            android:name="in.ac.iitp.anwesha2k17.Home"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Sponser"
+            android:name="in.ac.iitp.anwesha2k17.Sponser"
             android:label="@string/title_activity_sponser"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EventDetails"
+            android:name="in.ac.iitp.anwesha2k17.EventDetails"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name=".Reminder" />
+        <receiver android:name="in.ac.iitp.anwesha2k17.Reminder" />
 
         <activity
-            android:name=".Team"
+            android:name="in.ac.iitp.anwesha2k17.Team"
             android:label="@string/title_activity_team"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".About"
+            android:name="in.ac.iitp.anwesha2k17.About"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pronites"
+            android:name="in.ac.iitp.anwesha2k17.Pronites"
             android:label="@string/title_activity_pro_nites"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
-            android:name=".LocationsContentProvider"
-            android:authorities="in.ac.iitp.anwesha.locations"
+            android:name="in.ac.iitp.anwesha2k17.LocationsContentProvider"
+            android:authorities="in.ac.iitp.anwesha2k17.locations"
             android:exported="false" />
 
         <meta-data
@@ -86,13 +86,13 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBqEwdesrBVeN3A4dQVDLt9p57YmeAfo54" />
         -->
-        <service android:name=".BackgroundFetch" />
+        <service android:name="in.ac.iitp.anwesha2k17.BackgroundFetch" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name="in.ac.iitp.anwesha2k17.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".Users"
+            android:name="in.ac.iitp.anwesha2k17.Users"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
@@ -102,7 +102,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Events"
+        <activity android:name="in.ac.iitp.anwesha2k17.Events"
             android:screenOrientation="portrait"/>
 
         <meta-data
@@ -110,10 +110,10 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Map"
+            android:name="in.ac.iitp.anwesha2k17.Map"
             android:label="@string/title_activity_map"
             android:screenOrientation="portrait" />
-        <activity android:name=".SocialActivity"
+        <activity android:name="in.ac.iitp.anwesha2k17.SocialActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="Social"/>

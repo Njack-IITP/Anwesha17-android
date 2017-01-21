@@ -4,4 +4,4 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.ac.iitp.anwesha.Map" />
+    tools:context="in.ac.iitp.anwesha2k17.Map" />

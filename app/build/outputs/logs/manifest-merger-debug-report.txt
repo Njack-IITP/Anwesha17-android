@@ -2,7 +2,7 @@
 manifest
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-122:12
 	package
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:3:5-33
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:3:5-37
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -13,12 +13,12 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:2:1-122
 	android:versionCode
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
 		INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml
-permission#in.ac.iitp.anwesha.permission.MAPS_RECEIVE
+permission#in.ac.iitp.anwesha2k17.permission.MAPS_RECEIVE
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:5:5-7:47
 	android:protectionLevel
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:7:9-44
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:6:9-66
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:6:9-70
 uses-permission#android.permission.CALL_PHONE
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:9:5-69
 	android:name
@@ -112,8 +112,8 @@ MERGED from [com.android.support:support-compat:24.2.1] /home/cc15/Documents/Anw
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:34:9-40
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:28:9-31
-activity#in.ac.iitp.anwesha.WelcomeScreen
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:28:9-53
+activity#in.ac.iitp.anwesha2k17.WelcomeScreen
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:35:9-40:54
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:39:13-49
@@ -124,8 +124,8 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:35:9-40
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:40:13-51
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:36:13-42
-activity#in.ac.iitp.anwesha.Home
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:36:13-64
+activity#in.ac.iitp.anwesha2k17.Home
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:41:9-45:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:44:13-49
@@ -134,8 +134,8 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:41:9-45
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:45:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:42:13-33
-activity#in.ac.iitp.anwesha.Sponser
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:42:13-55
+activity#in.ac.iitp.anwesha2k17.Sponser
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:46:9-50:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:49:13-49
@@ -144,8 +144,8 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:46:9-50
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:50:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:47:13-36
-activity#in.ac.iitp.anwesha.EventDetails
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:47:13-58
+activity#in.ac.iitp.anwesha2k17.EventDetails
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:51:9-55:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:54:13-49
@@ -154,12 +154,12 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:51:9-55
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:55:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:52:13-41
-receiver#in.ac.iitp.anwesha.Reminder
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:57:9-46
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:52:13-63
+receiver#in.ac.iitp.anwesha2k17.Reminder
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:57:9-68
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:57:19-43
-activity#in.ac.iitp.anwesha.Team
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:57:19-65
+activity#in.ac.iitp.anwesha2k17.Team
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:59:9-63:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:62:13-49
@@ -168,8 +168,8 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:59:9-63
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:63:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:60:13-33
-activity#in.ac.iitp.anwesha.About
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:60:13-55
+activity#in.ac.iitp.anwesha2k17.About
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:64:9-68:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:67:13-49
@@ -178,8 +178,8 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:64:9-68
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:68:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:65:13-34
-activity#in.ac.iitp.anwesha.Pronites
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:65:13-56
+activity#in.ac.iitp.anwesha2k17.Pronites
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:69:9-73:59
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:72:13-49
@@ -188,15 +188,15 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:69:9-73
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:73:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:70:13-37
-provider#in.ac.iitp.anwesha.LocationsContentProvider
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:70:13-59
+provider#in.ac.iitp.anwesha2k17.LocationsContentProvider
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:75:9-78:40
 	android:authorities
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:77:13-63
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:77:13-67
 	android:exported
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:78:13-37
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:76:13-53
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:76:13-75
 meta-data#com.google.android.gms.version
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:80:9-82:69
 MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/AndroidManifest.xml:20:9-121
@@ -204,17 +204,17 @@ MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/cc15/Do
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:82:13-66
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:81:13-58
-service#in.ac.iitp.anwesha.BackgroundFetch
-ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:89:9-52
+service#in.ac.iitp.anwesha2k17.BackgroundFetch
+ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:89:9-74
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:89:18-49
-activity#in.ac.iitp.anwesha.LoginActivity
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:89:18-71
+activity#in.ac.iitp.anwesha2k17.LoginActivity
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:91:9-93:60
 	android:label
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:93:13-57
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:92:13-42
-activity#in.ac.iitp.anwesha.Users
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:92:13-64
+activity#in.ac.iitp.anwesha2k17.Users
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:94:9-104:20
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:97:13-49
@@ -223,7 +223,7 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:94:9-10
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:98:13-44
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:95:13-34
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:95:13-56
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:99:13-103:29
 action#android.intent.action.MAIN
@@ -234,27 +234,27 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:102:17-77
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:102:27-74
-activity#in.ac.iitp.anwesha.Events
+activity#in.ac.iitp.anwesha2k17.Events
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:105:9-106:51
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:106:13-49
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:105:19-41
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:105:19-63
 meta-data#com.google.android.geo.API_KEY
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:108:9-110:55
 	android:value
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:110:13-52
 	android:name
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:109:13-58
-activity#in.ac.iitp.anwesha.Map
+activity#in.ac.iitp.anwesha2k17.Map
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:112:9-115:52
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:115:13-49
 	android:label
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:114:13-55
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:113:13-32
-activity#in.ac.iitp.anwesha.SocialActivity
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:113:13-54
+activity#in.ac.iitp.anwesha2k17.SocialActivity
 ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:116:9-119:37
 	android:screenOrientation
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:117:13-49
@@ -263,7 +263,7 @@ ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:116:9-1
 	android:theme
 		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:118:13-56
 	android:name
-		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:116:19-49
+		ADDED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml:116:19-71
 uses-sdk
 INJECTED from /home/cc15/Documents/Anwesha/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:24.2.1] /home/cc15/Documents/Anwesha/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43

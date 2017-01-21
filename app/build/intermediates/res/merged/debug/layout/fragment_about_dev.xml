@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
+    tools:context="in.ac.iitp.anwesha2k17.About$PlaceholderFragment">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

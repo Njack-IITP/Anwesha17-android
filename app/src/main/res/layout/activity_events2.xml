@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="in.ac.iitp.anwesha.Home">
+    tools:context="in.ac.iitp.anwesha2k17.Home">
 
     <ImageView
         android:layout_width="match_parent"

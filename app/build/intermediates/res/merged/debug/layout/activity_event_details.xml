@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            tools:context="in.ac.iitp.anwesha.EventDetails">
+            tools:context="in.ac.iitp.anwesha2k17.EventDetails">
 
 
             <android.support.design.widget.AppBarLayout

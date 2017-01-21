@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:orientation="vertical"
-    tools:context="in.ac.iitp.anwesha.About$PlaceholderFragment">
+    tools:context="in.ac.iitp.anwesha2k17.About$PlaceholderFragment">
 
     <ImageView
         android:id="@+id/img1"

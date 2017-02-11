@@ -3,7 +3,6 @@ package in.ac.iitp.anwesha2k17;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,7 @@ public class MyEventsListRecyclerViewAdapter extends RecyclerView.Adapter<MyEven
         else
             holder.tvdesc.setText(mValues.get(position).tagline);
 
-        Log.v("chirag",holder.tvdesc.getText().toString());
+        //Log.v("chirag",holder.tvdesc.getText().toString());
 
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override

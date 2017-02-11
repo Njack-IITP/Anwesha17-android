@@ -23,11 +23,21 @@ public class CulturalEvents extends Fragment {
     public CulturalEvents() {
     }
 
+    public List<EventData> AllEvents = new ArrayList<EventData>();
     public List<EventData> CulturalEvents = new ArrayList<EventData>();
 
-    public java.util.Map <Integer, EventData> m1  = new HashMap<>();
+    public java.util.Map< Integer ,List<EventData>> m1 = new HashMap<>();
+
     WebSyncDB db;
-    int maxId = 0;
+    int id;
+
+    public static CulturalEvents newInstance(int eveid) {
+        CulturalEvents culturalEvents = new CulturalEvents();
+        Bundle args = new Bundle();
+        args.putInt("id", eveid);
+        culturalEvents.setArguments(args);
+        return culturalEvents;
+    }
 
     private void getAllEvents(){
         CulturalEvents.clear();
@@ -36,26 +46,37 @@ public class CulturalEvents extends Fragment {
         int c = 0;
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            m1.put(cursor.getInt(0),new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12)));
-            maxId = Math.max(maxId,cursor.getInt(0));
+            AllEvents.add(new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12)));
             cursor.moveToNext();
             c++;
             if (c > 200) break;
         }
 
-        for(int i=4;i<=maxId;i++){
-            if(m1.containsKey(i)) {
-                if (m1.get(m1.get(i).code).code == 1) {
-                    CulturalEvents.add(m1.get(i));
+        for(int i=0;i<AllEvents.size();i++){
+            if(AllEvents.get(i).code == id){
+                int temp = AllEvents.get(i).id;
+                int x=0;
+                for(int j=0;j<AllEvents.size();j++){
+                    if(temp == AllEvents.get(j).code){
+                        CulturalEvents.add(AllEvents.get(j));
+                        x++;
+                    }
+                }
+                if(x==0){
+                    CulturalEvents.add(AllEvents.get(i));
                 }
             }
         }
+
+        m1.put(id,CulturalEvents);
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        id = getArguments().getInt("id", 0);
+        getAllEvents();
     }
 
     @Override
@@ -63,13 +84,11 @@ public class CulturalEvents extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_eventslist_list, container, false);
 
-        getAllEvents();
-
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(CulturalEvents, getContext()));
+            recyclerView.setAdapter(new MyEventsListRecyclerViewAdapter(m1.get(id), getContext()));
             return view;
         }
         return view;

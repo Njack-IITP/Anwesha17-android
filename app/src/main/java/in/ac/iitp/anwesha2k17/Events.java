@@ -2,6 +2,7 @@ package in.ac.iitp.anwesha2k17;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -17,7 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Events extends AppCompatActivity {
 
@@ -27,10 +29,17 @@ public class Events extends AppCompatActivity {
     int loginflag;
     String username,id;
 
+    public List<EventData> AllEvents = new ArrayList<EventData>();
+
+    WebSyncDB db;
+    int maxId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events2);
+
+        getevents();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,9 +70,21 @@ public class Events extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
     }
 
+    private void getevents(){
+        db = new WebSyncDB(this);
+        Cursor cursor = db.getAllEvents();
+        int c = 0;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            AllEvents.add(new EventData(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12)));
+            cursor.moveToNext();
+            c++;
+            if (c > 200) break;
+        }
+
+    }
 
     private SharedPreferences getPreferences() {
         SharedPreferences sharedPref = getApplication().getSharedPreferences("login", MODE_PRIVATE);
@@ -73,12 +94,10 @@ public class Events extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-
-        adapter.addFrag(new CulturalEvents(), "Cultural");
-        adapter.addFrag(new TechnicalEvents(), "Technical");
-        adapter.addFrag(new ArtsEvents(), "Arts and Welfare");
-        adapter.addFrag(new ManagementEvents(), "Management");
-
+        for(int i=0;i<AllEvents.size();i++) {
+            if(AllEvents.get(i).code == -1)
+                adapter.addFrag(CulturalEvents.newInstance(AllEvents.get(i).id), AllEvents.get(i).name);
+        }
         viewPager.setAdapter(adapter);
     }
 
